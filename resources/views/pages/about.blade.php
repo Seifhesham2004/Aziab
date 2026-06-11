@@ -107,13 +107,13 @@
         [
           'name' => 'Omar Sherif',
           'role' => 'Founder · Skipper · Dive Master',
-          'img'  => 'Omar_Sherif.png',
+          'img'  => 'Omar_Sherif.jpg',
           'bio'  => 'Omar, founder of Aziab Seafaris, is a professional sailor and a dive master. Beside the tourism &amp; hospitality industry, Omar has a huge experience in marketing &amp; brand management — for years he worked with well-established corporates as part of their marketing teams.',
         ],
         [
           'name' => 'Yousra Gamea',
           'role' => 'Co-founder · CFO · Advanced Diver',
-          'img'  => 'Yousra_Gamea.png',
+          'img'  => 'Yousra_Gamea.jpg',
           'bio'  => 'Yousra, the co-founder of Aziab Seafaris, is an advanced diver and a crew member. Besides her experience in the sailing industry, Yousra is also the CFO of the company, running the day-to-day finances. She brings more than 10 years of experience in the financial sector.',
         ],
         [
