@@ -117,6 +117,7 @@
           'name' => 'Hesham Saqr',
           'role' => 'Logistics',
           'img'  => 'Hesham_Saqr.jpg',
+          'pos'  => '30% top',
           'bio'  => 'Hesham is the logistics mastermind behind Aziab Seafaris — the person making sure every trip is fully prepared, fully stocked, and fully ready before setting sail. From trip preparations and provisioning to technical coordination and onboard logistics, Hesham handles the countless behind-the-scenes details that keep every experience running smoothly and stress-free.',
         ],
         [
@@ -138,7 +139,7 @@
       @foreach($team as $i => $m)
         <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover lg:col-span-2 {{ $i===3 ? 'lg:col-start-2' : '' }}" data-aos="fade-up" data-aos-delay="{{ $i*80 }}">
           <div class="img-zoom aspect-[4/5] overflow-hidden">
-            <img src="/images/team/{{ $m['img'] }}" class="w-full h-full object-cover object-top" alt="{{ $m['name'] }}">
+            <img src="/images/team/{{ $m['img'] }}" class="w-full h-full object-cover" style="object-position: {{ $m['pos'] ?? 'center top' }};" alt="{{ $m['name'] }}">
           </div>
           <div class="p-6">
             <h3 class="font-display text-2xl font-semibold text-navy-900">{{ $m['name'] }}</h3>
