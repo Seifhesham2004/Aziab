@@ -91,7 +91,7 @@
     </button>
   </div>
   <div id="mobileMenu" class="lg:hidden hidden mt-4 bg-white rounded-xl shadow-soft p-4 space-y-2 text-navy-800">
-    @foreach([['home','Home'],['about','About'],['egypt','Egypt'],['greece','Greece'],['excursions','Excursions'],['prices','Prices'],['booking','Booking'],['faq','FAQ'],['contact','Contact']] as $l)
+    @foreach([['home','Home'],['about','About'],['egypt','Egypt'],['greece','Greece'],['excursions','Extras & Excursions'],['prices','Prices'],['booking','Booking'],['faq','FAQ'],['contact','Contact']] as $l)
       <a href="{{ route($l[0]) }}" class="block py-2 border-b border-slate-100 last:border-0 hover:text-sea-500">{{ $l[1] }}</a>
     @endforeach
   </div>
