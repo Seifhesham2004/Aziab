@@ -117,7 +117,7 @@
           'name' => 'Hesham Saqr',
           'role' => 'Logistics',
           'img'  => 'Hesham_Saqr.jpg',
-          'pos'  => '30% top',
+          'pos'  => '85% center',
           'bio'  => 'Hesham is the logistics mastermind behind Aziab Seafaris — the person making sure every trip is fully prepared, fully stocked, and fully ready before setting sail. From trip preparations and provisioning to technical coordination and onboard logistics, Hesham handles the countless behind-the-scenes details that keep every experience running smoothly and stress-free.',
         ],
         [
