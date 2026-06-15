@@ -4,12 +4,12 @@
 
 {{-- HERO --}}
 <section class="relative h-[70vh] min-h-[480px] overflow-hidden text-white flex items-center">
-  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/general/8L4A8498-Enhanced-NR.jpg')"></div>
+  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/general/8L4A8021.jpg')"></div>
   <div class="absolute inset-0 hero-overlay"></div>
   <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
     <p class="text-sea-300 tracking-[0.5em] text-sm mb-6" data-aos="fade-down">ABOUT AZIAB</p>
-    <h1 class="font-display text-5xl md:text-7xl font-semibold leading-tight" data-aos="fade-up">A south wind, in a sea of north winds.</h1>
-    <p class="mt-6 text-lg md:text-xl text-white/80 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">A brand built by passion, for passionate people.</p>
+    <h1 class="font-display text-4xl md:text-6xl font-semibold leading-tight" data-aos="fade-up">Creating experiences that feel real, personal, and unforgettable.</h1>
+    <p class="mt-6 text-lg md:text-xl text-white/80 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">Built by passion, for passionate people.</p>
   </div>
 </section>
 
@@ -34,12 +34,9 @@
     </div>
     <div class="lg:col-span-3" data-aos="fade-left">
       <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Who we are</p>
-      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900 mb-6 leading-tight">A brand built by passion, for passionate people.</h2>
-      <p class="text-slate-600 text-lg leading-relaxed mb-5">
-        We believe the ocean is the optimum joy. By offering our guests the chance to spend a few days sailing the beautiful Red Sea, we give them their best shot at an unmatched holiday — one they'll measure other trips against.
-      </p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900 mb-6 leading-tight">Built by passion for passionate people.</h2>
       <p class="text-slate-600 text-lg leading-relaxed">
-        Years on the water taught us what guests truly want. So we serve small groups, on purpose. On an Aziab trip the guest is the star — not the schedule, not the boat, not the brochure.
+        We believe the sea offers a kind of freedom unlike anywhere else. Through intimate sailing experiences across the sea, we give our guests the opportunity to slow down, reconnect, and create memories that stay long after the journey ends.
       </p>
     </div>
   </div>
@@ -82,8 +79,8 @@
     <div class="grid md:grid-cols-3 gap-8">
       @foreach([
         ['Small groups','We cap every trip so each guest gets the attention — and the space — they deserve.'],
-        ['Slow travel','No checklist. We follow the wind, the weather and the moods of the people on board.'],
-        ['Local soul','Our routes are stitched together with the kind of places only locals know.'],
+        ['Slow travel','No checklist. We follow the wind, the weather and the moods of the people onboard.'],
+        ['Extraordinary locations','Where you can encounter 100+ dolphins, and visit some of the most vibrant reefs around the world.'],
       ] as $i => $v)
         <div class="bg-white rounded-3xl p-8 shadow-soft card-hover" data-aos="fade-up" data-aos-delay="{{ $i*120 }}">
           <div class="w-12 h-12 rounded-full bg-sea-500 text-white flex items-center justify-center font-display text-xl font-bold mb-5">0{{ $i+1 }}</div>
@@ -106,33 +103,33 @@
       $team = [
         [
           'name' => 'Omar Sherif',
-          'role' => 'Founder · Skipper · Dive Master',
+          'role' => 'Founder',
           'img'  => 'Omar_Sherif.jpg',
-          'bio'  => 'Omar, founder of Aziab Seafaris, is a professional sailor and a dive master. Beside the tourism &amp; hospitality industry, Omar has a huge experience in marketing &amp; brand management — for years he worked with well-established corporates as part of their marketing teams.',
+          'bio'  => 'Omar is a professional sailor and certified Dive Master who transformed a lifelong passion for the ocean into a distinctive sailing experience brand. He built a concept where guests can truly disconnect from the noise of everyday life and reconnect with themselves, with nature, and with each other. On every trip operated by Aziab Seafaris, he ensures that guests don\'t just see the beauty of the Red Sea — they actually feel it, live it, and become part of it.',
         ],
         [
           'name' => 'Yousra Gamea',
-          'role' => 'Co-founder · CFO · Advanced Diver',
+          'role' => 'Operations',
           'img'  => 'Yousra_Gamea.jpg',
-          'bio'  => 'Yousra, the co-founder of Aziab Seafaris, is an advanced diver and a crew member. Besides her experience in the sailing industry, Yousra is also the CFO of the company, running the day-to-day finances. She brings more than 10 years of experience in the financial sector.',
-        ],
-        [
-          'name' => 'Sara Ellaithy',
-          'role' => 'Marine Conservationist',
-          'img'  => 'Sara_Ellaithy.jpg',
-          'bio'  => 'Sara, our mermaid! With a long history in conservational work, it is always great having her on board. She never gets tired of helping people or sharing everything she knows about dolphins and their behaviour.',
+          'bio'  => 'Yousra is the powerhouse behind the day-to-day operations of Aziab Seafaris — managing bookings, guest relations, trip coordination, finances, and making sure every experience runs smoothly from the first inquiry to the final sunset onboard.',
         ],
         [
           'name' => 'Hesham Saqr',
-          'role' => 'Senior Captain',
+          'role' => 'Logistics',
           'img'  => 'Hesham_Saqr.jpg',
-          'bio'  => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
+          'bio'  => 'Hesham is the logistics mastermind behind Aziab Seafaris — the person making sure every trip is fully prepared, fully stocked, and fully ready before setting sail. From trip preparations and provisioning to technical coordination and onboard logistics, Hesham handles the countless behind-the-scenes details that keep every experience running smoothly and stress-free.',
+        ],
+        [
+          'name' => 'Sara Elleithy',
+          'role' => 'Technical Manager · Guide · Dive Master',
+          'img'  => 'Sara_Ellaithy.jpg',
+          'bio'  => 'Sara is the heart, soul, and positive energy behind Aziab Seafaris. As the Technical Manager of the boat, professional guide, certified Dive Master, and AIDA 4 freediver, she brings together technical expertise, ocean knowledge, and an unforgettable spirit that instantly makes people feel at home onboard. And yes — she is also known as Egypt\'s first mermaid.',
         ],
         [
           'name' => 'Mahmoud Hassan',
-          'role' => 'Guest Experience',
+          'role' => 'Sailor · Dive Master · Freediver',
           'img'  => 'Mahmoud_Hassan.JPG',
-          'bio'  => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+          'bio'  => 'Mahmoud is one of the guiding souls behind Aziab Seafaris — a sailor, certified Dive Master, AIDA 4 freediver, and the kind of person whose calm energy instantly makes you feel relaxed onboard. Known for always smiling, staying positive, and bringing a peaceful, genuine vibe to every trip, Mahmoud has a beautiful connection with both people and the sea. Whether he is guiding guests underwater, helping onboard, or simply sharing stories under the stars, his presence adds something special to every experience. For many guests, Mahmoud is not just part of the crew — he becomes one of the highlights of the entire experience.',
         ],
       ];
     @endphp
@@ -163,10 +160,11 @@
     </div>
     <div class="space-y-12">
       @foreach([
-        ['2015','First charter','A handful of friends, one rented sailboat, a dream that wouldn\'t leave.'],
-        ['2018','Red Sea routes','Permanent base in Egypt; our flagship Sataya & Malahi expeditions begin.'],
+        ['2020','First charter','We started our first charters in the Red Sea under the patronage of the Ministry of Tourism (temporary license).'],
+        ['2021','Laws & Regulations','Played a leading role in helping shape Egypt\'s sailing regulations in collaboration with the Ministry of Tourism, supporting the development and growth of this emerging sector.'],
         ['2022','Officially licensed','We become the first officially recognized sailing charter company in Egypt.'],
-        ['2024','Maldives chapter','First atoll seafaris launched — three continents, one philosophy.'],
+        ['2024','Introducing Greece','Bringing sailing charters to the Cyclades and Ionian Islands — a fresh experience for modern sailors.'],
+        ['2026','Adding a sailing catamaran to our fleet','Introducing the newest member of our fleet: a sailing catamaran designed to bring together comfort, elegance, and unforgettable experiences at sea.'],
       ] as $i => $e)
         <div class="grid md:grid-cols-[160px,1fr] gap-8 items-start" data-aos="fade-up">
           <div class="font-display text-5xl text-sea-300 font-semibold">{{ $e[0] }}</div>
