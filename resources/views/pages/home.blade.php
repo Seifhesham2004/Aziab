@@ -5,7 +5,7 @@
 {{-- ============ HERO SLIDER ============ --}}
 @php
   $heroSlides = [
-    ['img'=>'8L4A8648.jpg','kicker'=>'CONNECT','title'=>'With family & friends','sub'=>'on an exclusive sailing journey'],
+    ['img'=>'8L4A8648.jpg','kicker'=>'OCEAN','title'=>'Is the optimum joy','sub'=>'we take you there'],
     ['img'=>'22.11.26_Aziab_day_one_DSLR_38_edited_phshop.jpg','kicker'=>'DISCOVER','title'=>'Untouched coves & reefs','sub'=>'across three continents'],
     ['img'=>'IMG_4355.jpg','kicker'=>'ESCAPE','title'=>'Slow down at sea','sub'=>'wake to sunrise on deck'],
   ];
@@ -59,7 +59,7 @@
 
 {{-- Sub-bar --}}
 <div class="bg-navy-800 text-white py-4 text-center font-medium tracking-wider text-sm md:text-base">
-  Sailing expeditions over <span class="text-sea-300">3 continents</span> — Egypt · Greece · Maldives
+  Sailing expeditions over <span class="text-sea-300">2 continents</span> — Egypt &amp; Greece
 </div>
 
 {{-- ============ BRIEF / INTRO ============ --}}
@@ -74,13 +74,13 @@
         A different kind of <span class="gradient-text">seafari</span>.
       </h2>
       <p class="text-slate-600 text-lg leading-relaxed mb-6">
-        Aziab Seafaris curates intimate sailing expeditions for travellers who crave authenticity over agenda. From the silent reefs of the Red Sea to the sun-bleached islets of the Aegean, every voyage is shaped around the people on board.
+        Aziab Seafaris curates intimate sailing expeditions for travellers who crave authenticity over agenda. From the silent reefs of the Red Sea to the sun-bleached islets of the Aegean, every voyage is shaped around the people onboard.
       </p>
       <p class="text-slate-600 text-lg leading-relaxed mb-8">
         Book a single cabin and meet kindred sailors, or charter the whole yacht for a private escape with the people who matter most.
       </p>
       <div class="grid grid-cols-3 gap-6">
-        @foreach([['10+','Years sailing'],['3','Continents'],['1k+','Happy guests']] as $s)
+        @foreach([['8+','Years sailing'],['2','Continents'],['1k+','Happy guests']] as $s)
           <div class="text-center">
             <p class="font-display text-4xl font-bold text-navy-900">{{ $s[0] }}</p>
             <p class="text-xs uppercase tracking-wider text-slate-500 mt-2">{{ $s[1] }}</p>
@@ -99,12 +99,11 @@
       <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">Choose your horizon</h2>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-2 gap-8">
       @php
         $dests = [
-          ['name'=>'Egypt','sub'=>'Red Sea · Catamarans & Sailboats','img'=>'8L4A8413.jpg','route'=>'egypt'],
-          ['name'=>'Greece','sub'=>'Cyclades · Ionian Islands','img'=>'greece/Greece_3.jpg','route'=>'greece','base'=>true],
-          ['name'=>'Maldives','sub'=>'Atolls · Reef sailing','img'=>'IMG_4108.jpg','route'=>'home'],
+          ['name'=>'Egypt','sub'=>'Red Sea — Hamata, Marsa Alam & Soma Bay','img'=>'8L4A8413.jpg','route'=>'egypt'],
+          ['name'=>'Greece','sub'=>'Cyclades & Ionian Islands','img'=>'greece/Greece_3.jpg','route'=>'greece','base'=>true],
         ];
       @endphp
       @foreach($dests as $i => $d)
@@ -129,17 +128,17 @@
   <div class="absolute inset-0 opacity-20" style="background-image:url('/images/general/22.11.25_Reef__Wreck_DSLR_15_edited.jpg'); background-size:cover; background-position:center;"></div>
   <div class="absolute inset-0 bg-navy-900/70"></div>
   <div class="relative max-w-6xl mx-auto text-center">
-    <h2 class="font-display text-4xl md:text-6xl font-semibold mb-6" data-aos="fade-up">More than a charter.<br><span class="text-sea-300">A way of travelling.</span></h2>
+    <h2 class="font-display text-4xl md:text-6xl font-semibold mb-6" data-aos="fade-up">More than a trip.<br><span class="text-sea-300">A way of travelling.</span></h2>
     <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="150">
-      Snorkel pristine reefs at sunrise, dine under the stars, anchor in coves only a sailboat can reach. Our skippers are storytellers; our crew, your hosts.
+      Experience the warmth of small-group sailing, where every journey feels personal and every guest feels at home.
     </p>
     <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
       @php
         $features = [
-          ['Reef & wreck dives', '<path d="M3 12c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke-linecap="round" stroke-width="2"/><path d="M3 17c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke-linecap="round" stroke-width="2"/>'],
-          ['Chef on board',      '<path d="M7 8a5 5 0 1110 0v9H7V8zM5 21h14" stroke-width="2" stroke-linecap="round"/>'],
-          ['Secluded coves',     '<path d="M3 20h18M6 20c0-4 3-7 6-7s6 3 6 7M12 13V4M9 7l3-3 3 3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'],
-          ['Yoga at anchor',     '<circle cx="12" cy="5" r="2" stroke-width="2"/><path d="M12 7v6m-5 8l5-8 5 8M7 11h10" stroke-width="2" stroke-linecap="round"/>'],
+          ['Sail',       '<path d="M3 12c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke-linecap="round" stroke-width="2"/><path d="M3 17c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke-linecap="round" stroke-width="2"/>'],
+          ['Explore',    '<path d="M7 8a5 5 0 1110 0v9H7V8zM5 21h14" stroke-width="2" stroke-linecap="round"/>'],
+          ['Connect',    '<path d="M3 20h18M6 20c0-4 3-7 6-7s6 3 6 7M12 13V4M9 7l3-3 3 3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'],
+          ['Disconnect', '<circle cx="12" cy="5" r="2" stroke-width="2"/><path d="M12 7v6m-5 8l5-8 5 8M7 11h10" stroke-width="2" stroke-linecap="round"/>'],
         ];
       @endphp
       @foreach($features as $i => $f)
@@ -186,12 +185,17 @@
   <div class="relative">
     <div class="marquee">
       @php
-        $gallery = ['DSCF9790.jpg','DSCF9798.jpg','DSCF9867.jpg','DSCF9972.jpg','IMG_4219.jpg','IMG_4342.jpg','IMG_4363.jpg','IMG_4409.jpg'];
+        $gallery = [
+          ['general','DSCF9790.jpg'],['general','DSCF9798.jpg'],['general','DSCF9867.jpg'],['general','DSCF9972.jpg'],
+          ['greece','Greece_2.jpg'],['general','IMG_4219.jpg'],['general','IMG_4342.jpg'],
+          ['greece','Greece_5.jpg'],['general','IMG_4363.jpg'],['general','IMG_4409.jpg'],
+          ['greece','Greece_8.jpg'],
+        ];
         $loop = array_merge($gallery,$gallery);
       @endphp
       @foreach($loop as $g)
         <div class="shrink-0 w-72 h-48 rounded-2xl overflow-hidden">
-          <img src="/images/general/{{ $g }}" class="w-full h-full object-cover" alt="">
+          <img src="/images/{{ $g[0] }}/{{ $g[1] }}" class="w-full h-full object-cover" alt="">
         </div>
       @endforeach
     </div>

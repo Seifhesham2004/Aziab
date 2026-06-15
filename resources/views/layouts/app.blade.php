@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>@yield('title', 'Aziab Seafaris') — Sailing Expeditions</title>
-<meta name="description" content="Aziab Seafaris — sailing expeditions across Egypt, Greece and the Maldives. Family, friends, exclusive trips on premium yachts.">
+<meta name="description" content="Aziab Seafaris — sailing expeditions across Egypt and Greece. Family, friends, exclusive trips on premium yachts.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,7 +106,7 @@
   <div class="max-w-7xl mx-auto relative grid md:grid-cols-4 gap-10">
     <div>
       <div class="text-2xl font-display font-bold text-white tracking-widest mb-4">AZIAB <span class="text-sea-400">SEAFARIS</span></div>
-      <p class="text-sm leading-relaxed text-slate-400">Sailing expeditions across three continents — connect with family, friends and the sea on exclusive private and shared journeys.</p>
+      <p class="text-sm leading-relaxed text-slate-400">Sailing expeditions across two continents — connect with family, friends and the sea on exclusive private and shared journeys.</p>
     </div>
     <div>
       <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Explore</h4>
@@ -138,7 +138,7 @@
   </div>
   <div class="max-w-7xl mx-auto relative border-t border-white/10 mt-12 pt-6 text-xs text-slate-500 flex flex-col md:flex-row justify-between gap-2">
     <p>© {{ date('Y') }} Aziab Seafaris. All rights reserved.</p>
-    <p>Sailing expeditions over 3 continents.</p>
+    <p>Sailing expeditions over 2 continents.</p>
   </div>
 </footer>
 
