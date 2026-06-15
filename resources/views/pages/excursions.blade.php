@@ -30,31 +30,43 @@
     <div class="text-center mb-12" data-aos="fade-up">
       <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">01 · Egypt</p>
       <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">Transportation</h2>
-      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Private A/C transfers between the airport, your hotel, and the marina — arranged to fit your itinerary.</p>
+      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Private A/C transfers between airports, cities, and marinas. Prices below are per person, in Euro — same price applies for the reverse route.</p>
     </div>
 
+    @php
+      $routes = [
+        ['Hurghada → Marsa Alam',          [115, 65, 45, 45, 40]],
+        ['Hurghada → Hamata',              [135, 75, 50, 50, 35]],
+        ['Marsa Alam Airport → Marsa Alam City', [50, 30, 20, 20, 15]],
+        ['Marsa Alam Airport / City → Hamata',   [65, 40, 30, 30, 25]],
+        ['Cairo → Hamata',                 [315, 170, 125, 125, 85]],
+        ['Luxor → Hamata',                 [235, 130, 95, 95, 80]],
+      ];
+    @endphp
+
     <div class="grid md:grid-cols-2 gap-6">
-      @foreach([
-        ['Hurghada Airport ↔ Hurghada Marina','~20 min','Closest transfer for north-base trips.'],
-        ['Hurghada Airport ↔ Soma Bay','~1 hour (60 km)','Direct A/C transfer to the Soma Bay itinerary.'],
-        ['Marsa Alam Airport ↔ Hamata Port','~2 hours (174 km)','Closest airport to the Hamata / Fury Shoals itinerary.'],
-        ['Hurghada Airport ↔ Hamata Port','~5 hours (392 km)','Long-distance transfer for southern itineraries.'],
-      ] as $i => $t)
-        <div class="bg-sand-50 rounded-3xl p-6 shadow-soft card-hover flex gap-5" data-aos="fade-up" data-aos-delay="{{ $i*100 }}">
-          <div class="w-12 h-12 rounded-full bg-sea-500 text-white flex items-center justify-center shrink-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      @foreach($routes as $i => $r)
+        <div class="bg-sand-50 rounded-3xl p-6 shadow-soft card-hover" data-aos="fade-up" data-aos-delay="{{ $i*60 }}">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-sea-500 text-white flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </div>
+            <h3 class="font-display text-lg font-semibold text-navy-900">{{ $r[0] }}</h3>
           </div>
-          <div>
-            <h3 class="font-display text-lg font-semibold text-navy-900 mb-1">{{ $t[0] }}</h3>
-            <p class="text-xs uppercase tracking-wider text-sea-500 mb-2">{{ $t[1] }}</p>
-            <p class="text-slate-600 text-sm leading-relaxed">{{ $t[2] }}</p>
+          <div class="divide-y divide-slate-200">
+            @foreach([['1 pax',0],['2 pax',1],['3 pax',2],['4 pax',3],['5+ pax',4]] as $row)
+              <div class="flex justify-between items-baseline py-2">
+                <span class="text-slate-600 text-sm">{{ $row[0] }}</span>
+                <span class="font-display text-base font-semibold text-navy-900">€{{ $r[1][$row[1]] }}</span>
+              </div>
+            @endforeach
           </div>
         </div>
       @endforeach
     </div>
 
     <div class="mt-10 bg-white border border-slate-100 rounded-2xl p-6 text-center">
-      <p class="text-slate-600 text-sm">All transfers are arranged on a private A/C vehicle basis. <a href="{{ route('contact') }}" class="text-sea-500 font-semibold hover:underline">Request a transfer quote →</a></p>
+      <p class="text-slate-600 text-sm">For different routes or custom transfers, please <a href="{{ route('contact') }}" class="text-sea-500 font-semibold hover:underline">get in touch</a> or email <a href="mailto:info@aziab-seafaris.com" class="text-sea-500 font-semibold hover:underline">info@aziab-seafaris.com</a>.</p>
     </div>
   </div>
 </section>
