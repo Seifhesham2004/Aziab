@@ -28,148 +28,128 @@
   </div>
 </section>
 
-{{-- WILDLIFE & ACTIVITIES STRIP --}}
-<section class="py-20 px-6 lg:px-12 bg-sand-50">
+{{-- THE FLEET — Two yachts with carousels --}}
+<section class="py-24 px-6 lg:px-12 bg-sand-50">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-14" data-aos="fade-up">
-      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">What you'll actually do</p>
-      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">Reefs, dolphins, deep breaths.</h2>
+      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Our fleet</p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">Two yachts. Pick yours.</h2>
+      <p class="text-slate-600 mt-3 max-w-2xl mx-auto">All skippered — bareboat charters are not permitted in Egypt.</p>
     </div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      @foreach([
-        ['Satayah Lagoon','One of the world\'s top sites for spinner dolphins — entire pods in clear shallow water.'],
-        ['Hamata Islands','Quiet southern reefs with drop-offs, canyons and coral pinnacles — fewer boats than the north.'],
-        ['Freediving paradise','Aziab is an apnea favourite — calm anchorages, perfect visibility, on-board safety.'],
-        ['Yoga at anchor','Sunrise sessions on deck in the southern islands — the quietest stretch of the Red Sea.'],
-      ] as $i => $a)
-        <div class="bg-white rounded-2xl p-6 shadow-soft card-hover" data-aos="fade-up" data-aos-delay="{{ $i*100 }}">
-          <div class="w-10 h-1 bg-sea-500 mb-4 rounded-full"></div>
-          <h3 class="font-display text-xl font-semibold text-navy-900 mb-2">{{ $a[0] }}</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">{{ $a[1] }}</p>
+
+    @php
+      $fleet = [
+        [
+          'name'    => 'Sailboat Beneteau Cyclades 50.5',
+          'tag'     => 'Sailboat',
+          'kicker'  => 'SY Roaga',
+          'desc'    => 'A classic monohull built for blue water. Heels gracefully into the wind, sleeps eight in four cabins (a fifth on request), with two ensuite + one shared bathroom.',
+          'images'  => [
+            'egypt-roga/65aa4168784e9459d407dde6.jpeg',
+            'egypt-roga/beneteau-cyclades-50.5-huge-338621a5711958dc.jpg',
+            'egypt-roga/BENETEAU-CYCLADES-50.5-ca-salon.jpg',
+            'egypt-roga/BENETEAU-CYCLADES-50.5-ca-bow-cabins-d.jpg',
+            'egypt-roga/cabin.jpg',
+            'egypt-roga/_MG_9640.jpg',
+            'egypt-roga/IMG-1038.jpg',
+          ],
+          'specs'   => [
+            ['Cabins','4 (+1)'],
+            ['Guests','6–8 (max 10)'],
+            ['Power','2 × 120W solar'],
+            ['Watermaker','150 L / hr'],
+          ],
+        ],
+        [
+          'name'    => 'Sailing Catamaran Bali 40',
+          'tag'     => 'Catamaran',
+          'kicker'  => 'Newest in the fleet',
+          'desc'    => 'A spacious, modern catamaran designed to bring together comfort, elegance, and unforgettable experiences at sea.',
+          'images'  => [
+            'egypt-bali/bali-40-nea-36.jpg',
+            'egypt-bali/bali-40-nea-38.jpg',
+            'egypt-bali/bali-40-nea-50.jpg',
+            'egypt-bali/images-23.jpeg',
+            'egypt-bali/images-27.jpeg',
+            'egypt-bali/images-38.jpeg',
+            'egypt-bali/images-41.jpeg',
+            'egypt-bali/images-48.jpeg',
+          ],
+          'specs'   => [
+            ['Cabins','4 guest + 2 crew'],
+            ['Bathrooms','4 + crew'],
+            ['Engines','2 × 35 hp Yanmar'],
+            ['Fresh water','700 L'],
+          ],
+        ],
+      ];
+    @endphp
+
+    <div class="space-y-12">
+      @foreach($fleet as $idx => $b)
+        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover" data-aos="fade-up">
+          {{-- Carousel --}}
+          <div class="carousel relative aspect-[16/9] overflow-hidden" data-carousel>
+            @foreach($b['images'] as $i => $img)
+              <div class="carousel-slide absolute inset-0 transition-opacity duration-700 {{ $i===0?'opacity-100':'opacity-0' }}">
+                <img src="/images/{{ $img }}" loading="lazy" class="w-full h-full object-cover" alt="{{ $b['name'] }}">
+              </div>
+            @endforeach
+            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur rounded-full px-4 py-1.5 text-xs font-semibold text-navy-900 z-10">{{ $b['tag'] }}</div>
+
+            <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/85 hover:bg-white text-navy-900 flex items-center justify-center shadow-soft transition" aria-label="Previous">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/85 hover:bg-white text-navy-900 flex items-center justify-center shadow-soft transition" aria-label="Next">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+
+            <div class="carousel-dots absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+              @foreach($b['images'] as $i => $_)
+                <button data-dot="{{ $i }}" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition {{ $i===0?'bg-white':'' }}" aria-label="Slide {{ $i+1 }}"></button>
+              @endforeach
+            </div>
+          </div>
+
+          <div class="p-8 lg:p-10">
+            <p class="text-sm text-sea-500 uppercase tracking-wider mb-2">{{ $b['kicker'] }}</p>
+            <h3 class="font-display text-3xl md:text-4xl font-semibold text-navy-900 mb-4">{{ $b['name'] }}</h3>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">{{ $b['desc'] }}</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 text-sm">
+              @foreach($b['specs'] as $s)
+                <div class="border-l-2 border-sea-400 pl-3">
+                  <p class="text-xs uppercase tracking-wider text-slate-500">{{ $s[0] }}</p>
+                  <p class="font-display text-lg font-semibold text-navy-900">{{ $s[1] }}</p>
+                </div>
+              @endforeach
+            </div>
+            <a href="{{ route('booking') }}" class="inline-flex items-center gap-2 text-sea-500 font-semibold hover:gap-3 transition-all">Book this yacht →</a>
+          </div>
         </div>
       @endforeach
     </div>
   </div>
 </section>
 
-{{-- THE FLEET — 4 yachts --}}
-<section class="py-24 px-6 lg:px-12">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-14" data-aos="fade-up">
-      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Our fleet</p>
-      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">Four yachts. Pick yours.</h2>
-      <p class="text-slate-600 mt-3 max-w-xl mx-auto">All licensed under Egyptian law and skippered by professional crew — bareboat charters are not permitted in Egypt.</p>
-    </div>
-
-    {{-- Flagship pair --}}
-    <div class="grid lg:grid-cols-2 gap-8">
-      {{-- SY ROAGA --}}
-      <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover" data-aos="fade-up">
-        <div class="img-zoom aspect-[16/10] overflow-hidden relative">
-          <img src="/images/egypt-roga/65aa4168784e9459d407dde6.jpeg" class="w-full h-full object-cover" alt="SY Roaga">
-          <div class="absolute top-4 left-4 bg-white/95 backdrop-blur rounded-full px-4 py-1.5 text-xs font-semibold text-navy-900">Sailboat</div>
-        </div>
-        <div class="p-8">
-          <h3 class="font-display text-3xl font-semibold text-navy-900 mb-1">SY Roaga</h3>
-          <p class="text-sm text-sea-500 uppercase tracking-wider mb-5">Beneteau Cyclades 50.5</p>
-          <p class="text-slate-600 leading-relaxed mb-6">A classic monohull built for blue water. Heels gracefully into the wind, sleeps eight in four cabins (a fifth on request), with two ensuite + one shared bathroom.</p>
-          <div class="grid grid-cols-2 gap-4 mb-6 text-sm">
-            <div class="border-l-2 border-sea-400 pl-3"><p class="text-xs uppercase tracking-wider text-slate-500">Cabins</p><p class="font-display text-lg font-semibold text-navy-900">4 (+1)</p></div>
-            <div class="border-l-2 border-sea-400 pl-3"><p class="text-xs uppercase tracking-wider text-slate-500">Guests</p><p class="font-display text-lg font-semibold text-navy-900">6–8 (max 10)</p></div>
-            <div class="border-l-2 border-sea-400 pl-3"><p class="text-xs uppercase tracking-wider text-slate-500">Power</p><p class="font-display text-lg font-semibold text-navy-900">2 × 120W solar</p></div>
-            <div class="border-l-2 border-sea-400 pl-3"><p class="text-xs uppercase tracking-wider text-slate-500">Watermaker</p><p class="font-display text-lg font-semibold text-navy-900">150 L / hr</p></div>
-          </div>
-          <a href="{{ route('booking') }}" class="inline-flex items-center gap-2 text-sea-500 font-semibold hover:gap-3 transition-all">Book SY Roaga →</a>
-        </div>
-      </div>
-
-      {{-- SY SAINT TROPEZ --}}
-      <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover" data-aos="fade-up" data-aos-delay="120">
-        <div class="img-zoom aspect-[16/10] overflow-hidden relative">
-          <img src="/images/egypt-bali/bali-40-nea-50.jpg" class="w-full h-full object-cover" alt="SY Saint Tropez">
-          <div class="absolute top-4 left-4 bg-white/95 backdrop-blur rounded-full px-4 py-1.5 text-xs font-semibold text-navy-900">Catamaran · Flagship</div>
-        </div>
-        <div class="p-8">
-          <h3 class="font-display text-3xl font-semibold text-navy-900 mb-1">SY Saint Tropez</h3>
-          <p class="text-sm text-sea-500 uppercase tracking-wider mb-5">World-class catamaran</p>
-          <p class="text-slate-600 leading-relaxed mb-6">Six guest cabins, six bathrooms, air conditioning throughout, a 1,000 L watermaker and a tender with outboard. Our flagship — built for families and larger groups who want everything.</p>
-          <div class="grid grid-cols-2 gap-4 mb-6 text-sm">
-            <div class="border-l-2 border-sea-400 pl-3"><p class="text-xs uppercase tracking-wider text-slate-500">Cabins</p><p class="font-display text-lg font-semibold text-navy-900">6 + crew</p></div>
-            <div class="border-l-2 border-sea-400 pl-3"><p class="text-xs uppercase tracking-wider text-slate-500">Bathrooms</p><p class="font-display text-lg font-semibold text-navy-900">6 + crew</p></div>
-            <div class="border-l-2 border-sea-400 pl-3"><p class="text-xs uppercase tracking-wider text-slate-500">Comfort</p><p class="font-display text-lg font-semibold text-navy-900">A/C onboard</p></div>
-            <div class="border-l-2 border-sea-400 pl-3"><p class="text-xs uppercase tracking-wider text-slate-500">Fresh water</p><p class="font-display text-lg font-semibold text-navy-900">1,000 L</p></div>
-          </div>
-          <a href="{{ route('booking') }}" class="inline-flex items-center gap-2 text-sea-500 font-semibold hover:gap-3 transition-all">Book SY Saint Tropez →</a>
-        </div>
-      </div>
-    </div>
-
-    {{-- Smaller cats --}}
-    <div class="grid md:grid-cols-2 gap-8 mt-8">
-      {{-- SY 38 --}}
-      <div class="bg-navy-900 text-white rounded-3xl overflow-hidden shadow-soft card-hover" data-aos="fade-up">
-        <div class="grid grid-cols-[1fr,1.4fr]">
-          <div class="img-zoom overflow-hidden">
-            <img src="/images/egypt-bali/images-23.jpeg" class="w-full h-full object-cover" alt="SY 38">
-          </div>
-          <div class="p-6">
-            <p class="text-sea-300 uppercase tracking-wider text-xs mb-1">Catamaran</p>
-            <h3 class="font-display text-2xl font-semibold mb-1">SY 38</h3>
-            <p class="text-xs text-white/60 mb-4">Lagoon 380</p>
-            <ul class="text-sm text-white/80 space-y-1 mb-4">
-              <li>4 double cabins · 2 bathrooms</li>
-              <li>2 × 29 hp Yanmar engines</li>
-              <li>600 L fresh water · new trampoline</li>
-              <li>Deck shower &amp; kitchen</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {{-- SY 4020 --}}
-      <div class="bg-navy-900 text-white rounded-3xl overflow-hidden shadow-soft card-hover" data-aos="fade-up" data-aos-delay="120">
-        <div class="grid grid-cols-[1fr,1.4fr]">
-          <div class="img-zoom overflow-hidden">
-            <img src="/images/egypt-bali/images-48.jpeg" class="w-full h-full object-cover" alt="SY 4020">
-          </div>
-          <div class="p-6">
-            <p class="text-sea-300 uppercase tracking-wider text-xs mb-1">Catamaran · 40 ft</p>
-            <h3 class="font-display text-2xl font-semibold mb-1">SY 4020</h3>
-            <p class="text-xs text-white/60 mb-4">Family catamaran</p>
-            <ul class="text-sm text-white/80 space-y-1 mb-4">
-              <li>4 guest + 2 crew cabins</li>
-              <li>4 bathrooms (+ crew)</li>
-              <li>2 × 35 hp Yanmar engines</li>
-              <li>700 L water · dinghy with outboard</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <p class="text-center text-sm text-slate-500 mt-10">Need something specific? We can source additional yachts on request.</p>
-  </div>
-</section>
-
 {{-- WHAT'S INCLUDED --}}
-<section class="py-20 px-6 lg:px-12 bg-sand-50">
+<section class="py-20 px-6 lg:px-12">
   <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
     <div data-aos="fade-right">
       <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">All-inclusive</p>
       <h2 class="font-display text-3xl md:text-4xl font-semibold text-navy-900 mb-6">Everything that matters, in the price.</h2>
       <ul class="space-y-3 text-slate-700">
         @foreach([
-          'Professional crew — captain, chef and snorkel guide',
+          'Professional crew — captain, chef and snorkel/freediving guide',
           '3 meals + snack daily, soft drinks, tea, coffee, juices',
-          'Accommodation in your chosen cabin',
-          'Snorkeling equipment &amp; water toys on board',
+          'Accommodation on the boat',
           'Emergency medical supplies',
+          'Oxygen tanks',
         ] as $li)
           <li class="flex gap-3"><span class="text-sea-500 mt-1">✓</span><span>{!! $li !!}</span></li>
         @endforeach
       </ul>
     </div>
-    <div class="bg-white rounded-3xl p-8 shadow-soft" data-aos="fade-left">
+    <div class="bg-sand-50 rounded-3xl p-8 shadow-soft" data-aos="fade-left">
       <p class="text-xs uppercase tracking-[0.25em] text-slate-500 mb-3">Bring with you</p>
       <ul class="space-y-2 text-slate-700 text-sm mb-6">
         <li>• Personal towels &amp; toiletries</li>
@@ -177,7 +157,7 @@
         <li>• Any alcoholic beverages</li>
         <li>• Your camera</li>
       </ul>
-      <div class="border-t border-slate-100 pt-4">
+      <div class="border-t border-slate-200 pt-4">
         <p class="text-xs uppercase tracking-[0.25em] text-amber-600 mb-2 font-semibold">Heads up</p>
         <p class="text-sm text-slate-600 leading-relaxed">Our boats run on solar — large electronic devices (laptops, drones with bulky chargers) can't always be charged on board. Phones &amp; cameras are fine.</p>
       </div>
@@ -185,34 +165,145 @@
   </div>
 </section>
 
-{{-- SAMPLE ROUTE --}}
+{{-- ITINERARIES --}}
 <section class="py-24 px-6 lg:px-12 bg-navy-900 text-white relative overflow-hidden">
   <div class="absolute inset-0 opacity-15" style="background-image:url('/images/general/22.11.25_Reef__Wreck_DSLR_1_edited.jpg');background-size:cover;background-position:center;"></div>
-  <div class="relative max-w-5xl mx-auto">
+  <div class="relative max-w-6xl mx-auto">
     <div class="text-center mb-16" data-aos="fade-up">
-      <p class="text-sea-300 uppercase tracking-[0.3em] text-sm mb-3">A typical week</p>
-      <h2 class="font-display text-4xl md:text-5xl font-semibold">Hurghada → Satayah · 6 days, 5 nights</h2>
-      <p class="text-white/70 mt-3">~50 nm of sailing across the week. The rest of the time we're moored, swimming, eating.</p>
+      <p class="text-sea-300 uppercase tracking-[0.3em] text-sm mb-3">Itineraries</p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold">Two journeys, one Red Sea.</h2>
+      <p class="text-white/70 mt-4 max-w-3xl mx-auto italic">This is more than sailing. It is a journey into silence, nature, and connection — where the ocean becomes your world and time no longer feels important.</p>
     </div>
-    <div class="space-y-6">
-      @foreach([
-        ['Day 1','Hurghada Marina','Welcome on board, briefing, dinner in the bay.'],
-        ['Day 2','Abu Galawa wreck','Snorkel a half-submerged wreck wrapped in coral.'],
-        ['Day 3','Hamata Islands','Drift along quiet southern reefs — drop-offs and canyons.'],
-        ['Day 4','Satayah Lagoon','Swim with resident spinner dolphins; sunset yoga on deck.'],
-        ['Day 5','Malahi reef','Remote anchorage, beach BBQ, stargazing.'],
-        ['Day 6','Return to Hurghada','Slow sail back, late lunch on board.'],
-      ] as $d)
-        <div class="flex gap-6 items-start" data-aos="fade-up">
-          <div class="font-display text-2xl text-sea-300 w-20 shrink-0">{{ $d[0] }}</div>
-          <div class="border-l-2 border-sea-400/40 pl-6 pb-4 flex-1">
-            <h3 class="font-display text-2xl mb-1">{{ $d[1] }}</h3>
-            <p class="text-white/70">{{ $d[2] }}</p>
+
+    {{-- Itinerary 1 --}}
+    <div class="mb-16" data-aos="fade-up">
+      <p class="text-sea-300 uppercase tracking-[0.3em] text-xs font-semibold mb-2">Itinerary 1</p>
+      <h3 class="font-display text-3xl md:text-4xl font-semibold mb-8">Sataya Dolphin House &amp; Fury Shoals</h3>
+      <div class="space-y-8">
+        @foreach([
+          ['Sataya Dolphin House','Just around 3 hours of sailing from port, you enter a massive 6km natural lagoon, protected by one of the largest reef systems in the Red Sea. Inside this calm sanctuary lies one of the highest probabilities on Earth to encounter pods of 100+ wild spinner dolphins in their natural habitat. This is where everything slows down — and something deeper begins.'],
+          ['Abu Galawa Reef (Wreck Site)','A rich and vibrant reef system known for its incredible marine biodiversity. At its center lies the famous Tian Hsing wreck, resting between 2–20 meters, making it accessible for snorkelers and freedivers alike. Over time, the wreck has become fully alive — covered in coral and surrounded by schools of fish, with constant surprises passing in the blue.'],
+          ['Hamata Islands','Surrounded by shallow turquoise waters and untouched reefs, these islands are ideal for exploration, sunset stops, swimming, snorkeling, and pure relaxation. A place where time feels irrelevant.'],
+        ] as $stop)
+          <div class="border-l-2 border-sea-400/40 pl-8">
+            <h4 class="font-display text-2xl mb-2">{{ $stop[0] }}</h4>
+            <p class="text-white/70 leading-relaxed">{{ $stop[1] }}</p>
           </div>
+        @endforeach
+      </div>
+      <p class="text-xs text-white/50 italic mt-6">*Itinerary is weather dependent</p>
+    </div>
+
+    {{-- Itinerary 2 --}}
+    <div data-aos="fade-up">
+      <p class="text-sea-300 uppercase tracking-[0.3em] text-xs font-semibold mb-2">Itinerary 2</p>
+      <h3 class="font-display text-3xl md:text-4xl font-semibold mb-8">Soma Bay</h3>
+      <p class="text-white/80 leading-relaxed mb-8 max-w-3xl">A luxurious sail into the Red Sea's most vibrant reefs and islands, including:</p>
+      <div class="space-y-8">
+        @foreach([
+          ['Panorama Reef','One of the Red Sea\'s most iconic offshore reefs — dramatic, wild, and endlessly blue. Located off Safaga, it\'s known for combining vibrant coral gardens with steep drop-offs that disappear into deep open water.'],
+          ['Tobia Reef','One of the Red Sea\'s hidden gems — calm, colorful, and perfect for relaxed exploration. Located near Safaga, it\'s known for its shallow coral gardens, crystal-clear water, and abundant marine life, making it especially loved for snorkeling, beginner diving, and slow days at sea.'],
+          ['Abu Monkar Island','One of those places in the Red Sea that feels almost unreal — a quiet sandbank and island escape where shallow turquoise water stretches into every direction. Often considered part of the northern island system near Giftun, it sits just offshore from Hurghada and is known for its untouched, peaceful atmosphere.'],
+        ] as $stop)
+          <div class="border-l-2 border-sea-400/40 pl-8">
+            <h4 class="font-display text-2xl mb-2">{{ $stop[0] }}</h4>
+            <p class="text-white/70 leading-relaxed">{{ $stop[1] }}</p>
+          </div>
+        @endforeach
+      </div>
+      <p class="text-white/80 leading-relaxed mt-8 max-w-3xl">Whether you are looking for a kitesurfing safari, a freediving retreat, or nautical miles building, this is the perfect week for you.</p>
+      <p class="text-xs text-white/50 italic mt-6">*Itinerary is weather dependent</p>
+    </div>
+  </div>
+</section>
+
+{{-- HOW TO ARRIVE --}}
+<section class="py-24 px-6 lg:px-12 bg-sand-50">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">How to arrive</p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">Getting to the boat.</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      @foreach([
+        [
+          'title'    => 'Itinerary 1 — Hamata Port',
+          'location' => 'Hamata Port (south of Marsa Alam)',
+          'airports' => [
+            ['Marsa Alam Airport','174 km · ~2 hours away'],
+            ['Hurghada Airport','392 km · ~5 hours away'],
+          ],
+        ],
+        [
+          'title'    => 'Itinerary 2 — Soma Bay',
+          'location' => 'Soma Bay',
+          'airports' => [
+            ['Hurghada Airport','60 km · ~1 hour away'],
+          ],
+        ],
+      ] as $i => $loc)
+        <div class="bg-white rounded-3xl p-8 shadow-soft" data-aos="fade-up" data-aos-delay="{{ $i*120 }}">
+          <h3 class="font-display text-2xl font-semibold text-navy-900 mb-5">{{ $loc['title'] }}</h3>
+          <div class="mb-5">
+            <p class="text-xs uppercase tracking-[0.25em] text-slate-500 mb-1">Location</p>
+            <p class="text-slate-700">{{ $loc['location'] }}</p>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.25em] text-slate-500 mb-2">Nearest airports</p>
+            <ul class="space-y-2">
+              @foreach($loc['airports'] as $a)
+                <li class="flex justify-between gap-4 text-slate-700 border-b border-slate-100 pb-2 last:border-0">
+                  <span class="font-medium">{{ $a[0] }}</span>
+                  <span class="text-sm text-slate-500">{{ $a[1] }}</span>
+                </li>
+              @endforeach
+            </ul>
+          </div>
+          <p class="text-xs text-slate-500 italic mt-5">* Internal transportation can be arranged upon request.</p>
         </div>
       @endforeach
     </div>
   </div>
 </section>
 
+{{-- POSTCARDS (gallery) --}}
+<section class="py-24 px-6 lg:px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Postcards</p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">From the Red Sea</h2>
+    </div>
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-4">
+      @foreach([
+        'general/8L4A8021.jpg','general/8L4A8413.jpg','general/8L4A8648.jpg',
+        'general/22.11.24_Sataya__Malahi_DSLR_112_edited_1.jpg','general/22.11.25_Reef__Wreck_DSLR_15_edited.jpg',
+        'general/22.11.26_Aziab_day_one_DSLR_38_edited_phshop.jpg','general/Abo_Galawa_wreck.jpg',
+        'general/IMG_4355.jpg','general/IMG_4219.jpg','general/IMG_4342.jpg','general/_MG_9640.jpg','general/DSCF9867.jpg',
+      ] as $g)
+        <div class="img-zoom rounded-2xl overflow-hidden break-inside-avoid shadow-soft mb-4 inline-block w-full">
+          <img src="/images/{{ $g }}" loading="lazy" class="w-full h-auto object-cover block" alt="">
+        </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+
+@push('scripts')
+<script>
+  document.querySelectorAll('[data-carousel]').forEach(c => {
+    const slides = c.querySelectorAll('.carousel-slide');
+    const dots   = c.querySelectorAll('.carousel-dot');
+    let i = 0;
+    const show = (n) => {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s,k)=> s.style.opacity = k===i ? '1' : '0');
+      dots.forEach((d,k)=> d.classList.toggle('bg-white', k===i));
+    };
+    c.querySelector('.carousel-prev').addEventListener('click', ()=> show(i-1));
+    c.querySelector('.carousel-next').addEventListener('click', ()=> show(i+1));
+    dots.forEach((d,k)=> d.addEventListener('click', ()=> show(k)));
+    setInterval(()=> show(i+1), 5500);
+  });
+</script>
+@endpush
 @endsection
