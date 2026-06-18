@@ -1,186 +1,311 @@
 @extends('layouts.app')
-@section('title','Prices & Schedule')
+@section('title','Prices')
 @section('content')
 
 {{-- HERO --}}
-<section class="relative pt-36 pb-24 px-6 lg:px-12 bg-navy-900 text-white overflow-hidden">
-  <div class="absolute inset-0 opacity-30 ken-burns bg-cover bg-center" style="background-image:url('/images/general/8L4A8413.jpg')"></div>
-  <div class="absolute inset-0 bg-gradient-to-b from-navy-900/60 to-navy-900"></div>
-  <div class="relative max-w-5xl mx-auto text-center">
-    <p class="text-sea-300 tracking-[0.5em] text-sm mb-6" data-aos="fade-down">PRICES &amp; SCHEDULE</p>
-    <h1 class="font-display text-5xl md:text-7xl font-semibold leading-tight" data-aos="fade-up">Transparent rates.<br>No hidden anchors.</h1>
-    <p class="mt-6 text-lg text-white/80 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="150">Cabin spots, private charters, full-board packages — pick the format that suits your group.</p>
+<section class="relative h-[55vh] min-h-[400px] overflow-hidden text-white flex items-end">
+  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/general/22.11.26_Aziab_day_one_DSLR_38_edited_phshop.jpg')"></div>
+  <div class="absolute inset-0 hero-overlay"></div>
+  <div class="relative z-10 max-w-7xl mx-auto w-full px-6 pb-16">
+    <p class="text-sea-300 tracking-[0.5em] text-sm mb-6" data-aos="fade-down">PRICES</p>
+    <h1 class="font-display text-5xl md:text-7xl font-semibold leading-[1.05] max-w-4xl" data-aos="fade-up">Two ways to sail.</h1>
+    <p class="mt-6 text-lg md:text-xl text-white/85 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+      Join a shared expedition by the cabin, or charter the whole yacht for your group.
+    </p>
   </div>
 </section>
 
-{{-- TABS --}}
-<section class="sticky top-20 z-30 bg-white border-b border-slate-100 shadow-sm">
-  <div class="max-w-7xl mx-auto px-6 flex gap-2 overflow-x-auto">
-    @foreach([['egypt','Egypt · Red Sea'],['greece','Greece'],['maldives','Maldives'],['notes','Inclusions &amp; notes']] as $t)
-      <a href="#{{ $t[0] }}" class="px-5 py-4 text-sm font-semibold text-slate-500 hover:text-sea-500 border-b-2 border-transparent hover:border-sea-500 transition whitespace-nowrap">{!! $t[1] !!}</a>
-    @endforeach
+{{-- TAB NAV --}}
+<section class="bg-white border-b border-slate-100 sticky top-0 z-30">
+  <div class="max-w-6xl mx-auto px-6 lg:px-12 flex flex-wrap gap-8 text-sm font-semibold py-4 justify-center">
+    <a href="#egypt" class="text-slate-600 hover:text-sea-500 transition">Egypt — Red Sea</a>
+    <a href="#greece" class="text-slate-600 hover:text-sea-500 transition">Greece</a>
+    <a href="#included" class="text-slate-600 hover:text-sea-500 transition">What's included</a>
+    <a href="#terms" class="text-slate-600 hover:text-sea-500 transition">Terms &amp; conditions</a>
   </div>
 </section>
 
-{{-- ============ EGYPT ============ --}}
-<section id="egypt" class="py-24 px-6 lg:px-12 scroll-mt-32">
+{{-- EGYPT PRICES --}}
+<section id="egypt" class="py-24 px-6 lg:px-12 scroll-mt-24">
   <div class="max-w-7xl mx-auto">
-    <div class="grid lg:grid-cols-[1fr,2fr] gap-12 items-start">
-      <div data-aos="fade-right">
-        <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Red Sea · Egypt</p>
-        <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900 mb-6 leading-tight">Two ways to sail Egypt.</h2>
-        <p class="text-slate-600 leading-relaxed mb-4">Join a shared expedition by the cabin, or charter the whole yacht for your group.</p>
-        <p class="text-xs text-slate-500">Egyptian law requires a licensed skipper — bareboat charters are not permitted. Service &amp; food packages are mandatory and added on top of charter rates.</p>
-      </div>
-
-      <div class="space-y-10" data-aos="fade-left">
-        {{-- Cabin spots --}}
-        <div>
-          <h3 class="font-display text-2xl font-semibold text-navy-900 mb-5">Book by the cabin</h3>
-          <div class="grid sm:grid-cols-2 gap-5">
-            @foreach([
-              ['4 days · 3 nights','€500','+ €150 / person · food &amp; marina fees'],
-              ['6 days · 5 nights','€650','+ €250 / person · food &amp; marina fees'],
-            ] as $i => $c)
-              <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:border-sea-400 hover:shadow-soft transition" data-aos="fade-up" data-aos-delay="{{ $i*100 }}">
-                <p class="text-xs uppercase tracking-wider text-slate-500 mb-2">{{ $c[0] }}</p>
-                <p class="font-display text-4xl text-navy-900 font-semibold">{{ $c[1] }}<span class="text-base text-slate-400 font-sans">/person</span></p>
-                <p class="text-sm text-slate-500 mt-3">{!! $c[2] !!}</p>
-              </div>
-            @endforeach
-          </div>
-          <p class="text-xs text-slate-500 mt-4">Shared double cabin. Private cabin = <span class="font-semibold text-navy-900">1.4×</span> the rate.</p>
-        </div>
-
-        {{-- Private charter --}}
-        <div>
-          <h3 class="font-display text-2xl font-semibold text-navy-900 mb-5">Private charter</h3>
-          <div class="overflow-hidden rounded-2xl border border-slate-200">
-            <table class="w-full text-left">
-              <thead class="bg-navy-900 text-white text-xs uppercase tracking-wider">
-                <tr><th class="p-4">Yacht</th><th class="p-4">4d · 3n</th><th class="p-4">6d · 5n</th><th class="p-4 hidden sm:table-cell">Daily</th></tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 text-navy-900">
-                @foreach([
-                  ['Sailboat · Roga','€3,000','€5,000','€890'],
-                  ['Catamaran · Bali 40','€4,500','€5,900','€950'],
-                ] as $r)
-                  <tr class="hover:bg-sand-50 transition">
-                    <td class="p-4 font-semibold">{{ $r[0] }}</td>
-                    <td class="p-4 font-display text-xl">{{ $r[1] }}</td>
-                    <td class="p-4 font-display text-xl">{{ $r[2] }}</td>
-                    <td class="p-4 text-slate-500 hidden sm:table-cell">{{ $r[3] }}</td>
-                  </tr>
-                @endforeach
-              </tbody>
-            </table>
-          </div>
-          <p class="text-xs text-slate-500 mt-3">Mandatory service &amp; food: €150/person (4d) · €250/person (6d). EGP rates available for Egyptians and residents on request.</p>
-        </div>
-
-        <a href="{{ route('booking') }}" class="inline-flex items-center gap-2 bg-sea-500 hover:bg-sea-600 text-white px-7 py-3.5 rounded-full font-semibold shadow-soft transition">Book your Egypt trip →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- ============ GREECE ============ --}}
-<section id="greece" class="py-24 px-6 lg:px-12 bg-sand-50 scroll-mt-32 relative overflow-hidden">
-  <div class="absolute right-0 top-0 w-1/2 h-full opacity-20 hidden md:block" style="background-image:url('/images/greece/Greece_5.jpg');background-size:cover;background-position:center;"></div>
-  <div class="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-    <div data-aos="fade-right">
-      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Greece · Aegean</p>
-      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900 mb-6 leading-tight">Curated by request.</h2>
-      <p class="text-slate-600 leading-relaxed text-lg mb-6">
-        Greek itineraries run May through October and are tailored to your group, route and preferred yacht. On select dates we open spots for cabin bookings — get in touch and we'll share the next availability.
-      </p>
-      <ul class="space-y-3 text-slate-700 mb-8">
-        @foreach(['Cyclades Classic — 7 or 10 nights','Ionian Cruise — 7 nights','Saronic short break — 4 or 5 nights','Bespoke island-hopping itineraries'] as $li)
-          <li class="flex items-start gap-3"><span class="text-sea-500 mt-1">◆</span>{{ $li }}</li>
-        @endforeach
-      </ul>
-      <div class="flex flex-wrap gap-4">
-        <a href="{{ route('contact') }}" class="bg-sea-500 hover:bg-sea-600 text-white px-7 py-3.5 rounded-full font-semibold shadow-soft transition">Request Greece pricing</a>
-        <a href="{{ route('greece') }}" class="border border-navy-900/15 hover:border-navy-900 px-7 py-3.5 rounded-full font-semibold text-navy-900 transition">See itineraries</a>
-      </div>
-    </div>
-    <div class="bg-white rounded-3xl p-8 md:p-10 shadow-soft" data-aos="fade-left">
-      <p class="text-xs uppercase tracking-wider text-slate-500 mb-2">Indicative ranges</p>
-      <div class="space-y-5">
-        <div class="flex justify-between items-baseline border-b border-slate-100 pb-4">
-          <div>
-            <p class="font-display text-xl text-navy-900">Cabin spot</p>
-            <p class="text-sm text-slate-500">Shared double · 7 nights</p>
-          </div>
-          <p class="font-display text-3xl text-navy-900 font-semibold">from €1,200<span class="text-base text-slate-400 font-sans">pp</span></p>
-        </div>
-        <div class="flex justify-between items-baseline border-b border-slate-100 pb-4">
-          <div>
-            <p class="font-display text-xl text-navy-900">Private monohull</p>
-            <p class="text-sm text-slate-500">Up to 8 guests · 7 nights</p>
-          </div>
-          <p class="font-display text-3xl text-navy-900 font-semibold">from €6,500</p>
-        </div>
-        <div class="flex justify-between items-baseline">
-          <div>
-            <p class="font-display text-xl text-navy-900">Private catamaran</p>
-            <p class="text-sm text-slate-500">Up to 10 guests · 7 nights</p>
-          </div>
-          <p class="font-display text-3xl text-navy-900 font-semibold">from €9,800</p>
-        </div>
-      </div>
-      <p class="text-xs text-slate-500 mt-6">Final rates vary by yacht, season and route. Skipper fee, fuel and marina fees not included.</p>
-    </div>
-  </div>
-</section>
-
-{{-- ============ MALDIVES ============ --}}
-<section id="maldives" class="py-24 px-6 lg:px-12 scroll-mt-32">
-  <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
-    <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Maldives · Atolls</p>
-    <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900 mb-6 leading-tight">One week, one boat, one ocean.</h2>
-    <div class="grid sm:grid-cols-2 gap-6 mt-10 text-left">
-      <div class="bg-white border border-slate-200 rounded-2xl p-7 hover:border-sea-400 hover:shadow-soft transition">
-        <p class="text-xs uppercase tracking-wider text-slate-500 mb-2">Cabin spot · 7 nights</p>
-        <p class="font-display text-4xl text-navy-900 font-semibold">€1,270<span class="text-base text-slate-400 font-sans">/person</span></p>
-        <p class="text-sm text-slate-500 mt-3">Shared cabin · group cooking on board</p>
-      </div>
-      <div class="bg-navy-900 text-white rounded-2xl p-7">
-        <p class="text-xs uppercase tracking-wider text-sea-300 mb-2">Full yacht charter · 7 nights</p>
-        <p class="font-display text-4xl font-semibold">€9,160</p>
-        <p class="text-sm text-white/70 mt-3">Skipper, guide, transfers from Malé, food &amp; soft drinks included</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- ============ INCLUSIONS / NOTES ============ --}}
-<section id="notes" class="py-24 px-6 lg:px-12 bg-navy-900 text-white relative overflow-hidden scroll-mt-32">
-  <div class="absolute inset-0 opacity-15" style="background-image:url('/images/general/IMG_4108.jpg');background-size:cover;background-position:center;"></div>
-  <div class="relative max-w-6xl mx-auto">
     <div class="text-center mb-14" data-aos="fade-up">
-      <h2 class="font-display text-4xl md:text-5xl font-semibold">What's in the price.</h2>
+      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Red Sea · Egypt</p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">Egypt prices.</h2>
+      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">All prices in Euro. Marina entrance and marine park tickets are paid per person upon arrival.</p>
     </div>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="glass rounded-3xl p-8" data-aos="fade-right">
-        <h3 class="font-display text-2xl mb-5 text-sea-300">Included</h3>
-        <ul class="space-y-3 text-white/85">
-          @foreach(['Licensed skipper &amp; crew','Marina fees &amp; marine park permits','Fuel for normal sailing','Linen, towels &amp; on-board amenities','Breakfast and most lunches','Snorkeling gear (on request)'] as $li)
-            <li class="flex gap-3"><span class="text-sea-300">✓</span> {!! $li !!}</li>
-          @endforeach
-        </ul>
+
+    @php
+      $boats = [
+        [
+          'name'    => 'Sailboat Beneteau Cyclades 50.5',
+          'cap'     => 'Maximum capacity 8 guests',
+          'img'     => 'egypt-roga/65aa4168784e9459d407dde6.jpeg',
+          'rows'    => [
+            ['6 days · Private charter', '€5,200', '+€300 / person on arrival'],
+            ['4 days · Private charter', '€3,150', '+€200 / person on arrival'],
+            ['6 days · Per person',      '€700',   '+€300 / person on arrival'],
+            ['4 days · Per person',      '€450',   '+€200 / person on arrival'],
+          ],
+        ],
+        [
+          'name'    => 'Catamaran Bali 40',
+          'cap'     => 'Maximum capacity 8 guests',
+          'img'     => 'egypt-bali/bali-40-nea-36.jpg',
+          'rows'    => [
+            ['6 days · Private charter', '€6,800', '+€300 / person on arrival'],
+            ['4 days · Private charter', '€4,500', '+€200 / person on arrival'],
+            ['6 days · Per person',      '€900',   '+€300 / person on arrival'],
+            ['4 days · Per person',      '€600',   '+€200 / person on arrival'],
+          ],
+        ],
+      ];
+    @endphp
+
+    <div class="grid lg:grid-cols-2 gap-8">
+      @foreach($boats as $idx => $b)
+        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover" data-aos="fade-up" data-aos-delay="{{ $idx*120 }}">
+          <div class="img-zoom aspect-[16/9] overflow-hidden">
+            <img src="/images/{{ $b['img'] }}" loading="lazy" class="w-full h-full object-cover" alt="{{ $b['name'] }}">
+          </div>
+          <div class="p-8">
+            <h3 class="font-display text-2xl md:text-3xl font-semibold text-navy-900 mb-1">{{ $b['name'] }}</h3>
+            <p class="text-xs uppercase tracking-[0.25em] text-sea-500 font-semibold mb-6">{{ $b['cap'] }}</p>
+            <div class="divide-y divide-slate-100">
+              @foreach($b['rows'] as $r)
+                <div class="py-4 flex flex-wrap items-baseline justify-between gap-2">
+                  <div>
+                    <p class="font-semibold text-navy-900">{{ $r[0] }}</p>
+                    <p class="text-xs text-slate-500 mt-0.5">{{ $r[2] }}</p>
+                  </div>
+                  <p class="font-display text-2xl font-semibold text-sea-500">{{ $r[1] }}</p>
+                </div>
+              @endforeach
+            </div>
+          </div>
+        </div>
+      @endforeach
+    </div>
+
+    {{-- Notes --}}
+    <div class="mt-10 grid md:grid-cols-2 gap-5">
+      <div class="bg-sand-50 rounded-2xl p-6 border-l-4 border-sea-400">
+        <p class="text-sm text-slate-700 leading-relaxed"><strong>Egyptian nationals:</strong> please contact us directly via email — special subsidised rates are available in accordance with Egyptian laws and regulations.</p>
       </div>
-      <div class="glass rounded-3xl p-8" data-aos="fade-left">
-        <h3 class="font-display text-2xl mb-5 text-white/80">Not included</h3>
-        <ul class="space-y-3 text-white/85">
-          @foreach(['Flights &amp; airport transfers','Dinners ashore','Alcoholic beverages','Diving (PADI dives bookable on board)','Gratuities','Travel insurance'] as $li)
-            <li class="flex gap-3"><span class="text-white/40">×</span> {!! $li !!}</li>
-          @endforeach
-        </ul>
+      <div class="bg-sand-50 rounded-2xl p-6 border-l-4 border-sea-400">
+        <p class="text-sm text-slate-700 leading-relaxed"><strong>Specialised trips:</strong> prices increase for selective trips with freediving / yoga instructors onboard or a specific workshop.</p>
       </div>
     </div>
-    <div class="mt-12 text-center text-sm text-white/60" data-aos="fade-up">
-      Deposit: 30% to confirm. Free cancellation up to 60 days before departure · 50% refund up to 30 days · non-refundable but transferable after.
+  </div>
+</section>
+
+{{-- GREECE PRICES --}}
+<section id="greece" class="py-24 px-6 lg:px-12 bg-sand-50 scroll-mt-24">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Aegean · Greece</p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">Greece prices.</h2>
+      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">8 days / 7 nights · available from 4 to 12 guests.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-[1.2fr,1fr] gap-8">
+      <div class="bg-white rounded-3xl overflow-hidden shadow-soft" data-aos="fade-up">
+        <div class="img-zoom aspect-[16/9] overflow-hidden">
+          <img src="/images/greece/Greece_5.jpg" loading="lazy" class="w-full h-full object-cover" alt="Sailing in Greece">
+        </div>
+        <div class="p-8">
+          <p class="text-xs uppercase tracking-[0.25em] text-sea-500 font-semibold mb-2">8 days · Private charter</p>
+          <h3 class="font-display text-3xl font-semibold text-navy-900 mb-3">€6,000 — €9,000</h3>
+          <p class="text-slate-600 leading-relaxed">Range depends on the chosen sailboat or catamaran. Available from 4 to 12 guests.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl overflow-hidden shadow-soft flex flex-col justify-center" data-aos="fade-up" data-aos-delay="120">
+        <div class="p-8">
+          <p class="text-xs uppercase tracking-[0.25em] text-sea-500 font-semibold mb-2">8 days · Per person</p>
+          <h3 class="font-display text-3xl font-semibold text-navy-900 mb-3">€1,550</h3>
+          <p class="text-slate-600 leading-relaxed">Cabin-share rate on a shared expedition.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{-- WHAT'S INCLUDED --}}
+<section id="included" class="py-24 px-6 lg:px-12 scroll-mt-24">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">What's in the price</p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">Included &amp; not included.</h2>
+    </div>
+
+    @php
+      $incExc = [
+        [
+          'flag'  => 'Egypt',
+          'inc'   => [
+            'Accommodation on the boat',
+            'Professional captain',
+            'Professional guide',
+            'Chef',
+            'All-inclusive menu (alcoholic drinks not included)',
+            'Fuel',
+            'Water',
+            'Emergency first aid, sea-sickness pills and oxygen tank',
+            'Final cleaning fees',
+            'Bed sheets',
+          ],
+          'bring' => [
+            'Your own towels and toiletries',
+            'Sunblock',
+            'Your camera',
+          ],
+          'exc'   => [
+            'Flights',
+            'Internal transfers (can be arranged for an extra fee)',
+            'Snorkeling or freediving gear (can be arranged for an extra fee)',
+            'Crew gratuity (recommended if you had a good time)',
+            'Travel insurance (recommended)',
+            'Anything not explicitly listed as included',
+          ],
+        ],
+        [
+          'flag'  => 'Greece',
+          'inc'   => [
+            'Accommodation on the boat — 8 days / 7 nights',
+            'Fuel',
+            'Water',
+            'Marina fees',
+            'Professional skipper',
+            'Basic food package (suitable for breakfast and light meals e.g. salads / pasta)',
+            'Access to secluded beaches and swimming stops only reachable by boat',
+            'Final cleaning fees',
+            'Bed sheets',
+          ],
+          'bring' => null,
+          'exc'   => [
+            'Flights',
+            'Lunch &amp; dinners in restaurants',
+            'Extra activities on land (optional)',
+            'Personal expenses and shopping',
+            'Airport transfers',
+            'Travel insurance',
+            'Crew gratuity (recommended if you had a good time)',
+            'Anything not explicitly listed as included',
+          ],
+        ],
+      ];
+    @endphp
+
+    <div class="grid lg:grid-cols-2 gap-8">
+      @foreach($incExc as $i => $blk)
+        <div class="bg-sand-50 rounded-3xl p-8 shadow-soft" data-aos="fade-up" data-aos-delay="{{ $i*120 }}">
+          <h3 class="font-display text-2xl font-semibold text-navy-900 mb-6">{{ $blk['flag'] }}</h3>
+
+          <p class="text-xs uppercase tracking-[0.25em] text-emerald-600 font-semibold mb-3">Included</p>
+          <ul class="space-y-2 text-slate-700 text-sm mb-6">
+            @foreach($blk['inc'] as $li)
+              <li class="flex gap-2"><span class="text-emerald-500 mt-0.5">✓</span><span>{!! $li !!}</span></li>
+            @endforeach
+          </ul>
+
+          @if($blk['bring'])
+            <p class="text-xs uppercase tracking-[0.25em] text-sea-500 font-semibold mb-3">You should bring</p>
+            <ul class="space-y-2 text-slate-700 text-sm mb-6">
+              @foreach($blk['bring'] as $li)
+                <li class="flex gap-2"><span class="text-sea-500 mt-0.5">•</span><span>{!! $li !!}</span></li>
+              @endforeach
+            </ul>
+          @endif
+
+          <p class="text-xs uppercase tracking-[0.25em] text-rose-600 font-semibold mb-3">Not included</p>
+          <ul class="space-y-2 text-slate-700 text-sm">
+            @foreach($blk['exc'] as $li)
+              <li class="flex gap-2"><span class="text-rose-500 mt-0.5">✕</span><span>{!! $li !!}</span></li>
+            @endforeach
+          </ul>
+        </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+
+{{-- TERMS & CONDITIONS --}}
+<section id="terms" class="py-24 px-6 lg:px-12 bg-navy-900 text-white scroll-mt-24">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <p class="text-sea-300 uppercase tracking-[0.3em] text-sm mb-3">The fine print</p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold">Terms &amp; conditions.</h2>
+    </div>
+
+    {{-- EGYPT TERMS --}}
+    <div class="mb-16" data-aos="fade-up">
+      <h3 class="font-display text-2xl font-semibold mb-6 text-sea-300">Egypt</h3>
+
+      <div class="space-y-6 text-white/80 leading-relaxed text-sm">
+        <div>
+          <p class="font-semibold text-white mb-2">Cancellation policy — amendments or cancellations</p>
+          <p>Amendments or cancellations of confirmed bookings should be emailed directly at the earliest opportunity to <a href="mailto:info@aziab-seafaris.com" class="text-sea-300 hover:underline">info@aziab-seafaris.com</a>. When this has been processed, you will receive a response within 24 hours; if not received, please resend your email.</p>
+          <p class="mt-3">Cancellation of any equipment sourced by Aziab Seafaris from a third party (e.g. wetsuit, buoys, weights, mask) must be received no later than 48 hours prior to your arrival. Failure to do so will incur a charge of 100% of the total rental cost.</p>
+        </div>
+
+        <div>
+          <p class="font-semibold text-white mb-2">Trip cancellation — if you cancel</p>
+          <ul class="space-y-1.5">
+            @foreach([
+              'Until 90 days before safari start — 15% of the complete price',
+              '89 — 35 days before safari start — 25% of the complete price',
+              '34 — 22 days before safari start — 50% of the complete price',
+              '21 — 15 days before safari start — 70% of the complete price',
+              '14 days before safari start — 90% of the complete price',
+              '7 days before safari start, or non-appearance — 100% of the complete price',
+            ] as $row)
+              <li class="flex gap-2"><span class="text-sea-300 mt-0.5">•</span><span>{{ $row }}</span></li>
+            @endforeach
+          </ul>
+        </div>
+
+        <div>
+          <p>We reserve the right to change terms and conditions resulting from any regulations or new rules coming from the government.</p>
+        </div>
+
+        <div>
+          <p class="font-semibold text-white mb-2">Force majeure</p>
+          <p>In very rare cases of force majeure — which happen in less than 2% of our trips — such as navy exercises, extreme weather, sudden changes in governmental laws, or a problem on the boats that could jeopardise the safety of guests on the trip, Aziab Seafaris is obliged to:</p>
+          <ol class="mt-3 space-y-1.5 list-decimal list-inside">
+            <li>Make a full refund of the money, <em>or</em></li>
+            <li>Offer guests a 10% discount on their total receipts if they choose to stay at one of Red Sea Diving Safari locations (depending on availability), <em>or</em></li>
+            <li>Offer guests a 10% discount on any further trip.</li>
+          </ol>
+        </div>
+
+        <div>
+          <p class="font-semibold text-white mb-2">Itineraries &amp; sites</p>
+          <p>All itineraries and sites are subject to various unpredictable changes including weather conditions and changes in local government approval. Whilst Aziab Seafaris makes every effort, we cannot guarantee visiting specific sites. In adverse weather conditions, the captain of the boat will have the final decision about which sites to visit to ensure that guests, staff and boat safety is not compromised in any way. If sites are not reached due to weather conditions or other unforeseeable changes, Aziab Seafaris will not offer a refund or compensation.</p>
+        </div>
+
+        <div>
+          <p class="font-semibold text-white mb-2">Behaviour</p>
+          <p>Anti-social or aggressive behaviour will not be tolerated, and individuals who cause a disturbance to other guests may be removed from the trip.</p>
+        </div>
+
+        <div>
+          <p class="font-semibold text-white mb-2">Your consent</p>
+          <p>Your consent to accept our Terms and Conditions is required to proceed with your booking.</p>
+          <p class="mt-3"><em>Why we need your consent:</em> you are contracting with us outside of the country where you reside, and we are an Egyptian company with our management and assets held in countries where we comply with local laws, regulations and practices over the services we provide. These may differ from those where you live.</p>
+          <p class="mt-3"><em>How we will use your consent:</em> when you consent, we will provide you with our services subject to these Terms and Conditions. By proceeding with your booking, you consent to these terms.</p>
+          <p class="mt-3">You have the right to refuse consent. If you refuse, you should not proceed with your booking. Should you proceed but later withdraw your consent, the agreement between us will end — as your consent is precedent to us providing our services — and cancellation charges will apply as per these Terms and Conditions.</p>
+        </div>
+      </div>
+    </div>
+
+    {{-- GREECE TERMS --}}
+    <div data-aos="fade-up">
+      <h3 class="font-display text-2xl font-semibold mb-6 text-sea-300">Greece</h3>
+      <div class="space-y-4 text-white/80 leading-relaxed text-sm">
+        <p>The same terms and conditions apply to our Greece sailing trips, with the difference of the cancellation policy.</p>
+        <p>Any amount paid as a deposit or full amount becomes automatically non-refundable.</p>
+        <p>If for any reason Aziab Seafaris cancels the trip (due to minimum capacity requirement, political situation, severe weather conditions, or any other force majeure), we will fully refund any payment done by the guests within 7 working days.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -188,11 +313,11 @@
 {{-- CTA --}}
 <section class="py-20 px-6 lg:px-12">
   <div class="max-w-5xl mx-auto bg-gradient-to-br from-navy-800 to-sea-600 rounded-3xl p-12 md:p-16 text-center text-white shadow-soft" data-aos="zoom-in">
-    <h2 class="font-display text-4xl md:text-5xl font-semibold mb-4">Have a date in mind?</h2>
-    <p class="text-lg text-white/85 mb-8">Send us your group size and preferred week — we'll come back with availability and a full quote within 24h.</p>
+    <h2 class="font-display text-4xl md:text-5xl font-semibold mb-4">Ready to book?</h2>
+    <p class="text-lg text-white/85 mb-8">Tell us your dates and group size — we'll send full availability and a tailored quote.</p>
     <div class="flex flex-wrap gap-4 justify-center">
-      <a href="{{ route('booking') }}" class="bg-white text-navy-900 hover:bg-sand-100 px-8 py-4 rounded-full font-semibold transition">Request a booking</a>
-      <a href="{{ route('contact') }}" class="border border-white/40 hover:bg-white/10 px-8 py-4 rounded-full font-semibold transition">Talk to us</a>
+      <a href="{{ route('booking') }}" class="bg-white text-navy-900 hover:bg-sand-100 px-8 py-4 rounded-full font-semibold transition">Book a spot</a>
+      <a href="{{ route('contact') }}" class="border border-white/40 hover:bg-white/10 px-8 py-4 rounded-full font-semibold transition">Get in touch</a>
     </div>
   </div>
 </section>
