@@ -5,9 +5,9 @@
 {{-- ============ HERO SLIDER ============ --}}
 @php
   $heroSlides = [
-    ['img'=>'8L4A8648.jpg','kicker'=>'OCEAN','title'=>'Is the optimum joy','sub'=>'we take you there'],
-    ['img'=>'22.11.26_Aziab_day_one_DSLR_38_edited_phshop.jpg','kicker'=>'DISCOVER','title'=>'Untouched coves & reefs','sub'=>'across three continents'],
-    ['img'=>'IMG_4355.jpg','kicker'=>'ESCAPE','title'=>'Slow down at sea','sub'=>'wake to sunrise on deck'],
+    ['img'=>'8L4A8648.jpg','title'=>'Ocean is the optimum joy.','sub'=>'We take you there.'],
+    ['img'=>'22.11.26_Aziab_day_one_DSLR_38_edited_phshop.jpg','title'=>'Untouched coves &amp; reefs.','sub'=>'Across two continents.'],
+    ['img'=>'IMG_4355.jpg','title'=>'Slow down at sea.','sub'=>'Wake to sunrise on deck.'],
   ];
 @endphp
 
@@ -26,9 +26,8 @@
     <div id="heroContent" class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6 will-change-transform">
       @foreach($heroSlides as $i => $s)
         <div class="hero-text absolute inset-x-0 px-6 transition-opacity duration-1000 {{ $i===0?'opacity-100':'opacity-0' }}">
-          <p class="text-sea-300 tracking-[0.5em] text-sm mb-6" data-aos="fade-down">{{ $s['kicker'] }}</p>
-          <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-semibold leading-[1.05] max-w-5xl mx-auto" data-aos="fade-up">{{ $s['title'] }}</h1>
-          <p class="mt-6 text-lg md:text-2xl text-white/90 font-light max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">{{ $s['sub'] }}</p>
+          <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] max-w-4xl mx-auto" data-aos="fade-up">{!! $s['title'] !!}</h1>
+          <p class="mt-5 text-lg md:text-2xl text-white/85 font-light italic max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">{{ $s['sub'] }}</p>
           @if($i===0)
             <div class="mt-10 flex flex-wrap gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
               <a href="{{ route('booking') }}" class="bg-sea-500 hover:bg-sea-600 px-8 py-4 rounded-full font-semibold shadow-soft transition">Book your trip</a>
