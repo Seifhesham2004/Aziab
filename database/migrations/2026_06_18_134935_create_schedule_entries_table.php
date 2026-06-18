@@ -9,15 +9,16 @@ return new class extends Migration {
     {
         Schema::create('schedule_entries', function (Blueprint $table) {
             $table->id();
-            $table->string('boat');
-            $table->string('region');
-            $table->string('route')->nullable();
+            $table->string('boat', 120);
+            $table->string('region', 20);
+            $table->string('route', 120)->nullable();
             $table->date('start_date');
             $table->date('end_date');
             $table->string('notes')->nullable();
             $table->timestamps();
 
-            $table->index(['region','boat','start_date']);
+            $table->index('region');
+            $table->index('start_date');
         });
     }
 
