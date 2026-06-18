@@ -79,6 +79,7 @@
       <a href="{{ route('greece') }}" class="nav-link {{ $r==='greece'?'active':'' }}">Greece</a>
       <a href="{{ route('excursions') }}" class="nav-link {{ $r==='excursions'?'active':'' }}">Excursions</a>
       <a href="{{ route('prices') }}" class="nav-link {{ $r==='prices'?'active':'' }}">Prices</a>
+      <a href="{{ route('schedule') }}" class="nav-link {{ $r==='schedule'?'active':'' }}">Schedule</a>
       <a href="{{ route('faq') }}" class="nav-link {{ $r==='faq'?'active':'' }}">FAQ</a>
       <a href="{{ route('contact') }}" class="nav-link {{ $r==='contact'?'active':'' }}">Contact</a>
     </nav>
@@ -91,7 +92,7 @@
     </button>
   </div>
   <div id="mobileMenu" class="lg:hidden hidden mt-4 bg-white rounded-xl shadow-soft p-4 space-y-2 text-navy-800">
-    @foreach([['home','Home'],['about','About'],['egypt','Egypt'],['greece','Greece'],['excursions','Extras & Excursions'],['prices','Prices'],['booking','Booking'],['faq','FAQ'],['contact','Contact']] as $l)
+    @foreach([['home','Home'],['about','About'],['egypt','Egypt'],['greece','Greece'],['excursions','Extras & Excursions'],['prices','Prices'],['schedule','Schedule'],['booking','Booking'],['faq','FAQ'],['contact','Contact']] as $l)
       <a href="{{ route($l[0]) }}" class="block py-2 border-b border-slate-100 last:border-0 hover:text-sea-500">{{ $l[1] }}</a>
     @endforeach
   </div>
