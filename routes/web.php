@@ -16,9 +16,11 @@ Route::view('/booking', 'pages.booking')->name('booking');
 Route::view('/faq', 'pages.faq')->name('faq');
 Route::view('/contact', 'pages.contact')->name('contact');
 
+Route::get('/login',  [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.attempt');
+
 Route::prefix('admin')->group(function () {
-    Route::get('/login',  [AuthController::class, 'showLogin'])->name('admin.login');
-    Route::post('/login', [AuthController::class, 'login'])->name('admin.login.attempt');
+    Route::get('/login',  fn() => redirect()->route('login'))->name('admin.login');
 
     Route::middleware('auth')->group(function () {
         Route::post('/logout', [AuthController::class, 'logout'])->name('admin.logout');

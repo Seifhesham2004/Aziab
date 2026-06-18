@@ -14,12 +14,15 @@
 <body class="min-h-screen flex items-center justify-center bg-navy-900 text-white font-sans px-6"
       style="background-image: radial-gradient(circle at 30% 20%, rgba(14,165,233,0.25), transparent 50%), radial-gradient(circle at 70% 80%, rgba(125,211,252,0.18), transparent 55%);">
   <div class="w-full max-w-md">
-    <div class="text-center mb-8">
-      <p class="text-sea-300 tracking-[0.4em] text-xs mb-3">AZIAB SEAFARIS</p>
-      <h1 class="text-3xl font-semibold">Admin sign in</h1>
+    <div class="text-center mb-10">
+      <a href="/" class="inline-block mb-6">
+        <img src="/images/brand/logo-white.png" alt="Aziab Seafaris" class="h-20 w-auto mx-auto">
+      </a>
+      <h1 class="text-2xl md:text-3xl font-semibold">Sign in</h1>
+      <p class="text-white/60 text-sm mt-2">Access the admin panel</p>
     </div>
     <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 shadow-2xl">
-      <form method="POST" action="{{ route('admin.login.attempt') }}" class="space-y-5">
+      <form method="POST" action="{{ route('login.attempt') }}" class="space-y-5">
         @csrf
         <div>
           <label class="block text-xs uppercase tracking-wider text-white/70 mb-2">Phone</label>
