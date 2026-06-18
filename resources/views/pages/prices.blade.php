@@ -289,18 +289,22 @@
       @endphp
 
       @foreach($egyptTerms as $i => $t)
-        <details class="group bg-white/5 backdrop-blur border border-white/10 rounded-2xl overflow-hidden hover:border-sea-400/40 transition">
-          <summary class="flex items-center gap-4 px-6 py-5 cursor-pointer list-none">
+        <div class="accordion bg-white/5 backdrop-blur border border-white/10 rounded-2xl overflow-hidden hover:border-sea-400/40 transition">
+          <button type="button" class="accordion-trigger w-full flex items-center gap-4 px-6 py-5 text-left">
             <div class="w-10 h-10 rounded-full bg-sea-500/20 text-sea-300 flex items-center justify-center shrink-0">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $t['icon'] !!}</svg>
             </div>
             <h3 class="font-display text-lg md:text-xl font-semibold flex-1">{!! $t['title'] !!}</h3>
-            <svg class="w-5 h-5 text-sea-300 transition-transform group-open:rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </summary>
-          <div class="px-6 pb-6 pt-1 pl-20 text-white/80 text-sm leading-relaxed border-t border-white/5">
-            {!! $t['body'] !!}
+            <svg class="accordion-chevron w-5 h-5 text-sea-300 transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="accordion-content grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out">
+            <div class="overflow-hidden">
+              <div class="px-6 pb-6 pt-1 pl-20 text-white/80 text-sm leading-relaxed border-t border-white/5">
+                {!! $t['body'] !!}
+              </div>
+            </div>
           </div>
-        </details>
+        </div>
       @endforeach
     </div>
 
@@ -327,18 +331,22 @@
       @endphp
 
       @foreach($greeceTerms as $i => $t)
-        <details class="group bg-white/5 backdrop-blur border border-white/10 rounded-2xl overflow-hidden hover:border-sea-400/40 transition">
-          <summary class="flex items-center gap-4 px-6 py-5 cursor-pointer list-none">
+        <div class="accordion bg-white/5 backdrop-blur border border-white/10 rounded-2xl overflow-hidden hover:border-sea-400/40 transition">
+          <button type="button" class="accordion-trigger w-full flex items-center gap-4 px-6 py-5 text-left">
             <div class="w-10 h-10 rounded-full bg-sea-500/20 text-sea-300 flex items-center justify-center shrink-0">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $t['icon'] !!}</svg>
             </div>
             <h3 class="font-display text-lg md:text-xl font-semibold flex-1">{!! $t['title'] !!}</h3>
-            <svg class="w-5 h-5 text-sea-300 transition-transform group-open:rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </summary>
-          <div class="px-6 pb-6 pt-1 pl-20 text-white/80 text-sm leading-relaxed border-t border-white/5">
-            {!! $t['body'] !!}
+            <svg class="accordion-chevron w-5 h-5 text-sea-300 transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="accordion-content grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out">
+            <div class="overflow-hidden">
+              <div class="px-6 pb-6 pt-1 pl-20 text-white/80 text-sm leading-relaxed border-t border-white/5">
+                {!! $t['body'] !!}
+              </div>
+            </div>
           </div>
-        </details>
+        </div>
       @endforeach
     </div>
   </div>
@@ -346,6 +354,18 @@
 
 @push('scripts')
 <script>
+  // Animated accordions
+  document.querySelectorAll('.accordion').forEach(acc => {
+    const trigger = acc.querySelector('.accordion-trigger');
+    const content = acc.querySelector('.accordion-content');
+    const chevron = acc.querySelector('.accordion-chevron');
+    trigger.addEventListener('click', () => {
+      const open = acc.classList.toggle('is-open');
+      content.style.gridTemplateRows = open ? '1fr' : '0fr';
+      chevron.style.transform = open ? 'rotate(180deg)' : '';
+    });
+  });
+
   const tabs = document.querySelectorAll('.terms-tab');
   tabs.forEach(t => t.addEventListener('click', () => {
     const which = t.dataset.tab;
