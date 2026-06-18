@@ -4,7 +4,7 @@
 
 {{-- HERO --}}
 <section class="relative h-[55vh] min-h-[400px] overflow-hidden text-white flex items-end">
-  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/general/IMG_4355.jpg')"></div>
+  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/general/22.11.24_Sataya__Malahi_DSLR_43_edited_1.jpg')"></div>
   <div class="absolute inset-0 hero-overlay"></div>
   <div class="relative z-10 max-w-7xl mx-auto w-full px-6 pb-16">
     <p class="text-sea-300 tracking-[0.5em] text-sm mb-6" data-aos="fade-down">SCHEDULE</p>
