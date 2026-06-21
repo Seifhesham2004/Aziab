@@ -26,6 +26,7 @@ class ScheduleController extends Controller
             'start_date' => ['required','date'],
             'end_date'   => ['required','date','after_or_equal:start_date'],
             'notes'      => ['nullable','string','max:255'],
+            'availability' => ['nullable','string','max:60'],
         ]);
 
         ScheduleEntry::create($data);
@@ -41,6 +42,7 @@ class ScheduleController extends Controller
             'start_date' => ['required','date'],
             'end_date'   => ['required','date','after_or_equal:start_date'],
             'notes'      => ['nullable','string','max:255'],
+            'availability' => ['nullable','string','max:60'],
         ]);
 
         $schedule->update($data);

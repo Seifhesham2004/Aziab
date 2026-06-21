@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ScheduleEntry extends Model
 {
-    protected $fillable = ['boat','region','route','start_date','end_date','notes'];
+    protected $fillable = ['boat','region','route','start_date','end_date','notes','availability'];
 
     protected $casts = [
         'start_date' => 'date',

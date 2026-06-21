@@ -60,9 +60,13 @@
                       <div class="overflow-hidden">
                         <ul class="px-6 pb-6 pt-1 border-t border-slate-100 divide-y divide-slate-100">
                           @foreach($entries as $e)
-                            <li class="py-3 flex flex-wrap items-baseline justify-between gap-3">
+                            @php
+                              $isFull = $e->availability && stripos($e->availability,'fully') !== false;
+                              $hasAvail = filled($e->availability);
+                            @endphp
+                            <li class="py-3 flex flex-wrap items-center justify-between gap-3">
                               <div>
-                                <p class="font-display text-lg font-semibold text-navy-900">{{ $e->dateRangeLabel() }}</p>
+                                <p class="font-display text-lg font-semibold {{ $isFull ? 'text-slate-400 line-through' : 'text-navy-900' }}">{{ $e->dateRangeLabel() }}</p>
                                 @if($e->route)
                                   <p class="text-xs uppercase tracking-wider text-sea-500 mt-1">{{ $e->route }}</p>
                                 @endif
@@ -70,7 +74,17 @@
                                   <p class="text-xs text-slate-500 mt-1">{{ $e->notes }}</p>
                                 @endif
                               </div>
-                              <a href="{{ route('booking') }}" class="text-xs uppercase tracking-wider text-sea-500 font-semibold hover:gap-2 inline-flex items-center gap-1 transition-all">Request →</a>
+                              <div class="flex items-center gap-3">
+                                @if($hasAvail)
+                                  <span class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full {{ $isFull ? 'bg-rose-100 text-rose-700' : 'bg-amber-100 text-amber-700' }}">
+                                    <span class="w-1.5 h-1.5 rounded-full {{ $isFull ? 'bg-rose-500' : 'bg-amber-500' }}"></span>
+                                    {{ $e->availability }}
+                                  </span>
+                                @endif
+                                @if(!$isFull)
+                                  <a href="{{ route('booking') }}" class="text-xs uppercase tracking-wider text-sea-500 font-semibold hover:gap-2 inline-flex items-center gap-1 transition-all">Request →</a>
+                                @endif
+                              </div>
                             </li>
                           @endforeach
                         </ul>

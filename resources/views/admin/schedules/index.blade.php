@@ -38,9 +38,19 @@
       <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">End</label>
       <input type="date" name="end_date" required class="w-full rounded-lg border-slate-200">
     </div>
-    <div class="lg:col-span-5">
+    <div class="lg:col-span-3">
       <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Notes (optional)</label>
       <input type="text" name="notes" value="{{ old('notes') }}" class="w-full rounded-lg border-slate-200">
+    </div>
+    <div class="lg:col-span-2">
+      <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Availability</label>
+      <input type="text" name="availability" value="{{ old('availability') }}" list="availability-suggestions" placeholder="e.g. Fully Booked or 6 spots left" class="w-full rounded-lg border-slate-200">
+      <datalist id="availability-suggestions">
+        <option value="Fully Booked">
+        <option value="2 spots left">
+        <option value="4 spots left">
+        <option value="6 spots left">
+      </datalist>
     </div>
     <div class="lg:col-span-1 flex items-end">
       <button class="w-full bg-navy-900 text-white rounded-lg py-2.5 font-semibold hover:bg-navy-800 transition">Add</button>
@@ -59,6 +69,7 @@
         <th class="text-left px-4 py-3">Start</th>
         <th class="text-left px-4 py-3">End</th>
         <th class="text-left px-4 py-3">Notes</th>
+        <th class="text-left px-4 py-3">Availability</th>
         <th class="px-4 py-3"></th>
       </tr>
     </thead>
@@ -79,6 +90,7 @@
             <td class="px-4 py-2"><input type="date" name="start_date" value="{{ $e->start_date->format('Y-m-d') }}" class="w-full text-xs rounded border-slate-200"></td>
             <td class="px-4 py-2"><input type="date" name="end_date" value="{{ $e->end_date->format('Y-m-d') }}" class="w-full text-xs rounded border-slate-200"></td>
             <td class="px-4 py-2"><input type="text" name="notes" value="{{ $e->notes }}" class="w-full text-xs rounded border-slate-200"></td>
+            <td class="px-4 py-2"><input type="text" name="availability" value="{{ $e->availability }}" list="availability-suggestions" placeholder="—" class="w-full text-xs rounded border-slate-200"></td>
             <td class="px-4 py-2 whitespace-nowrap text-right">
               <button class="text-xs bg-sea-500 hover:bg-sea-600 text-white rounded px-3 py-1.5 font-semibold transition">Save</button>
           </form>
@@ -90,7 +102,7 @@
             </td>
         </tr>
       @empty
-        <tr><td colspan="7" class="text-center text-slate-500 py-12">No schedule entries yet. Add one above.</td></tr>
+        <tr><td colspan="8" class="text-center text-slate-500 py-12">No schedule entries yet. Add one above.</td></tr>
       @endforelse
     </tbody>
   </table>
