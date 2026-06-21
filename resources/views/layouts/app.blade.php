@@ -77,7 +77,7 @@
       <a href="{{ route('about') }}" class="nav-link {{ $r==='about'?'active':'' }}">About</a>
       <a href="{{ route('egypt') }}" class="nav-link {{ $r==='egypt'?'active':'' }}">Egypt</a>
       <a href="{{ route('greece') }}" class="nav-link {{ $r==='greece'?'active':'' }}">Greece</a>
-      <a href="{{ route('excursions') }}" class="nav-link {{ $r==='excursions'?'active':'' }}">Excursions</a>
+      <a href="{{ route('excursions') }}" class="nav-link {{ $r==='excursions'?'active':'' }}">Extras &amp; Excursions</a>
       <a href="{{ route('prices') }}" class="nav-link {{ $r==='prices'?'active':'' }}">Prices</a>
       <a href="{{ route('schedule') }}" class="nav-link {{ $r==='schedule'?'active':'' }}">Schedule</a>
       <a href="{{ route('faq') }}" class="nav-link {{ $r==='faq'?'active':'' }}">FAQ</a>
@@ -114,7 +114,7 @@
       <ul class="space-y-2 text-sm">
         <li><a href="{{ route('egypt') }}" class="hover:text-sea-400">Egypt</a></li>
         <li><a href="{{ route('greece') }}" class="hover:text-sea-400">Greece</a></li>
-        <li><a href="{{ route('excursions') }}" class="hover:text-sea-400">Excursions</a></li>
+        <li><a href="{{ route('excursions') }}" class="hover:text-sea-400">Extras &amp; Excursions</a></li>
         <li><a href="{{ route('about') }}" class="hover:text-sea-400">About Us</a></li>
       </ul>
     </div>
