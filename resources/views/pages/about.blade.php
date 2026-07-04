@@ -105,12 +105,14 @@
           'name' => 'Omar Sherif',
           'role' => 'Founder',
           'img'  => 'Omar_Sherif.jpg',
+          'pos'  => 'center 15%',
           'bio'  => 'Omar is a professional sailor and certified Dive Master who transformed a lifelong passion for the ocean into a distinctive sailing experience brand. After years of sailing on large liveaboards with more than 25 guests, he envisioned a different kind of experience in Egypt — one designed for smaller groups, where guests can disconnect from the distractions of everyday life and reconnect with themselves, nature, and one another. On every trip operated by Aziab Seafaris, he ensures that guests don\'t just see the beauty of the Red Sea — they actually feel it, live it, and become part of it.',
         ],
         [
           'name' => 'Yousra Gamea',
           'role' => 'Operations Manager',
           'img'  => 'Yousra_Gamea.jpg',
+          'pos'  => 'center 15%',
           'bio'  => 'Yousra is the powerhouse behind the day-to-day operations of Aziab Seafaris — managing bookings, guest relations, trip coordination, finances, and making sure every experience runs smoothly from the first inquiry to the final sunset onboard.',
         ],
         [
