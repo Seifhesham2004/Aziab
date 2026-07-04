@@ -4,7 +4,7 @@
 
 {{-- HERO --}}
 <section class="relative h-[85vh] min-h-[600px] overflow-hidden text-white flex items-center">
-  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/greece/Greece_5.jpg')"></div>
+  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/greece/Greece_10.jpg')"></div>
   <div class="absolute inset-0 hero-overlay"></div>
   <div class="relative z-10 max-w-5xl mx-auto w-full px-6 text-center">
     <p class="text-sea-300 tracking-[0.5em] text-sm mb-6" data-aos="fade-down">GREECE · AEGEAN &amp; IONIAN</p>

@@ -138,14 +138,14 @@
         ],
         [
           'title'   => 'Astro Tour',
-          'img'     => '1f78f1c65cab906606da9667dd2c01e9.jpg',
+          'img'     => '227a07ab0541090bfbeac2bf3fd1a08d.jpg',
           'lede'    => "Stargazing in the Eastern Desert — undisturbed by noise or light. Under the crystal-clear night sky, we'll guide you through the constellations with a special Astro laser, telescope, and binoculars.",
           'pricing' => [
             ['Group of 4','€65 / person'],
             ['Group of 4+','€60 / person'],
           ],
           'includes' => [
-            'Transfer from / to the hotel by 4x4',
+            'Transfer from / to the hotel by 4x4 (only Marsa Alam hotels)',
             'Astro tour with laser &amp; professional telescope',
             'Tea &amp; water',
           ],
@@ -153,8 +153,8 @@
         ],
         [
           'title'   => 'Turtles &amp; Dugongs Excursion',
-          'img'     => '227a07ab0541090bfbeac2bf3fd1a08d.jpg',
-          'lede'    => "A speedboat day from Marsa Alam to the Abu Dabab area — with a 95% chance of encountering huge sea turtles and 80% chance of meeting the dugong, alongside a professional guide.",
+          'img'     => '1f78f1c65cab906606da9667dd2c01e9.jpg',
+          'lede'    => "A speedboat day from Marsa Alam to the Abu Dabab area or Hermes — both renowned for their lush seagrass meadows that provide a natural habitat for turtles and dugong.",
           'pricing' => [
             ['Group of 4','€65 / person'],
             ['Group of 4+','€60 / person'],
@@ -172,9 +172,9 @@
           'img'     => '3b9ea7564bf56552bcbe01df7701fd42.jpg',
           'lede'    => "Two of Marsa Alam's most stunning beaches in one day. Sharm El Luli — ranked the 3rd most beautiful beach in the world — followed by Qulaan, where Al Ababda tribal women welcome you with handmade crafts, tea and coffee boiled on coal in a tent on the beach.",
           'pricing' => [
-            ['Group of 3','€70 / person'],
-            ['Group of 4','€65 / person'],
-            ['Group of 4+','€55 / person'],
+            ['Group of 3','€75 / person'],
+            ['Group of 4','€70 / person'],
+            ['Group of 4+','€65 / person'],
           ],
           'includes' => [
             'A/C vehicle transfer from / to the hotel',
@@ -190,8 +190,8 @@
 
     <div class="space-y-12">
       @foreach($excursions as $idx => $e)
-        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover grid lg:grid-cols-[1.1fr,1fr]" data-aos="fade-up">
-          <div class="img-zoom aspect-[4/3] lg:aspect-auto overflow-hidden {{ $idx%2 ? 'lg:order-2' : '' }}">
+        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover grid lg:grid-cols-[0.7fr,1fr]" data-aos="fade-up">
+          <div class="img-zoom aspect-[4/3] lg:aspect-auto lg:max-h-[420px] overflow-hidden {{ $idx%2 ? 'lg:order-2' : '' }}">
             <img src="/images/excursions/{{ $e['img'] }}" loading="lazy" class="w-full h-full object-cover" alt="{{ strip_tags($e['title']) }}">
           </div>
           <div class="p-8 lg:p-10">

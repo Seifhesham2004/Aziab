@@ -31,7 +31,7 @@
     <div class="text-center mb-14" data-aos="fade-up">
       <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Red Sea · Egypt</p>
       <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">Egypt prices.</h2>
-      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">All prices in Euro. Marina entrance and marine park tickets are paid per person upon arrival.</p>
+      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">All prices in Euro.</p>
     </div>
 
     @php
@@ -39,23 +39,23 @@
         [
           'name'    => 'Sailboat Beneteau Cyclades 50.5',
           'cap'     => 'Maximum capacity 8 guests',
-          'img'     => 'egypt-roga/65aa4168784e9459d407dde6.jpeg',
+          'img'     => 'egypt-roga/beneteau-cyclades-50.5-huge-338621a5711958dc.jpg',
           'rows'    => [
-            ['6 days · Private charter', '€5,200', '+€300 / person on arrival'],
-            ['4 days · Private charter', '€3,150', '+€200 / person on arrival'],
-            ['6 days · Per person',      '€700',   '+€300 / person on arrival'],
-            ['4 days · Per person',      '€450',   '+€200 / person on arrival'],
+            ['6 days · Private charter', '€5,200', '+€300 per person upon arrival for marina entrance and marine park tickets'],
+            ['4 days · Private charter', '€3,150', '+€200 per person upon arrival for marina entrance and marine park tickets'],
+            ['6 days · Per person',      '€700',   '+€300 per person upon arrival for marina entrance and marine park tickets'],
+            ['4 days · Per person',      '€450',   '+€200 per person upon arrival for marina entrance and marine park tickets'],
           ],
         ],
         [
           'name'    => 'Catamaran Bali 40',
           'cap'     => 'Maximum capacity 8 guests',
-          'img'     => 'egypt-bali/bali-40-nea-36.jpg',
+          'img'     => 'egypt-bali/bali-40-nea-38.jpg',
           'rows'    => [
-            ['6 days · Private charter', '€6,800', '+€300 / person on arrival'],
-            ['4 days · Private charter', '€4,500', '+€200 / person on arrival'],
-            ['6 days · Per person',      '€900',   '+€300 / person on arrival'],
-            ['4 days · Per person',      '€600',   '+€200 / person on arrival'],
+            ['6 days · Private charter', '€6,800', '+€300 per person upon arrival for marina entrance and marine park tickets'],
+            ['4 days · Private charter', '€4,500', '+€200 per person upon arrival for marina entrance and marine park tickets'],
+            ['6 days · Per person',      '€900',   '+€300 per person upon arrival for marina entrance and marine park tickets'],
+            ['4 days · Per person',      '€600',   '+€200 per person upon arrival for marina entrance and marine park tickets'],
           ],
         ],
       ];
@@ -94,6 +94,12 @@
       <div class="bg-sand-50 rounded-2xl p-6 border-l-4 border-sea-400">
         <p class="text-sm text-slate-700 leading-relaxed"><strong>Specialised trips:</strong> prices increase for selective trips with freediving / yoga instructors onboard or a specific workshop.</p>
       </div>
+      <div class="bg-sand-50 rounded-2xl p-6 border-l-4 border-sea-400">
+        <p class="text-sm text-slate-700 leading-relaxed"><strong>Private cabin (single supplement):</strong> price is 1.35× the standard per-person rate.</p>
+      </div>
+      <div class="bg-sand-50 rounded-2xl p-6 border-l-4 border-sea-400">
+        <p class="text-sm text-slate-700 leading-relaxed"><strong>Marina &amp; park fees:</strong> collected by the local authorities. Should these fees change, we will notify you before your trip. Any adjustments are typically minimal, if they occur at all.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -107,9 +113,9 @@
       <p class="text-slate-600 mt-4 max-w-2xl mx-auto">8 days / 7 nights · available from 4 to 12 guests.</p>
     </div>
 
-    <div class="grid lg:grid-cols-[1.2fr,1fr] gap-8">
+    <div class="grid md:grid-cols-2 gap-8">
       <div class="bg-white rounded-3xl overflow-hidden shadow-soft" data-aos="fade-up">
-        <div class="img-zoom aspect-[16/9] overflow-hidden">
+        <div class="img-zoom aspect-[16/10] overflow-hidden">
           <img src="/images/greece/Greece_5.jpg" loading="lazy" class="w-full h-full object-cover" alt="Sailing in Greece">
         </div>
         <div class="p-8">
@@ -119,7 +125,10 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-3xl overflow-hidden shadow-soft flex flex-col justify-center" data-aos="fade-up" data-aos-delay="120">
+      <div class="bg-white rounded-3xl overflow-hidden shadow-soft" data-aos="fade-up" data-aos-delay="120">
+        <div class="img-zoom aspect-[16/10] overflow-hidden">
+          <img src="/images/greece/Greece_11.jpg" loading="lazy" class="w-full h-full object-cover" alt="Cabin on Greek yacht">
+        </div>
         <div class="p-8">
           <p class="text-xs uppercase tracking-[0.25em] text-sea-500 font-semibold mb-2">8 days · Per person</p>
           <h3 class="font-display text-3xl font-semibold text-navy-900 mb-3">€1,550</h3>

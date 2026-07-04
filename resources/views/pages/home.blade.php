@@ -5,7 +5,7 @@
 {{-- ============ HERO SLIDER ============ --}}
 @php
   $heroSlides = [
-    ['img'=>'8L4A8648.jpg','title'=>'Ocean is the optimum joy.','sub'=>'We take you there.'],
+    ['img'=>'8L4A8648.jpg','title'=>'Fully Serviced Sailing Liveaboards','sub'=>'Across the Red Sea &amp; Greece.'],
     ['img'=>'22.11.26_Aziab_day_one_DSLR_38_edited_phshop.jpg','title'=>'Untouched coves &amp; reefs.','sub'=>'Across two continents.'],
     ['img'=>'IMG_4355.jpg','title'=>'Slow down at sea.','sub'=>'Wake to sunrise on deck.'],
   ];
@@ -58,7 +58,7 @@
 
 {{-- Sub-bar --}}
 <div class="bg-navy-800 text-white py-4 text-center font-medium tracking-wider text-sm md:text-base">
-  Sailing expeditions over <span class="text-sea-300">2 continents</span> — Egypt &amp; Greece
+  Sailing expeditions in <span class="text-sea-300">Egypt &amp; Greece</span>
 </div>
 
 {{-- ============ BRIEF / INTRO ============ --}}
@@ -157,11 +157,13 @@
       <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Guest stories</p>
       <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">Voices from the deck</h2>
     </div>
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       @foreach([
         ['name'=>'Lina · Berlin','quote'=>'The most peaceful week of my year. We sailed to islands without a single other boat in sight.','trip'=>'Cyclades, 7 nights'],
         ['name'=>'Marco · Milan','quote'=>'Aziab feels like sailing with old friends. The crew, the food, the music — every detail thought through.','trip'=>'Red Sea, 5 nights'],
-        ['name'=>'Yara · Cairo','quote'=>'I came alone, left with a whole new circle. The vibe on board is something special.','trip'=>'Hurghada to Sataya'],
+        ['name'=>'Yara · Cairo','quote'=>'I came alone, left with a whole new circle. The vibe on board is something special.','trip'=>'Red Sea, 5 nights'],
+        ['name'=>'Laura','quote'=>'Encountering a pod of over 100 dolphins is a once-in-a-lifetime experience. Watching them surround you and play alongside you is truly magical.','trip'=>'Red Sea, 5 nights'],
+        ['name'=>'Anna','quote'=>'A heartfelt thank you to Sara and Mahmoud, who shared their incredible knowledge of dolphin behavior and made this experience truly magical.','trip'=>'Red Sea, 5 nights'],
       ] as $i => $t)
         <div class="bg-white rounded-3xl p-8 shadow-soft card-hover" data-aos="fade-up" data-aos-delay="{{ $i*120 }}">
           <svg class="w-10 h-10 text-sea-400 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7.17 6C4.32 6 2 8.32 2 11.17V18h6.83v-6.83H5.5c0-1.84 1.5-3.34 3.34-3.34V6H7.17zM18.17 6c-2.85 0-5.17 2.32-5.17 5.17V18h6.83v-6.83H16.5c0-1.84 1.5-3.34 3.34-3.34V6h-1.67z"/></svg>

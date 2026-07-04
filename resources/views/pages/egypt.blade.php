@@ -4,13 +4,13 @@
 
 {{-- HERO --}}
 <section class="relative h-[80vh] min-h-[560px] overflow-hidden text-white flex items-end">
-  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/egypt-bali/bali-40-nea-36.jpg')"></div>
+  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/general/22.11.24_Sataya__Malahi_DSLR_112_edited_1.jpg')"></div>
   <div class="absolute inset-0 hero-overlay"></div>
   <div class="relative z-10 max-w-7xl mx-auto w-full px-6 pb-20">
     <p class="text-sea-300 tracking-[0.5em] text-sm mb-6" data-aos="fade-down">EGYPT · RED SEA</p>
     <h1 class="font-display text-5xl md:text-8xl font-semibold leading-[1.05] max-w-4xl" data-aos="fade-up">Our base.<br>Our speciality.</h1>
     <p class="mt-6 text-lg md:text-xl text-white/85 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
-      Sailing charters across the Red Sea — year-round, with our own licensed fleet and the crew that's done this longer than anyone in Egypt.
+      Sailing charters across the Red Sea — year-round.
     </p>
   </div>
 </section>
@@ -20,10 +20,10 @@
   <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
     <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Why the Red Sea</p>
     <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900 mb-6 leading-tight">
-      Year-round sailing. Water at <span class="text-sea-500">22–30°C</span>. Reefs nobody else can reach.
+      Year-round sailing. Water at <span class="text-sea-500">22–30°C</span>.
     </h2>
     <p class="text-slate-600 text-lg leading-relaxed">
-      An Aziab Red Sea trip is around <strong>50 nautical miles</strong> and 6–8 hours of actual sailing across the week — the rest of the time we're moored at protected reefs, swimming, eating, doing nothing. It's deliberately relaxed.
+      The Red Sea offers some of the world's most exceptional sailing experiences — crystal-clear waters, vibrant coral reefs, year-round sunshine, steady winds, and secluded islands that remain untouched and uncrowded. It is a place where adventure, nature, and complete tranquility come together.
     </p>
   </div>
 </section>
@@ -43,7 +43,7 @@
           'name'    => 'Sailboat Beneteau Cyclades 50.5',
           'tag'     => 'Sailboat',
           'kicker'  => 'SY Roaga',
-          'desc'    => 'A classic monohull built for blue water. Heels gracefully into the wind, sleeps eight in four cabins (a fifth on request), with two ensuite + one shared bathroom.',
+          'desc'    => 'A classic monohull built for blue water. Heels gracefully into the wind, sleeps eight in four cabins with two ensuite + one shared bathroom.',
           'images'  => [
             'egypt-roga/65aa4168784e9459d407dde6.jpeg',
             'egypt-roga/beneteau-cyclades-50.5-huge-338621a5711958dc.jpg',
@@ -54,10 +54,10 @@
             'egypt-roga/IMG-1038.jpg',
           ],
           'specs'   => [
-            ['Cabins','4 (+1)'],
-            ['Guests','6–8 (max 10)'],
-            ['Power','2 × 120W solar'],
-            ['Watermaker','150 L / hr'],
+            ['Cabins','4'],
+            ['Guests','8'],
+            ['Solar','2 × 460 W'],
+            ['Fresh water','1000 L + watermaker onboard'],
           ],
         ],
         [
@@ -77,19 +77,19 @@
           ],
           'specs'   => [
             ['Cabins','4 guest + 2 crew'],
-            ['Bathrooms','4 + crew'],
-            ['Engines','2 × 35 hp Yanmar'],
-            ['Fresh water','700 L'],
+            ['Bathrooms','4'],
+            ['Engines','2 × 40 hp'],
+            ['Fresh water','700 L + watermaker onboard'],
           ],
         ],
       ];
     @endphp
 
-    <div class="space-y-12">
+    <div class="grid lg:grid-cols-2 gap-8">
       @foreach($fleet as $idx => $b)
-        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover" data-aos="fade-up">
+        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover flex flex-col" data-aos="fade-up" data-aos-delay="{{ $idx*120 }}">
           {{-- Carousel --}}
-          <div class="carousel relative aspect-[16/9] overflow-hidden" data-carousel>
+          <div class="carousel relative aspect-[4/3] overflow-hidden" data-carousel>
             @foreach($b['images'] as $i => $img)
               <div class="carousel-slide absolute inset-0 transition-opacity duration-700 {{ $i===0?'opacity-100':'opacity-0' }}">
                 <img src="/images/{{ $img }}" loading="lazy" class="w-full h-full object-cover" alt="{{ $b['name'] }}">
@@ -111,19 +111,19 @@
             </div>
           </div>
 
-          <div class="p-8 lg:p-10">
-            <p class="text-sm text-sea-500 uppercase tracking-wider mb-2">{{ $b['kicker'] }}</p>
-            <h3 class="font-display text-3xl md:text-4xl font-semibold text-navy-900 mb-4">{{ $b['name'] }}</h3>
-            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">{{ $b['desc'] }}</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 text-sm">
+          <div class="p-7 lg:p-8 flex-1 flex flex-col">
+            <p class="text-xs text-sea-500 uppercase tracking-wider mb-2">{{ $b['kicker'] }}</p>
+            <h3 class="font-display text-2xl md:text-3xl font-semibold text-navy-900 mb-3">{{ $b['name'] }}</h3>
+            <p class="text-slate-600 leading-relaxed mb-5 text-sm">{{ $b['desc'] }}</p>
+            <div class="grid grid-cols-2 gap-3 mb-6 text-sm">
               @foreach($b['specs'] as $s)
                 <div class="border-l-2 border-sea-400 pl-3">
-                  <p class="text-xs uppercase tracking-wider text-slate-500">{{ $s[0] }}</p>
-                  <p class="font-display text-lg font-semibold text-navy-900">{{ $s[1] }}</p>
+                  <p class="text-[11px] uppercase tracking-wider text-slate-500">{{ $s[0] }}</p>
+                  <p class="font-display text-base font-semibold text-navy-900 leading-snug">{{ $s[1] }}</p>
                 </div>
               @endforeach
             </div>
-            <a href="{{ route('booking') }}" class="inline-flex items-center gap-2 text-sea-500 font-semibold hover:gap-3 transition-all">Book this yacht →</a>
+            <a href="{{ route('booking') }}" class="mt-auto inline-flex items-center gap-2 text-sea-500 font-semibold hover:gap-3 transition-all">Book this yacht →</a>
           </div>
         </div>
       @endforeach
@@ -223,7 +223,7 @@
     <div class="text-center mb-14" data-aos="fade-up">
       <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Activities</p>
       <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">A journey shaped around you.</h2>
-      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Choose from a range of activities designed around your interests and pace. Join us for:</p>
+      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Choose from a range of activities designed around your interests and pace. Join us for freediving adventures, kitesurfing safaris, yoga and meditation sessions, hands-on sailing and nautical miles build-up, or snorkeling &amp; leisure.</p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
       @foreach([

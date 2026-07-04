@@ -4,7 +4,7 @@
 
 {{-- HERO --}}
 <section class="relative h-[70vh] min-h-[480px] overflow-hidden text-white flex items-center">
-  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/general/8L4A8021.jpg')"></div>
+  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/general/22.11.26_Aziab_day_one_DSLR_38_edited_phshop.jpg')"></div>
   <div class="absolute inset-0 hero-overlay"></div>
   <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
     <p class="text-sea-300 tracking-[0.5em] text-sm mb-6" data-aos="fade-down">ABOUT AZIAB</p>
@@ -30,7 +30,7 @@
 <section class="py-24 px-6 lg:px-12">
   <div class="max-w-7xl mx-auto grid lg:grid-cols-5 gap-12 items-center">
     <div class="lg:col-span-2 img-zoom rounded-3xl overflow-hidden shadow-soft" data-aos="fade-right">
-      <img src="/images/general/IMG_3851.jpg" class="w-full h-[560px] object-cover" alt="">
+      <img src="/images/general/8L4A8021.jpg" class="w-full h-[560px] object-cover" alt="">
     </div>
     <div class="lg:col-span-3" data-aos="fade-left">
       <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Who we are</p>
@@ -79,7 +79,7 @@
     <div class="grid md:grid-cols-3 gap-8">
       @foreach([
         ['Small groups','We cap every trip so each guest gets the attention — and the space — they deserve.'],
-        ['Slow travel','No checklist. We follow the wind, the weather and the moods of the people onboard.'],
+        ['Slow travel','Each journey is built around a carefully curated itinerary, with personalized touches that reflect your interests and the day\'s conditions.'],
         ['Extraordinary locations','Where you can encounter 100+ dolphins, and visit some of the most vibrant reefs around the world.'],
       ] as $i => $v)
         <div class="bg-white rounded-3xl p-8 shadow-soft card-hover" data-aos="fade-up" data-aos-delay="{{ $i*120 }}">
@@ -105,17 +105,17 @@
           'name' => 'Omar Sherif',
           'role' => 'Founder',
           'img'  => 'Omar_Sherif.jpg',
-          'bio'  => 'Omar is a professional sailor and certified Dive Master who transformed a lifelong passion for the ocean into a distinctive sailing experience brand. He built a concept where guests can truly disconnect from the noise of everyday life and reconnect with themselves, with nature, and with each other. On every trip operated by Aziab Seafaris, he ensures that guests don\'t just see the beauty of the Red Sea — they actually feel it, live it, and become part of it.',
+          'bio'  => 'Omar is a professional sailor and certified Dive Master who transformed a lifelong passion for the ocean into a distinctive sailing experience brand. After years of sailing on large liveaboards with more than 25 guests, he envisioned a different kind of experience in Egypt — one designed for smaller groups, where guests can disconnect from the distractions of everyday life and reconnect with themselves, nature, and one another. On every trip operated by Aziab Seafaris, he ensures that guests don\'t just see the beauty of the Red Sea — they actually feel it, live it, and become part of it.',
         ],
         [
           'name' => 'Yousra Gamea',
-          'role' => 'Operations',
+          'role' => 'Operations Manager',
           'img'  => 'Yousra_Gamea.jpg',
           'bio'  => 'Yousra is the powerhouse behind the day-to-day operations of Aziab Seafaris — managing bookings, guest relations, trip coordination, finances, and making sure every experience runs smoothly from the first inquiry to the final sunset onboard.',
         ],
         [
           'name' => 'Hesham Saqr',
-          'role' => 'Logistics',
+          'role' => 'Logistics Manager',
           'img'  => 'Hesham_Saqr.jpg',
           'pos'  => '85% center',
           'bio'  => 'Hesham is the logistics mastermind behind Aziab Seafaris — the person making sure every trip is fully prepared, fully stocked, and fully ready before setting sail. From trip preparations and provisioning to technical coordination and onboard logistics, Hesham handles the countless behind-the-scenes details that keep every experience running smoothly and stress-free.',

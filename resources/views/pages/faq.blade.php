@@ -4,29 +4,47 @@
 
 @php
   $groups = [
-    'Planning' => [
-      ['q'=>'Do I need sailing experience?',
-       'a'=>"Not at all. Every Aziab trip is led by a licensed skipper and crew. You can help hoist the sails, take the wheel for a tack, or simply lie back with a book and a cold drink. Whatever pace suits you."],
-      ['q'=>'What happens if the weather turns?',
-       'a'=>"Safety first, always. Our skippers may adjust the route to find calmer anchorages or stay in port for the day. We never sail through unsafe conditions — and the boat is just as much fun moored in a quiet bay."],
-      ['q'=>'How fit do I need to be?',
-       'a'=>"Reasonably mobile is enough. You'll need to climb a small boarding ladder, walk on a moving deck, and get in and out of the water. Nothing more demanding than that."],
+    'The experience' => [
+      ['q'=>'What do we offer?',
+       'a'=>"We take our guests on 3 or 6-night sailing expeditions to the most beautiful locations in the Red Sea, and 7-night journeys in Greece."],
+      ['q'=>'Is it a rough sailing experience?',
+       'a'=>"No. All our mooring locations are carefully selected and sheltered from wind and waves, typically in calm lagoons or near protected islands."],
+      ['q'=>'How many guests do the boats accommodate?',
+       'a'=>"In Egypt, our sailboats and catamarans accommodate up to 8 guests. In Greece, our sailboats host between 4 and 12 guests, depending on the vessel."],
+      ['q'=>'Who will I be sailing with?',
+       'a'=>"This experience is designed for sea lovers and adventure seekers. Our guests are typically open-minded travellers looking to disconnect, explore, connect with nature, and enjoy meaningful experiences at sea."],
+      ['q'=>'Is it family friendly?',
+       'a'=>"Yes, our trips are family friendly. Children especially enjoy the marine life, and our guides are experienced in snorkelling with kids. We also provide onboard games for younger guests."],
     ],
-    'Money matters' => [
-      ['q'=>"What's included in the price?",
-       'a'=>"The yacht, skipper and crew, fuel for normal sailing, marina &amp; marine-park fees, breakfast and most lunches on board, linen, towels and snorkeling gear on request. Not included: flights, transfers, dinners ashore, alcohol, and optional add-ons like diving or kite."],
+    'Booking' => [
+      ['q'=>'Can I book individually or do I need to charter the whole boat?',
+       'a'=>"Both options are available. You can join as an individual or charter the full boat. Please check availability or contact us for details."],
+      ['q'=>'Can I book a private cabin?',
+       'a'=>"Yes. Private cabin bookings are available at 1.35× the standard price. Marina entrance and marine park fees remain unchanged as they are charged per person."],
+      ['q'=>'Can I book a bareboat charter?',
+       'a'=>"Bareboat sailing is not permitted under Egyptian law. All trips include a certified professional captain."],
+      ['q'=>'Payments &amp; cancellations?',
+       'a'=>"To confirm your booking, a deposit of 25%–50% is required depending on the timing of your reservation. The remaining balance is due 45 days before departure."],
       ['q'=>'Cancellation policy?',
-       'a'=>"See the full cancellation tiers on our <a href=\"/prices#terms\" class=\"text-sea-500 hover:underline font-semibold\">Prices &amp; Terms</a> page. In short — the earlier you cancel, the less you forfeit."],
+       'a'=>"Please refer to our <a href=\"/prices#terms\" class=\"text-sea-500 hover:underline font-semibold\">Prices &amp; Terms</a> page for full details. In general, the earlier you cancel, the lower the cancellation fee."],
     ],
-    'On board' => [
-      ['q'=>'Can I book just one cabin?',
-       'a'=>"Yes. Many of our expeditions are sold cabin-by-cabin. You'll join a small group of like-minded travellers and the crew will make sure the chemistry works. Solo travellers can also book a shared cabin at a reduced rate."],
-      ['q'=>'Is it family-friendly?',
-       'a'=>"Absolutely. Our catamarans are wide, stable and ideal for kids. We can arrange family-only sailings, kid-friendly snorkeling routes, and on-board games. Tell us their ages and we'll plan around them."],
+    'Onboard' => [
+      ['q'=>'Are the boats fully serviced?',
+       'a'=>"Yes. This is a hassle-free experience with a captain, chef, and professional guide onboard every trip."],
+      ['q'=>'Do you provide bedding?',
+       'a'=>"Yes, we provide bed linen, cushions, and blankets."],
+      ['q'=>'What should I bring?',
+       'a'=>"We recommend a small bag with light clothing, swimwear, two towels, toiletries, sunglasses, sunscreen, a camera (optional), and phone chargers. We are barefoot onboard, so shoes or slippers are not necessary."],
     ],
-    'Wellbeing' => [
-      ['q'=>'What about food allergies and dietary needs?',
-       'a'=>"Tell us in advance and our cook will tailor the menu — vegan, gluten-free, halal, kosher, low-FODMAP, no problem. We provision locally and adapt the menu day-by-day."],
+    'Food' => [
+      ['q'=>'What about the food?',
+       'a'=>"We serve three daily meals onboard, along with snacks, fresh fruit, juices, soft drinks, tea, and coffee. We can accommodate dietary requirements such as vegan, vegetarian, gluten-free, lactose-free, and allergies if informed in advance."],
+      ['q'=>'What is the food like onboard?',
+       'a'=>"Breakfast includes items such as eggs, beans, cheese, vegetables, yogurt, oats, honey, Nutella, peanut butter, jam, and bread. Lunch is typically light, featuring salads, pasta, or savoury pies. Dinner includes a main carbohydrate (rice or pasta), a protein option (fish, chicken, or meat), along with salads and appetizers. All meals are freshly prepared onboard by our chef."],
+    ],
+    'Weather' => [
+      ['q'=>'What happens if it\'s too windy?',
+       'a'=>"In Egypt, the weather is generally favorable year-round, with light to moderate winds. In rare cases of strong winds, if the authorities close the sea, guests are welcome to stay onboard the boat until conditions improve — or alternatively receive a partial refund for the affected days and arrange accommodation at a nearby hotel."],
     ],
   ];
 @endphp
