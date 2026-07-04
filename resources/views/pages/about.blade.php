@@ -105,7 +105,7 @@
           'name' => 'Omar Sherif',
           'role' => 'Founder',
           'img'  => 'Omar_Sherif.jpg',
-          'pos'  => 'center 15%',
+          'pos'  => 'center 30%',
           'bio'  => 'Omar is a professional sailor and certified Dive Master who transformed a lifelong passion for the ocean into a distinctive sailing experience brand. After years of sailing on large liveaboards with more than 25 guests, he envisioned a different kind of experience in Egypt — one designed for smaller groups, where guests can disconnect from the distractions of everyday life and reconnect with themselves, nature, and one another. On every trip operated by Aziab Seafaris, he ensures that guests don\'t just see the beauty of the Red Sea — they actually feel it, live it, and become part of it.',
         ],
         [
