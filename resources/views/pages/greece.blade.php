@@ -121,8 +121,8 @@
     <div class="grid lg:grid-cols-2 gap-10">
       {{-- Corfu / Ionian --}}
       <div class="bg-white/5 backdrop-blur border border-white/10 rounded-3xl overflow-hidden" data-aos="fade-up">
-        <div class="img-zoom aspect-[16/9] overflow-hidden">
-          <img src="/images/greece/Greece_8.jpg" loading="lazy" class="w-full h-full object-cover" style="object-position: center 0%;" alt="Ionian Sea">
+        <div class="img-zoom aspect-[4/3] overflow-hidden">
+          <img src="/images/greece/Greece_8.jpg" loading="lazy" class="w-full h-full object-cover" alt="Ionian Sea">
         </div>
         <div class="p-8">
           <p class="text-sea-300 uppercase tracking-[0.25em] text-xs font-semibold mb-2">Itinerary 1</p>
@@ -141,8 +141,8 @@
 
       {{-- Cyclades --}}
       <div class="bg-white/5 backdrop-blur border border-white/10 rounded-3xl overflow-hidden" data-aos="fade-up" data-aos-delay="150">
-        <div class="img-zoom aspect-[16/9] overflow-hidden">
-          <img src="/images/greece/Greece_2.jpg" loading="lazy" class="w-full h-full object-cover" style="object-position: center 0%;" alt="Cyclades">
+        <div class="img-zoom aspect-[4/3] overflow-hidden">
+          <img src="/images/greece/Greece_2.jpg" loading="lazy" class="w-full h-full object-cover" alt="Cyclades">
         </div>
         <div class="p-8">
           <p class="text-sea-300 uppercase tracking-[0.25em] text-xs font-semibold mb-2">Itinerary 2</p>
