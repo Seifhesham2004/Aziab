@@ -61,6 +61,14 @@
   .site-header.scrolled #menuBtn { color:#0f2138; }
   .site-header.scrolled .logo-default { opacity: 0; }
   .site-header.scrolled .logo-scrolled { opacity: 1; }
+  /* Dropdown menu */
+  .nav-dd { position:relative; }
+  .nav-dd > .nav-dd-menu { position:absolute; top:100%; left:50%; transform: translateX(-50%) translateY(6px); min-width: 220px; opacity:0; visibility:hidden; transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s; background:#fff; color:#0f2138; border-radius:14px; box-shadow: 0 20px 40px -12px rgba(15,33,56,.25); padding: 8px 0; z-index: 60; margin-top: 12px; }
+  .nav-dd:hover > .nav-dd-menu, .nav-dd:focus-within > .nav-dd-menu { opacity:1; visibility:visible; transform: translateX(-50%) translateY(0); transition: opacity .2s ease, transform .2s ease, visibility 0s; }
+  .nav-dd > .nav-dd-menu::before { content:''; position:absolute; inset:-12px 0 auto 0; height:12px; }
+  .nav-dd-item { display:block; padding: 10px 20px; font-size: 13px; font-weight: 500; color:#0f2138; white-space: nowrap; }
+  .nav-dd-item:hover { background:#f1f5f9; color:#0284c7; }
+  section[id] { scroll-margin-top: 96px; }
 </style>
 </head>
 <body class="antialiased">
@@ -75,8 +83,24 @@
       @php $r = request()->route()->getName(); @endphp
       <a href="{{ route('home') }}" class="nav-link {{ $r==='home'?'active':'' }}">Home</a>
       <a href="{{ route('about') }}" class="nav-link {{ $r==='about'?'active':'' }}">About</a>
-      <a href="{{ route('egypt') }}" class="nav-link {{ $r==='egypt'?'active':'' }}">Egypt</a>
-      <a href="{{ route('greece') }}" class="nav-link {{ $r==='greece'?'active':'' }}">Greece</a>
+      <div class="nav-dd">
+        <a href="{{ route('egypt') }}" class="nav-link {{ $r==='egypt'?'active':'' }}">Egypt</a>
+        <div class="nav-dd-menu">
+          <a href="{{ route('egypt') }}#why"        class="nav-dd-item">Why the Red Sea</a>
+          <a href="{{ route('egypt') }}#fleet"      class="nav-dd-item">Fleet</a>
+          <a href="{{ route('egypt') }}#route"      class="nav-dd-item">Route</a>
+          <a href="{{ route('egypt') }}#activities" class="nav-dd-item">Activities</a>
+        </div>
+      </div>
+      <div class="nav-dd">
+        <a href="{{ route('greece') }}" class="nav-link {{ $r==='greece'?'active':'' }}">Greece</a>
+        <div class="nav-dd-menu">
+          <a href="{{ route('greece') }}#why"        class="nav-dd-item">Why Greece</a>
+          <a href="{{ route('greece') }}#fleet"      class="nav-dd-item">Fleet</a>
+          <a href="{{ route('greece') }}#route"      class="nav-dd-item">Route</a>
+          <a href="{{ route('greece') }}#activities" class="nav-dd-item">Activities</a>
+        </div>
+      </div>
       <a href="{{ route('excursions') }}" class="nav-link {{ $r==='excursions'?'active':'' }}">Extras &amp; Excursions</a>
       <a href="{{ route('prices') }}" class="nav-link {{ $r==='prices'?'active':'' }}">Prices</a>
       <a href="{{ route('schedule') }}" class="nav-link {{ $r==='schedule'?'active':'' }}">Schedule</a>

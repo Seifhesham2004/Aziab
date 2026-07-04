@@ -16,7 +16,7 @@
 </section>
 
 {{-- INTRO --}}
-<section class="py-24 px-6 lg:px-12">
+<section id="why" class="py-24 px-6 lg:px-12">
   <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
     <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Why the Red Sea</p>
     <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900 mb-6 leading-tight">
@@ -29,7 +29,7 @@
 </section>
 
 {{-- THE FLEET — Two yachts with carousels --}}
-<section class="py-24 px-6 lg:px-12 bg-sand-50">
+<section id="fleet" class="py-24 px-6 lg:px-12 bg-sand-50">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-14" data-aos="fade-up">
       <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Our fleet</p>
@@ -166,7 +166,7 @@
 </section>
 
 {{-- ITINERARIES --}}
-<section class="py-24 px-6 lg:px-12 bg-navy-900 text-white relative overflow-hidden">
+<section id="route" class="py-24 px-6 lg:px-12 bg-navy-900 text-white relative overflow-hidden">
   <div class="absolute inset-0 opacity-15" style="background-image:url('/images/general/22.11.25_Reef__Wreck_DSLR_1_edited.jpg');background-size:cover;background-position:center;"></div>
   <div class="relative max-w-6xl mx-auto">
     <div class="text-center mb-16" data-aos="fade-up">
@@ -214,6 +214,34 @@
       <p class="text-white/80 leading-relaxed mt-8 max-w-3xl">Whether you are looking for a kitesurfing safari, a freediving retreat, or nautical miles building, this is the perfect week for you.</p>
       <p class="text-xs text-white/50 italic mt-6">*Itinerary is weather dependent</p>
     </div>
+  </div>
+</section>
+
+{{-- ACTIVITIES --}}
+<section id="activities" class="py-24 px-6 lg:px-12">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Activities</p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">A journey shaped around you.</h2>
+      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Choose from a range of activities designed around your interests and pace. Join us for:</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+      @foreach([
+        ['Freediving adventures','<circle cx="12" cy="12" r="3" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>'],
+        ['Kitesurfing safaris','<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 20l7-16 9 8-16 8zM11 4l3 5"/>'],
+        ['Yoga &amp; meditation','<circle cx="12" cy="5" r="2" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M12 7v6m-5 8l5-8 5 8M7 11h10"/>'],
+        ['Hands-on sailing &amp; miles','<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 20h16M6 20L12 4l6 16M12 4v16"/>'],
+        ['Snorkeling &amp; leisure','<path stroke-linecap="round" stroke-width="2" d="M3 12c2-3 4-3 6 0s4 3 6 0 4-3 6 0M3 17c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/>'],
+      ] as $i => $a)
+        <div class="bg-sand-50 rounded-2xl p-6 shadow-soft card-hover" data-aos="fade-up" data-aos-delay="{{ $i*80 }}">
+          <svg class="w-9 h-9 mb-4 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $a[1] !!}</svg>
+          <p class="font-semibold text-navy-900 leading-snug">{!! $a[0] !!}</p>
+        </div>
+      @endforeach
+    </div>
+    <p class="text-center text-slate-600 text-lg leading-relaxed mt-10 max-w-3xl mx-auto italic">
+      Whether you seek adventure, connection, learning, or complete relaxation, each journey is tailored to the experience you want to create.
+    </p>
   </div>
 </section>
 

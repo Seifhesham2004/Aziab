@@ -16,7 +16,7 @@
 </section>
 
 {{-- INTRO --}}
-<section class="py-24 px-6 lg:px-12">
+<section id="why" class="py-24 px-6 lg:px-12">
   <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
     <div class="img-zoom rounded-3xl overflow-hidden shadow-soft" data-aos="fade-right">
       <img src="/images/greece/Greece_10.jpg" class="w-full h-[560px] object-cover" alt="Sailing in the Aegean">
@@ -57,8 +57,60 @@
   </div>
 </section>
 
+{{-- OUR YACHTS (carousel) --}}
+<section id="fleet" class="py-24 px-6 lg:px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Our yachts</p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">A fleet shaped to your group.</h2>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-10 items-center">
+      <div class="lg:col-span-3" data-aos="fade-right">
+        @php
+          $greeceFleet = ['Greece_3.jpg','Greece_4.jpg','Greece_6.jpg','Greece_9.jpg','Greece_11.jpg','Greece_12.jpg'];
+        @endphp
+        <div class="carousel relative aspect-[16/10] overflow-hidden rounded-3xl shadow-soft" data-carousel>
+          @foreach($greeceFleet as $i => $img)
+            <div class="carousel-slide absolute inset-0 transition-opacity duration-700 {{ $i===0?'opacity-100':'opacity-0' }}">
+              <img src="/images/greece/{{ $img }}" loading="lazy" class="w-full h-full object-cover" alt="Yachts in Greece">
+            </div>
+          @endforeach
+          <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/85 hover:bg-white text-navy-900 flex items-center justify-center shadow-soft transition" aria-label="Previous">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/85 hover:bg-white text-navy-900 flex items-center justify-center shadow-soft transition" aria-label="Next">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+          <div class="carousel-dots absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+            @foreach($greeceFleet as $i => $_)
+              <button data-dot="{{ $i }}" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition {{ $i===0?'bg-white':'' }}" aria-label="Slide {{ $i+1 }}"></button>
+            @endforeach
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2" data-aos="fade-left">
+        <p class="text-slate-600 text-lg leading-relaxed mb-5">
+          At Aziab Seafaris, we manage a diverse fleet of yachts across Greece, ranging from smaller sailing boats to medium-sized sailboats and spacious luxury catamarans. This variety allows us to comfortably accommodate different group sizes — for 4, 6, 8, or up to 10 guests — and cater to a wide range of travel styles, group preferences, and sailing experiences.
+        </p>
+        <div class="space-y-4 mt-6">
+          <div class="border-l-2 border-sea-400 pl-4">
+            <h3 class="font-semibold text-navy-900 mb-1">Solo / shared bookings</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Yacht chosen based on the number of guests booked — typically a sailboat with 3 or 4 cabins.</p>
+          </div>
+          <div class="border-l-2 border-sea-400 pl-4">
+            <h3 class="font-semibold text-navy-900 mb-1">Private charters</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Choose between sailboats and catamarans based on the group's preference and size.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 {{-- ITINERARIES --}}
-<section class="py-24 px-6 lg:px-12 bg-navy-900 text-white relative overflow-hidden">
+<section id="route" class="py-24 px-6 lg:px-12 bg-navy-900 text-white relative overflow-hidden">
   <div class="absolute inset-0 opacity-15 bg-cover bg-center" style="background-image:url('/images/greece/Greece_7.jpg')"></div>
   <div class="relative max-w-6xl mx-auto">
     <div class="text-center mb-16" data-aos="fade-up">
@@ -109,54 +161,30 @@
   </div>
 </section>
 
-{{-- OUR YACHTS (carousel) --}}
-<section class="py-24 px-6 lg:px-12">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-12" data-aos="fade-up">
-      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Our yachts</p>
-      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">A fleet shaped to your group.</h2>
+{{-- ACTIVITIES --}}
+<section id="activities" class="py-24 px-6 lg:px-12">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14" data-aos="fade-up">
+      <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Activities</p>
+      <h2 class="font-display text-4xl md:text-5xl font-semibold text-navy-900">Tailored to your ideal pace.</h2>
+      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Every charter can be tailored to your ideal pace — whether you seek adventure, wellness, discovery, or complete relaxation.</p>
     </div>
-
-    <div class="grid lg:grid-cols-5 gap-10 items-center">
-      <div class="lg:col-span-3" data-aos="fade-right">
-        @php
-          $greeceFleet = ['Greece_3.jpg','Greece_4.jpg','Greece_6.jpg','Greece_9.jpg','Greece_11.jpg','Greece_12.jpg'];
-        @endphp
-        <div class="carousel relative aspect-[16/10] overflow-hidden rounded-3xl shadow-soft" data-carousel>
-          @foreach($greeceFleet as $i => $img)
-            <div class="carousel-slide absolute inset-0 transition-opacity duration-700 {{ $i===0?'opacity-100':'opacity-0' }}">
-              <img src="/images/greece/{{ $img }}" loading="lazy" class="w-full h-full object-cover" alt="Yachts in Greece">
-            </div>
-          @endforeach
-          <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/85 hover:bg-white text-navy-900 flex items-center justify-center shadow-soft transition" aria-label="Previous">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-          </button>
-          <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/85 hover:bg-white text-navy-900 flex items-center justify-center shadow-soft transition" aria-label="Next">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </button>
-          <div class="carousel-dots absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-            @foreach($greeceFleet as $i => $_)
-              <button data-dot="{{ $i }}" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition {{ $i===0?'bg-white':'' }}" aria-label="Slide {{ $i+1 }}"></button>
-            @endforeach
-          </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      @foreach([
+        'Island hopping across hidden bays and picturesque villages',
+        'Swimming in crystal-clear waters',
+        'Sunset sailing experiences',
+        'Islands exploration',
+        'Coastal hiking and scenic viewpoints',
+        'Greek food and local tavern experiences',
+        'Stargazing nights on deck',
+        'Leisure cruises and slow travel experiences',
+      ] as $i => $a)
+        <div class="bg-sand-50 rounded-2xl p-6 shadow-soft card-hover" data-aos="fade-up" data-aos-delay="{{ $i*60 }}">
+          <div class="w-10 h-10 rounded-full bg-sea-500/15 text-sea-500 flex items-center justify-center font-display font-bold mb-4">{{ str_pad($i+1,2,'0',STR_PAD_LEFT) }}</div>
+          <p class="font-semibold text-navy-900 leading-snug">{{ $a }}</p>
         </div>
-      </div>
-
-      <div class="lg:col-span-2" data-aos="fade-left">
-        <p class="text-slate-600 text-lg leading-relaxed mb-5">
-          At Aziab Seafaris, we manage a diverse fleet of yachts across Greece, ranging from smaller sailing boats to medium-sized sailboats and spacious luxury catamarans. This variety allows us to comfortably accommodate different group sizes — for 4, 6, 8, or up to 10 guests — and cater to a wide range of travel styles, group preferences, and sailing experiences.
-        </p>
-        <div class="space-y-4 mt-6">
-          <div class="border-l-2 border-sea-400 pl-4">
-            <h3 class="font-semibold text-navy-900 mb-1">Solo / shared bookings</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">Yacht chosen based on the number of guests booked — typically a sailboat with 3 or 4 cabins.</p>
-          </div>
-          <div class="border-l-2 border-sea-400 pl-4">
-            <h3 class="font-semibold text-navy-900 mb-1">Private charters</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">Choose between sailboats and catamarans based on the group's preference and size.</p>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
 </section>
