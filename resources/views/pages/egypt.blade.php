@@ -45,7 +45,6 @@
           'kicker'  => 'SY Roaga',
           'desc'    => 'A classic monohull built for blue water. Heels gracefully into the wind, sleeps eight in four cabins with two ensuite + one shared bathroom.',
           'images'  => [
-            'egypt-roga/65aa4168784e9459d407dde6.jpeg',
             'egypt-roga/beneteau-cyclades-50.5-huge-338621a5711958dc.jpg',
             'egypt-roga/BENETEAU-CYCLADES-50.5-ca-salon.jpg',
             'egypt-roga/BENETEAU-CYCLADES-50.5-ca-bow-cabins-d.jpg',
