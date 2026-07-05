@@ -190,9 +190,9 @@
 
     <div class="space-y-12">
       @foreach($excursions as $idx => $e)
-        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover grid lg:grid-cols-[0.7fr,1fr]" data-aos="fade-up">
-          <div class="img-zoom aspect-[4/3] lg:aspect-auto lg:max-h-[420px] overflow-hidden {{ $idx%2 ? 'lg:order-2' : '' }}">
-            <img src="/images/excursions/{{ $e['img'] }}" loading="lazy" class="w-full h-full object-cover" alt="{{ strip_tags($e['title']) }}">
+        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover grid lg:grid-cols-[0.75fr,1fr] lg:items-stretch" data-aos="fade-up">
+          <div class="img-zoom overflow-hidden bg-sand-50 {{ $idx%2 ? 'lg:order-2' : '' }}">
+            <img src="/images/excursions/{{ $e['img'] }}" loading="lazy" class="w-full h-full object-cover min-h-[280px]" alt="{{ strip_tags($e['title']) }}">
           </div>
           <div class="p-8 lg:p-10">
             <p class="text-xs uppercase tracking-[0.25em] text-sea-500 font-semibold mb-3">Excursion {{ $idx+1 }}</p>
