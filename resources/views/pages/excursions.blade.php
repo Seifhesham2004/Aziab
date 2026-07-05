@@ -82,10 +82,10 @@
     </div>
 
     <div class="bg-white/5 backdrop-blur rounded-3xl overflow-hidden border border-white/10">
-      <div class="grid grid-cols-[1fr,auto,auto] gap-4 px-6 md:px-8 py-4 text-xs uppercase tracking-[0.25em] text-sea-300 font-semibold border-b border-white/10">
+      <div class="grid grid-cols-[1fr,110px,110px] md:grid-cols-[1fr,140px,140px] gap-4 px-6 md:px-8 py-4 text-xs uppercase tracking-[0.25em] text-sea-300 font-semibold border-b border-white/10">
         <div>Item</div>
-        <div class="text-right">4-day trip</div>
-        <div class="text-right">6-day trip</div>
+        <div class="text-center">4-day trip</div>
+        <div class="text-center">6-day trip</div>
       </div>
       @foreach([
         ['Snorkeling fins','€20','€30'],
@@ -94,10 +94,10 @@
         ['Wetsuit (scuba only)','€50','€70'],
         ['Weights &amp; belts','Free','Free'],
       ] as $i => $g)
-        <div class="grid grid-cols-[1fr,auto,auto] gap-4 px-6 md:px-8 py-4 items-center border-b border-white/5 last:border-0 text-white/90" data-aos="fade-up" data-aos-delay="{{ $i*60 }}">
+        <div class="grid grid-cols-[1fr,110px,110px] md:grid-cols-[1fr,140px,140px] gap-4 px-6 md:px-8 py-4 items-center border-b border-white/5 last:border-0 text-white/90" data-aos="fade-up" data-aos-delay="{{ $i*60 }}">
           <div class="font-medium">{!! $g[0] !!}</div>
-          <div class="text-right font-display text-lg {{ $g[1]==='Free' ? 'text-emerald-300' : '' }}">{{ $g[1] }}</div>
-          <div class="text-right font-display text-lg {{ $g[2]==='Free' ? 'text-emerald-300' : '' }}">{{ $g[2] }}</div>
+          <div class="text-center font-display text-lg {{ $g[1]==='Free' ? 'text-emerald-300' : '' }}">{{ $g[1] }}</div>
+          <div class="text-center font-display text-lg {{ $g[2]==='Free' ? 'text-emerald-300' : '' }}">{{ $g[2] }}</div>
         </div>
       @endforeach
     </div>
