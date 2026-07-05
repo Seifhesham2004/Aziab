@@ -190,16 +190,16 @@
 
     <div class="space-y-12">
       @foreach($excursions as $idx => $e)
-        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover grid lg:grid-cols-[0.65fr,1fr] lg:items-stretch" data-aos="fade-up">
-          <div class="p-4 lg:p-5 flex {{ $idx%2 ? 'lg:order-2' : '' }}">
-            <div class="img-zoom aspect-[3/4] lg:aspect-auto lg:flex-1 rounded-2xl overflow-hidden shadow-soft w-full">
+        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover grid lg:grid-cols-[0.55fr,1fr] lg:items-center" data-aos="fade-up">
+          <div class="p-4 lg:p-6 {{ $idx%2 ? 'lg:order-2' : '' }}">
+            <div class="img-zoom aspect-[3/4] rounded-2xl overflow-hidden shadow-soft max-h-[520px] mx-auto">
               <img src="/images/excursions/{{ $e['img'] }}" loading="lazy" class="w-full h-full object-cover" alt="{{ strip_tags($e['title']) }}">
             </div>
           </div>
-          <div class="p-8 lg:p-10 flex flex-col">
+          <div class="p-8 lg:p-10">
             <p class="text-xs uppercase tracking-[0.25em] text-sea-500 font-semibold mb-3">Excursion {{ $idx+1 }}</p>
-            <h3 class="font-display text-3xl lg:text-4xl font-semibold text-navy-900 mb-5">{!! $e['title'] !!}</h3>
-            <p class="text-slate-600 leading-relaxed text-base lg:text-lg mb-8">{{ $e['lede'] }}</p>
+            <h3 class="font-display text-3xl font-semibold text-navy-900 mb-4">{!! $e['title'] !!}</h3>
+            <p class="text-slate-600 leading-relaxed mb-6">{{ $e['lede'] }}</p>
 
             <div class="bg-sand-50 rounded-2xl p-5 mb-6">
               <p class="text-xs uppercase tracking-[0.25em] text-slate-500 mb-3 font-semibold">Pricing · per person</p>
