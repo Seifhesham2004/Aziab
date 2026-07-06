@@ -116,7 +116,7 @@
     <div class="grid md:grid-cols-2 gap-8">
       <div class="bg-white rounded-3xl overflow-hidden shadow-soft" data-aos="fade-up">
         <div class="img-zoom aspect-[16/10] overflow-hidden">
-          <img src="/images/greece/Greece_5.jpg" loading="lazy" class="w-full h-full object-cover" alt="Sailing in Greece">
+          <img src="/images/greece/Greece_5.jpg" loading="lazy" class="w-full h-full object-cover" style="object-position: center bottom;" alt="Sailing in Greece">
         </div>
         <div class="p-8">
           <p class="text-xs uppercase tracking-[0.25em] text-sea-500 font-semibold mb-2">8 days · Private charter</p>
