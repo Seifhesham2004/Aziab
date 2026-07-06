@@ -102,7 +102,7 @@
       @php
         $dests = [
           ['name'=>'Egypt','sub'=>'Red Sea — Hamata, Marsa Alam & Soma Bay','img'=>'8L4A8413.jpg','route'=>'egypt'],
-          ['name'=>'Greece','sub'=>'Cyclades & Ionian Islands','img'=>'greece/Greece_3.jpg','route'=>'greece','base'=>true],
+          ['name'=>'Greece','sub'=>'Cyclades & Ionian Islands','img'=>'greece/greece.png','route'=>'greece','base'=>true],
         ];
       @endphp
       @foreach($dests as $i => $d)
