@@ -39,7 +39,7 @@
         [
           'name'    => 'Sailboat Beneteau Cyclades 50.5',
           'cap'     => 'Maximum capacity 8 guests',
-          'img'     => 'egypt-roga/beneteau-cyclades-50.5-huge-338621a5711958dc.jpg',
+          'img'     => 'egypt-roga/roga-aerial-1.jpg',
           'rows'    => [
             ['6 days · Private charter', '€5,200', '+€300 per person upon arrival for marina entrance and marine park tickets'],
             ['4 days · Private charter', '€3,150', '+€200 per person upon arrival for marina entrance and marine park tickets'],
@@ -50,7 +50,7 @@
         [
           'name'    => 'Catamaran Bali 40',
           'cap'     => 'Maximum capacity 8 guests',
-          'img'     => 'egypt-bali/bali-40-nea-38.jpg',
+          'img'     => 'egypt-bali/bali-hero.jpg',
           'rows'    => [
             ['6 days · Private charter', '€6,800', '+€300 per person upon arrival for marina entrance and marine park tickets'],
             ['4 days · Private charter', '€4,500', '+€200 per person upon arrival for marina entrance and marine park tickets'],
