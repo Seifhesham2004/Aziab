@@ -2,8 +2,9 @@
 @section('title','Contact')
 @section('content')
 
-<section class="relative pt-36 pb-20 px-6 lg:px-12 bg-navy-900 text-white overflow-hidden">
-  <div class="absolute inset-0 opacity-25" style="background-image:url('/images/general/_MG_9565.jpg');background-size:cover;background-position:center;"></div>
+<section class="relative pt-48 pb-28 md:pt-56 md:pb-36 px-6 lg:px-12 bg-navy-900 text-white overflow-hidden">
+  <div class="absolute inset-0 opacity-30" style="background-image:url('/images/general/_MG_9565.jpg');background-size:cover;background-position:center 20%;"></div>
+  <div class="absolute inset-0 hero-overlay"></div>
   <div class="relative max-w-4xl mx-auto text-center">
     <p class="text-sea-300 tracking-[0.5em] text-sm mb-6" data-aos="fade-down">GET IN TOUCH</p>
     <h1 class="font-display text-5xl md:text-7xl font-semibold leading-tight" data-aos="fade-up">Let's talk seafaris.</h1>
