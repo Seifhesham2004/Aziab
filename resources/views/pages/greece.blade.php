@@ -70,7 +70,7 @@
         @php
           $greeceFleet = ['Greece_3.jpg','Greece_4.jpg','Greece_6.jpg','Greece_9.jpg','Greece_11.jpg','Greece_12.jpg'];
         @endphp
-        <div class="carousel relative aspect-[3/4] max-h-[720px] mx-auto overflow-hidden rounded-3xl shadow-soft" data-carousel>
+        <div class="carousel relative aspect-[3/4] max-h-[520px] max-w-[420px] mx-auto overflow-hidden rounded-3xl shadow-soft" data-carousel>
           @foreach($greeceFleet as $i => $img)
             <div class="carousel-slide absolute inset-0 transition-opacity duration-700 {{ $i===0?'opacity-100':'opacity-0' }}">
               <img src="/images/greece/{{ $img }}" loading="lazy" class="w-full h-full object-cover" alt="Yachts in Greece">
