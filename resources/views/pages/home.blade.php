@@ -65,7 +65,7 @@
 <section class="py-24 px-6 lg:px-12 bg-sand-50 relative overflow-hidden">
   <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
     <div class="img-zoom rounded-3xl overflow-hidden shadow-soft" data-aos="fade-right">
-      <img src="/images/general/8L4A8021.jpg" alt="Sailing" class="w-full h-[520px] object-cover">
+      <img src="/images/egypt-roga/roga-aerial-2.jpg" alt="Sailing" class="w-full h-[520px] object-cover">
     </div>
     <div data-aos="fade-left">
       <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-4">Welcome aboard</p>

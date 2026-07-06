@@ -30,7 +30,7 @@
 <section class="py-24 px-6 lg:px-12">
   <div class="max-w-7xl mx-auto grid lg:grid-cols-5 gap-12 items-center">
     <div class="lg:col-span-2 img-zoom rounded-3xl overflow-hidden shadow-soft" data-aos="fade-right">
-      <img src="/images/general/8L4A8021.jpg" class="w-full h-[560px] object-cover" alt="">
+      <img src="/images/egypt-roga/roga-aerial-1.jpg" class="w-full h-[560px] object-cover" alt="">
     </div>
     <div class="lg:col-span-3" data-aos="fade-left">
       <p class="text-sea-500 uppercase tracking-[0.3em] text-sm mb-3">Who we are</p>
