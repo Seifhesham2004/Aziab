@@ -70,10 +70,10 @@
         @php
           $greeceFleet = ['Greece_3.jpg','Greece_4.jpg','Greece_6.jpg','Greece_9.jpg','Greece_11.jpg','Greece_12.jpg'];
         @endphp
-        <div class="carousel relative aspect-[16/10] overflow-hidden rounded-3xl shadow-soft" data-carousel>
+        <div class="carousel relative aspect-[4/3] overflow-hidden rounded-3xl shadow-soft bg-sand-50" data-carousel>
           @foreach($greeceFleet as $i => $img)
-            <div class="carousel-slide absolute inset-0 transition-opacity duration-700 {{ $i===0?'opacity-100':'opacity-0' }}">
-              <img src="/images/greece/{{ $img }}" loading="lazy" class="w-full h-full object-cover" alt="Yachts in Greece">
+            <div class="carousel-slide absolute inset-0 transition-opacity duration-700 {{ $i===0?'opacity-100':'opacity-0' }} flex items-center justify-center">
+              <img src="/images/greece/{{ $img }}" loading="lazy" class="w-full h-full object-contain" alt="Yachts in Greece">
             </div>
           @endforeach
           <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/85 hover:bg-white text-navy-900 flex items-center justify-center shadow-soft transition" aria-label="Previous">
