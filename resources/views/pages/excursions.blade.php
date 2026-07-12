@@ -156,7 +156,7 @@
                   [
                     'title'   => 'Turtles &amp; Dugongs Excursion',
                     'img'     => '1f78f1c65cab906606da9667dd2c01e9.jpg',
-                    'gallery' => ['turtles-1.jpg','turtles-3.jpg','beach-3.jpg'],
+                    'gallery' => ['turtles-1.jpg','turtles-2.jpg','beach-3.jpg'],
                     'lede'    => "A speedboat day from Marsa Alam to the Abu Dabab area or Hermes — both renowned for their lush seagrass meadows that provide a natural habitat for turtles and dugong.",
                     'pricing' => [
                       ['Group of 4','€65 / person'],
