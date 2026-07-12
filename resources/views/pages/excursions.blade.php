@@ -169,7 +169,7 @@
         ],
         [
           'title'   => 'Beach Hopping — Sharm El Luli &amp; Qulaan',
-          'img'     => '3b9ea7564bf56552bcbe01df7701fd42.jpg',
+          'img'     => 'beach-hopping.jpg',
           'lede'    => "Two of Marsa Alam's most stunning beaches in one day. Sharm El Luli — ranked the 3rd most beautiful beach in the world — followed by Qulaan, where Al Ababda tribal women welcome you with handmade crafts, tea and coffee boiled on coal in a tent on the beach.",
           'pricing' => [
             ['Group of 3','€75 / person'],
