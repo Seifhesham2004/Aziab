@@ -118,6 +118,7 @@
         [
           'title'   => 'Luxor Day Trip',
           'img'     => '090c25eda527cf7e138ea225b63f47a4.jpg',
+          'gallery' => ['luxor-1.jpg','luxor-2.jpg','luxor-3.jpg'],
           'lede'    => "Visit the world's largest open-air museum of Egyptian antiquities. A day tour of Luxor's icons — Karnak Temple, the Valley of the Kings, and the Temple of Hatshepsut — with a knowledgeable English-speaking Egyptologist.",
           'pricing' => [
             ['Group of 2','€260 / person'],
@@ -139,6 +140,7 @@
         [
           'title'   => 'Astro Tour',
           'img'     => 'astro-tour.jpg',
+          'gallery' => ['astro-1.jpg','astro-2.jpg','astro-3.jpg'],
           'lede'    => "Stargazing in the Eastern Desert — undisturbed by noise or light. Under the crystal-clear night sky, we'll guide you through the constellations with a special Astro laser, telescope, and binoculars.",
           'pricing' => [
             ['Group of 4','€65 / person'],
@@ -154,6 +156,7 @@
         [
           'title'   => 'Turtles &amp; Dugongs Excursion',
           'img'     => '1f78f1c65cab906606da9667dd2c01e9.jpg',
+          'gallery' => ['turtles-1.jpg','turtles-2.jpg','turtles-3.jpg'],
           'lede'    => "A speedboat day from Marsa Alam to the Abu Dabab area or Hermes — both renowned for their lush seagrass meadows that provide a natural habitat for turtles and dugong.",
           'pricing' => [
             ['Group of 4','€65 / person'],
@@ -170,6 +173,7 @@
         [
           'title'   => 'Beach Hopping — Sharm El Luli &amp; Qulaan',
           'img'     => 'beach-hopping.jpg',
+          'gallery' => ['beach-1.jpg','beach-2.jpg','beach-3.jpg'],
           'lede'    => "Two of Marsa Alam's most stunning beaches in one day. Sharm El Luli — ranked the 3rd most beautiful beach in the world — followed by Qulaan, where Al Ababda tribal women welcome you with handmade crafts, tea and coffee boiled on coal in a tent on the beach.",
           'pricing' => [
             ['Group of 3','€75 / person'],
@@ -192,8 +196,19 @@
       @foreach($excursions as $idx => $e)
         <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover grid lg:grid-cols-[0.4fr,1fr] lg:items-start" data-aos="fade-up">
           <div class="p-4 lg:p-6 {{ $idx%2 ? 'lg:order-2' : '' }}">
-            <div class="img-zoom aspect-[3/4] rounded-2xl overflow-hidden shadow-soft w-full max-w-[280px] mx-auto">
-              <img src="/images/excursions/{{ $e['img'] }}" loading="lazy" class="w-full h-full object-cover" alt="{{ strip_tags($e['title']) }}">
+            <div class="max-w-[320px] mx-auto space-y-3">
+              <div class="img-zoom aspect-[3/4] rounded-2xl overflow-hidden shadow-soft">
+                <img src="/images/excursions/{{ $e['img'] }}" loading="lazy" class="w-full h-full object-cover" alt="{{ strip_tags($e['title']) }}">
+              </div>
+              @if(!empty($e['gallery']))
+                <div class="grid grid-cols-3 gap-3">
+                  @foreach($e['gallery'] as $g)
+                    <div class="img-zoom aspect-square rounded-lg overflow-hidden shadow-soft">
+                      <img src="/images/excursions/{{ $g }}" loading="lazy" class="w-full h-full object-cover" alt="">
+                    </div>
+                  @endforeach
+                </div>
+              @endif
             </div>
           </div>
           <div class="p-8 lg:p-10">
