@@ -156,7 +156,7 @@
                   [
                     'title'   => 'Turtles &amp; Dugongs Excursion',
                     'img'     => '1f78f1c65cab906606da9667dd2c01e9.jpg',
-                    'gallery' => ['turtles-1.jpg','turtles-2.jpg','beach-3.jpg'],
+                    'gallery' => ['turtles-1.jpg','beach-3.jpg'],
                     'lede'    => "A speedboat day from Marsa Alam to the Abu Dabab area or Hermes — both renowned for their lush seagrass meadows that provide a natural habitat for turtles and dugong.",
                     'pricing' => [
                       ['Group of 4','€65 / person'],
@@ -203,8 +203,8 @@
                             {{-- Increased container to max-w-lg (512px) for larger images --}}
                             <div class="flex flex-wrap justify-center gap-4 lg:gap-6 w-full max-w-lg relative">
                                 @php
-                                    // Combine main image and gallery, then pick exactly 3
-                                    $allImages = array_merge([$e['img']], $e['gallery'] ?? []);
+                                    // Show gallery items only (main image sits elsewhere on the page)
+                                    $scatterImages = $e['gallery'] ?? [];
                                     // Subtle rotations and slight offsets
                                     $scatterStyles = [
                                       '-rotate-6 translate-y-2', // Top left
@@ -213,7 +213,7 @@
                                     ];
                                 @endphp
 
-                                @foreach(array_slice($allImages, 0, 3) as $imgIndex => $image)
+                                @foreach(array_slice($scatterImages, 0, 3) as $imgIndex => $image)
                                     {{-- Increased from 45% to 46% width inside a larger wrapper --}}
                                     <div class="w-[46%] relative aspect-[4/5] {{ $scatterStyles[$imgIndex] }} transition-all duration-300 hover:rotate-0 hover:scale-110 hover:z-20 z-10 cursor-pointer group">
                                         {{-- White "Photo Paper / Sticky Note" Border --}}
