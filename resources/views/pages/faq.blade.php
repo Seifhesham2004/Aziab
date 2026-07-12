@@ -57,7 +57,7 @@
     <p class="text-sea-300 tracking-[0.5em] text-sm mb-6" data-aos="fade-down">FAQ</p>
     <h1 class="font-display text-5xl md:text-7xl font-semibold leading-[1.05] max-w-4xl" data-aos="fade-up">Everything you wanted to ask.</h1>
     <p class="mt-6 text-lg md:text-xl text-white/85 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
-      Browse by topic — and if your question isn't here, drop us a line.
+      Browse by topic — and if your question isn't here, send us an email.
     </p>
   </div>
 </section>

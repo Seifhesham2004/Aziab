@@ -35,12 +35,12 @@
 
             @php
                 $routes = [
-                  ['Hurghada → Marsa Alam',          [115, 65, 45, 45, 40]],
-                  ['Hurghada → Hamata',              [135, 75, 50, 50, 35]],
-                  ['Marsa Alam Airport → Marsa Alam City', [50, 30, 20, 20, 15]],
-                  ['Marsa Alam Airport / City → Hamata',   [65, 40, 30, 30, 25]],
-                  ['Cairo → Hamata',                 [315, 170, 125, 125, 85]],
-                  ['Luxor → Hamata',                 [235, 130, 95, 95, 80]],
+                  ['Hurghada → Marsa Alam',          [120, 70, 50, 45, 40]],
+                  ['Hurghada → Hamata',              [140, 80, 55, 50, 35]],
+                  ['Marsa Alam Airport → Marsa Alam City', [55, 35, 25, 20, 15]],
+                  ['Marsa Alam Airport / City → Hamata',   [70, 45, 35, 30, 25]],
+                  ['Cairo → Hamata',                 [320, 175, 130, 125, 85]],
+                  ['Luxor → Hamata',                 [240, 135, 100, 95, 80]],
                 ];
             @endphp
 

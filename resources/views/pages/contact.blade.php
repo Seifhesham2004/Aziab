@@ -15,7 +15,7 @@
   <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
     <div data-aos="fade-right">
       <h2 class="font-display text-3xl font-semibold text-navy-900 mb-6">Reach the crew.</h2>
-      <p class="text-slate-600 leading-relaxed mb-8">We respond within 24 hours, usually faster. Drop us a line for bookings, private charters, group offers or just a chat about the sea.</p>
+      <p class="text-slate-600 leading-relaxed mb-8">We respond within 24 hours, usually faster. Send us an email for bookings, private charters, group offers or just a chat about the sea.</p>
 
       <h3 class="text-navy-900 font-semibold mb-4 text-xs uppercase tracking-[0.25em]">Get in touch</h3>
       <p class="text-slate-700 text-sm">info@aziab-seafaris.com</p>
