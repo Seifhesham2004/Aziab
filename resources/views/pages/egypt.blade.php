@@ -64,23 +64,18 @@
         [
           'name'    => 'Sailing Catamaran Bali 40',
           'tag'     => 'Catamaran',
-          'kicker'  => 'Newest in the fleet',
+          'kicker'  => 'SY Locke',
           'desc'    => 'A spacious, modern catamaran designed to bring together comfort, elegance, and unforgettable experiences at sea.',
           'images'  => [
-            'egypt-bali/bali-hero.jpg',
-            'egypt-bali/bali-1.jpg',
-            'egypt-bali/bali-2.jpg',
-            'egypt-bali/bali-3.jpg',
-            'egypt-bali/bali-4.jpg',
-            'egypt-bali/bali-5.jpg',
-            'egypt-bali/bali-onboard-1.jpg',
             'egypt-bali/bali-onboard-2.jpg',
             'egypt-bali/bali-onboard-3.jpg',
+            'egypt-bali/bali-onboard-1.jpg',
           ],
+          'aspect'  => '3/4',
           'specs'   => [
             ['Cabins','4 guest + 2 crew'],
             ['Bathrooms','4'],
-            ['Engines','2 × 40 hp'],
+            ['Solar','2 × 460 W'],
             ['Fresh water','700 L + watermaker onboard'],
           ],
         ],
@@ -91,7 +86,7 @@
       @foreach($fleet as $idx => $b)
         <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover flex flex-col" data-aos="fade-up" data-aos-delay="{{ $idx*120 }}">
           {{-- Carousel --}}
-          <div class="carousel relative aspect-[4/3] overflow-hidden" data-carousel>
+          <div class="carousel relative overflow-hidden" style="aspect-ratio: {{ $b['aspect'] ?? '4/3' }};" data-carousel>
             @foreach($b['images'] as $i => $img)
               <div class="carousel-slide absolute inset-0 transition-opacity duration-700 {{ $i===0?'opacity-100':'opacity-0' }}">
                 <img src="/images/{{ $img }}" loading="lazy" class="w-full h-full object-cover" alt="{{ $b['name'] }}">
