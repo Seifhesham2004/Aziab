@@ -194,24 +194,22 @@
 
     <div class="space-y-12">
       @foreach($excursions as $idx => $e)
-        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover grid lg:grid-cols-[0.4fr,1fr] lg:items-start" data-aos="fade-up">
-          <div class="p-4 lg:p-6 {{ $idx%2 ? 'lg:order-2' : '' }}">
-            <div class="max-w-[320px] mx-auto space-y-3">
-              <div class="img-zoom aspect-[3/4] rounded-2xl overflow-hidden shadow-soft">
-                <img src="/images/excursions/{{ $e['img'] }}" loading="lazy" class="w-full h-full object-cover" alt="{{ strip_tags($e['title']) }}">
-              </div>
-              @if(!empty($e['gallery']))
-                <div class="grid grid-cols-3 gap-3">
-                  @foreach($e['gallery'] as $g)
-                    <div class="img-zoom aspect-square rounded-lg overflow-hidden shadow-soft">
-                      <img src="/images/excursions/{{ $g }}" loading="lazy" class="w-full h-full object-cover" alt="">
-                    </div>
-                  @endforeach
-                </div>
-              @endif
+        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover grid lg:grid-cols-[0.5fr,1fr]" data-aos="fade-up">
+          <div class="p-4 lg:p-6 flex flex-col gap-3 {{ $idx%2 ? 'lg:order-2' : '' }}">
+            <div class="img-zoom flex-1 min-h-[280px] rounded-2xl overflow-hidden shadow-soft">
+              <img src="/images/excursions/{{ $e['img'] }}" loading="lazy" class="w-full h-full object-cover" alt="{{ strip_tags($e['title']) }}">
             </div>
+            @if(!empty($e['gallery']))
+              <div class="grid grid-cols-3 gap-3">
+                @foreach($e['gallery'] as $g)
+                  <div class="img-zoom aspect-square rounded-lg overflow-hidden shadow-soft">
+                    <img src="/images/excursions/{{ $g }}" loading="lazy" class="w-full h-full object-cover" alt="">
+                  </div>
+                @endforeach
+              </div>
+            @endif
           </div>
-          <div class="p-8 lg:p-10">
+          <div class="p-8 lg:p-10 flex flex-col">
             <p class="text-xs uppercase tracking-[0.25em] text-sea-500 font-semibold mb-3">Excursion {{ $idx+1 }}</p>
             <h3 class="font-display text-3xl font-semibold text-navy-900 mb-4">{!! $e['title'] !!}</h3>
             <p class="text-slate-600 leading-relaxed mb-6">{{ $e['lede'] }}</p>
