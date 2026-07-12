@@ -156,7 +156,7 @@
                   [
                     'title'   => 'Turtles &amp; Dugongs Excursion',
                     'img'     => '1f78f1c65cab906606da9667dd2c01e9.jpg',
-                    'gallery' => ['turtles-1.jpg','beach-3.jpg'],
+                    'gallery' => ['turtles-1.jpg','beach-3.jpg','turtles-3.jpg'],
                     'lede'    => "A speedboat day from Marsa Alam to the Abu Dabab area or Hermes — both renowned for their lush seagrass meadows that provide a natural habitat for turtles and dugong.",
                     'pricing' => [
                       ['Group of 4','€65 / person'],
@@ -173,7 +173,7 @@
                   [
                     'title'   => 'Beach Hopping — Sharm El Luli &amp; Qulaan',
                     'img'     => 'beach-hopping.jpg',
-                    'gallery' => ['beach-1.jpg','beach-2.jpg','beach-3.jpg'],
+                    'gallery' => ['beach-1.jpg','beach-2.jpg','beach-hopping.jpg'],
                     'lede'    => "Two of Marsa Alam's most stunning beaches in one day. Sharm El Luli — ranked the 3rd most beautiful beach in the world — followed by Qulaan, where Al Ababda tribal women welcome you with handmade crafts, tea and coffee boiled on coal in a tent on the beach.",
                     'pricing' => [
                       ['Group of 3','€75 / person'],
