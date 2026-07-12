@@ -115,8 +115,8 @@
 
     <div class="grid md:grid-cols-2 gap-8">
       <div class="bg-white rounded-3xl overflow-hidden shadow-soft" data-aos="fade-up">
-        <div class="img-zoom aspect-[3/4] md:aspect-[4/3] overflow-hidden">
-          <img src="/images/greece/Greece_5.jpg" loading="lazy" class="w-full h-full object-contain bg-navy-900" alt="Sailing in Greece">
+        <div class="img-zoom overflow-hidden">
+          <img src="/images/greece/Greece_5.jpg" loading="lazy" class="w-full h-auto block" alt="Sailing in Greece">
         </div>
         <div class="p-8">
           <p class="text-xs uppercase tracking-[0.25em] text-sea-500 font-semibold mb-2">8 days · Private charter</p>
@@ -126,8 +126,8 @@
       </div>
 
       <div class="bg-white rounded-3xl overflow-hidden shadow-soft" data-aos="fade-up" data-aos-delay="120">
-        <div class="img-zoom aspect-[16/10] overflow-hidden">
-          <img src="/images/greece/Greece_11.jpg" loading="lazy" class="w-full h-full object-cover" alt="Cabin on Greek yacht">
+        <div class="img-zoom overflow-hidden">
+          <img src="/images/greece/Greece_11.jpg" loading="lazy" class="w-full h-auto block" alt="Cabin on Greek yacht">
         </div>
         <div class="p-8">
           <p class="text-xs uppercase tracking-[0.25em] text-sea-500 font-semibold mb-2">8 days · Per person</p>
