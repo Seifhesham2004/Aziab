@@ -46,9 +46,11 @@
     </div>
 
     {{-- Scroll cue --}}
-    <div id="scrollCue" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/80 text-xs tracking-widest flex flex-col items-center gap-2 animate-bounce text-center">
-      <span>SCROLL</span>
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    <div class="absolute bottom-8 inset-x-0 z-20 flex justify-center pointer-events-none">
+      <div id="scrollCue" class="text-white/80 text-xs tracking-widest flex flex-col items-center gap-2 animate-bounce">
+        <span class="ml-[0.25em]">SCROLL</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      </div>
     </div>
 
     {{-- Dim layer that intensifies on scroll --}}
