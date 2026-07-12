@@ -138,7 +138,7 @@
         ],
         [
           'title'   => 'Astro Tour',
-          'img'     => '227a07ab0541090bfbeac2bf3fd1a08d.jpg',
+          'img'     => 'astro-tour.jpg',
           'lede'    => "Stargazing in the Eastern Desert — undisturbed by noise or light. Under the crystal-clear night sky, we'll guide you through the constellations with a special Astro laser, telescope, and binoculars.",
           'pricing' => [
             ['Group of 4','€65 / person'],
