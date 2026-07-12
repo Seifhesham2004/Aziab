@@ -194,7 +194,7 @@
 
     <div class="space-y-12">
       @foreach($excursions as $idx => $e)
-        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover grid lg:grid-cols-[0.5fr,1fr] lg:items-start" data-aos="fade-up">
+        <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover grid {{ $idx%2 ? 'lg:grid-cols-[1fr,0.5fr]' : 'lg:grid-cols-[0.5fr,1fr]' }} lg:items-start" data-aos="fade-up">
           <div class="p-4 lg:p-6 space-y-3 {{ $idx%2 ? 'lg:order-2' : '' }}">
             <div class="img-zoom aspect-[4/3] rounded-2xl overflow-hidden shadow-soft">
               <img src="/images/excursions/{{ $e['img'] }}" loading="lazy" class="w-full h-full object-cover" alt="{{ strip_tags($e['title']) }}">
