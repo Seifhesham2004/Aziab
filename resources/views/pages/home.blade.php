@@ -5,7 +5,7 @@
 {{-- ============ HERO SLIDER ============ --}}
 @php
   $heroSlides = [
-    ['img'=>'8L4A8648.jpg','title'=>'Fully Serviced Sailing Liveaboards','sub'=>'Across the Red Sea &amp; Greece.'],
+    ['img'=>'8L4A8648.jpg','title'=>'Fully Serviced Sailing Liveaboards','sub'=>'Across the Red Sea (Egypt) &amp; Greece.'],
     ['img'=>'22.11.26_Aziab_day_one_DSLR_38_edited_phshop.jpg','title'=>'Untouched coves &amp; reefs.','sub'=>'Across two continents.'],
     ['img'=>'IMG_4355.jpg','title'=>'Slow down at sea.','sub'=>'Wake to sunrise on deck.'],
   ];
@@ -27,7 +27,7 @@
       @foreach($heroSlides as $i => $s)
         <div class="hero-text absolute inset-x-0 px-6 transition-opacity duration-1000 {{ $i===0?'opacity-100':'opacity-0' }}">
           <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] max-w-4xl mx-auto" data-aos="fade-up">{!! $s['title'] !!}</h1>
-          <p class="mt-5 text-lg md:text-2xl text-white/85 font-light italic max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">{{ $s['sub'] }}</p>
+          <p class="mt-5 text-lg md:text-2xl text-white/85 font-light italic max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">{!! $s['sub'] !!}</p>
           @if($i===0)
             <div class="mt-10 flex flex-wrap gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
               <a href="{{ route('booking') }}" class="bg-sea-500 hover:bg-sea-600 px-8 py-4 rounded-full font-semibold shadow-soft transition">Book your trip</a>
@@ -46,8 +46,8 @@
     </div>
 
     {{-- Scroll cue --}}
-    <div id="scrollCue" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/80 text-xs tracking-widest flex flex-col items-center gap-2 animate-bounce">
-      SCROLL
+    <div id="scrollCue" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/80 text-xs tracking-widest flex flex-col items-center gap-2 animate-bounce text-center">
+      <span>SCROLL</span>
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
     </div>
 
@@ -162,8 +162,8 @@
         ['name'=>'Lina · Berlin','quote'=>'The most peaceful week of my year. We sailed to islands without a single other boat in sight.','trip'=>'Cyclades, 7 nights'],
         ['name'=>'Marco · Milan','quote'=>'Aziab feels like sailing with old friends. The crew, the food, the music — every detail thought through.','trip'=>'Red Sea, 5 nights'],
         ['name'=>'Yara · Cairo','quote'=>'I came alone, left with a whole new circle. The vibe on board is something special.','trip'=>'Red Sea, 5 nights'],
-        ['name'=>'Laura','quote'=>'Encountering a pod of over 100 dolphins is a once-in-a-lifetime experience. Watching them surround you and play alongside you is truly magical.','trip'=>'Red Sea, 5 nights'],
-        ['name'=>'Anna','quote'=>'A heartfelt thank you to Sara and Mahmoud, who shared their incredible knowledge of dolphin behavior and made this experience truly magical.','trip'=>'Red Sea, 5 nights'],
+        ['name'=>'Laura · Madrid','quote'=>'Encountering a pod of over 100 dolphins is a once-in-a-lifetime experience. Watching them surround you and play alongside you is truly magical.','trip'=>'Red Sea, 5 nights'],
+        ['name'=>'Anna · Rome','quote'=>'A heartfelt thank you to Sara and Mahmoud, who shared their incredible knowledge of dolphin behavior and made this experience truly magical.','trip'=>'Red Sea, 5 nights'],
       ] as $i => $t)
         <div class="bg-white rounded-3xl p-8 shadow-soft card-hover" data-aos="fade-up" data-aos-delay="{{ $i*120 }}">
           <svg class="w-10 h-10 text-sea-400 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7.17 6C4.32 6 2 8.32 2 11.17V18h6.83v-6.83H5.5c0-1.84 1.5-3.34 3.34-3.34V6H7.17zM18.17 6c-2.85 0-5.17 2.32-5.17 5.17V18h6.83v-6.83H16.5c0-1.84 1.5-3.34 3.34-3.34V6h-1.67z"/></svg>

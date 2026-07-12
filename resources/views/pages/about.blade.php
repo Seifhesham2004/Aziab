@@ -4,7 +4,7 @@
 
 {{-- HERO --}}
 <section class="relative h-[70vh] min-h-[480px] overflow-hidden text-white flex items-center">
-  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/general/22.11.26_Aziab_day_one_DSLR_38_edited_phshop.jpg')"></div>
+  <div class="absolute inset-0 ken-burns bg-cover bg-center" style="background-image:url('/images/general/8L4A8648.jpg')"></div>
   <div class="absolute inset-0 hero-overlay"></div>
   <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
     <p class="text-sea-300 tracking-[0.5em] text-sm mb-6" data-aos="fade-down">ABOUT AZIAB</p>
