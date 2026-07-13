@@ -115,10 +115,44 @@
       <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
   </div>
-  <div id="mobileMenu" class="lg:hidden hidden mt-4 bg-white rounded-xl shadow-soft p-4 space-y-2 text-navy-800">
-    @foreach([['home','Home'],['about','About'],['egypt','Egypt'],['greece','Greece'],['excursions','Extras & Excursions'],['prices','Prices'],['schedule','Schedule'],['booking','Booking'],['faq','FAQ'],['contact','Contact']] as $l)
-      <a href="{{ route($l[0]) }}" class="block py-2 border-b border-slate-100 last:border-0 hover:text-sea-500">{{ $l[1] }}</a>
-    @endforeach
+  <div id="mobileMenu" class="lg:hidden hidden mt-4 bg-white rounded-xl shadow-soft p-4 space-y-1 text-navy-800 max-h-[75vh] overflow-y-auto">
+    <a href="{{ route('home') }}" class="block py-2 border-b border-slate-100 hover:text-sea-500">Home</a>
+    <a href="{{ route('about') }}" class="block py-2 border-b border-slate-100 hover:text-sea-500">About</a>
+
+    {{-- Egypt with submenu --}}
+    <details class="border-b border-slate-100 group">
+      <summary class="flex items-center justify-between py-2 cursor-pointer list-none hover:text-sea-500">
+        <a href="{{ route('egypt') }}" class="flex-1">Egypt</a>
+        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </summary>
+      <div class="pl-4 pb-2 space-y-1 text-sm text-slate-600">
+        <a href="{{ route('egypt') }}#why"        class="block py-1.5 hover:text-sea-500">Why the Red Sea</a>
+        <a href="{{ route('egypt') }}#fleet"      class="block py-1.5 hover:text-sea-500">Fleet</a>
+        <a href="{{ route('egypt') }}#route"      class="block py-1.5 hover:text-sea-500">Route</a>
+        <a href="{{ route('egypt') }}#activities" class="block py-1.5 hover:text-sea-500">Activities</a>
+      </div>
+    </details>
+
+    {{-- Greece with submenu --}}
+    <details class="border-b border-slate-100 group">
+      <summary class="flex items-center justify-between py-2 cursor-pointer list-none hover:text-sea-500">
+        <a href="{{ route('greece') }}" class="flex-1">Greece</a>
+        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </summary>
+      <div class="pl-4 pb-2 space-y-1 text-sm text-slate-600">
+        <a href="{{ route('greece') }}#why"        class="block py-1.5 hover:text-sea-500">Why Greece</a>
+        <a href="{{ route('greece') }}#fleet"      class="block py-1.5 hover:text-sea-500">Fleet</a>
+        <a href="{{ route('greece') }}#route"      class="block py-1.5 hover:text-sea-500">Route</a>
+        <a href="{{ route('greece') }}#activities" class="block py-1.5 hover:text-sea-500">Activities</a>
+      </div>
+    </details>
+
+    <a href="{{ route('excursions') }}" class="block py-2 border-b border-slate-100 hover:text-sea-500">Extras &amp; Excursions</a>
+    <a href="{{ route('prices') }}"     class="block py-2 border-b border-slate-100 hover:text-sea-500">Prices</a>
+    <a href="{{ route('schedule') }}"   class="block py-2 border-b border-slate-100 hover:text-sea-500">Schedule</a>
+    <a href="{{ route('booking') }}"    class="block py-2 border-b border-slate-100 hover:text-sea-500">Booking</a>
+    <a href="{{ route('faq') }}"        class="block py-2 border-b border-slate-100 hover:text-sea-500">FAQ</a>
+    <a href="{{ route('contact') }}"    class="block py-2 hover:text-sea-500">Contact</a>
   </div>
 </header>
 
