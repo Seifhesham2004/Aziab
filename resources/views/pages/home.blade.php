@@ -16,7 +16,7 @@
     <div id="slides" class="absolute inset-0">
       @foreach($heroSlides as $i => $s)
         <div class="hero-slide absolute inset-0 transition-opacity duration-1000 {{ $i===0?'opacity-100':'opacity-0' }}">
-          <div class="hero-bg absolute inset-0 ken-burns {{ $i===0 ? 'bg-contain bg-no-repeat' : 'bg-cover' }} bg-center will-change-transform bg-navy-900" style="background-image:url('/images/general/{{ $s['img'] }}')"></div>
+          <div class="hero-bg absolute inset-0 ken-burns bg-cover bg-center will-change-transform" style="background-image:url('/images/general/{{ $s['img'] }}')"></div>
           <div class="absolute inset-0 hero-overlay"></div>
         </div>
       @endforeach
