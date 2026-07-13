@@ -45,7 +45,6 @@
                     'kicker'  => 'SY Roaga',
                     'desc'    => 'A classic monohull built for blue water. Heels gracefully into the wind, sleeps eight in four cabins with two ensuite + one shared bathroom.',
                     'images'  => [
-                      'egypt-roga/roga-6029.jpg',
                       'egypt-roga/roga-aerial-1.jpg',
                       'egypt-roga/roga-hero.jpg',
                       'egypt-roga/roga-onboard.jpg',
