@@ -65,6 +65,8 @@
                     'desc'    => 'A spacious, modern catamaran designed to bring together comfort, elegance, and unforgettable experiences at sea.',
                     'images'  => [
                       'egypt-bali/bali-hero.jpg',
+                      'egypt-bali/bali-extra-1.jpg',
+                      'egypt-bali/bali-extra-2.jpg',
                       'egypt-bali/bali-5.jpg',
                       'egypt-bali/bali-onboard-2.jpg',
                       'egypt-bali/bali-onboard-3.jpg',
