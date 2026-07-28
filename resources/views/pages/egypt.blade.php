@@ -82,38 +82,18 @@
                 ];
             @endphp
 
-            <div class="grid lg:grid-cols-2 gap-8">
+            {{-- STATE 4 — Split-scroll: info panel stays pinned (sticky) while the image column scrolls
+                 past. Each photo shows at its own natural ratio — no fixed frame, no cropping. --}}
+            <div class="space-y-20 lg:space-y-28">
                 @foreach($fleet as $idx => $b)
-                    <div class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover flex flex-col" data-aos="fade-up" data-aos-delay="{{ $idx*120 }}">
-                        {{-- Carousel --}}
-                        <div class="carousel relative aspect-[4/3] overflow-hidden bg-slate-50" data-carousel>
-                            @foreach($b['images'] as $i => $img)
-                                <div class="carousel-slide absolute inset-0 transition-opacity duration-700 {{ $i===0?'opacity-100':'opacity-0' }}">
-                                    {{-- Changed object-cover to object-contain so the whole boat fits perfectly without cropping --}}
-                                    <img src="/images/{{ $img }}" loading="lazy" class="w-full h-full object-contain" alt="{{ $b['name'] }}">
-                                </div>
-                            @endforeach
-                            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur rounded-full px-4 py-1.5 text-xs font-semibold text-navy-900 z-10">{{ $b['tag'] }}</div>
-
-                            <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-slate-200/50 hover:bg-white text-navy-900 flex items-center justify-center shadow-soft transition" aria-label="Previous">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                            </button>
-                            <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-slate-200/50 hover:bg-white text-navy-900 flex items-center justify-center shadow-soft transition" aria-label="Next">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                            </button>
-
-                            <div class="carousel-dots absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                                @foreach($b['images'] as $i => $_)
-                                    <button data-dot="{{ $i }}" class="carousel-dot w-2.5 h-2.5 rounded-full bg-navy-900/30 hover:bg-navy-900 transition {{ $i===0?'bg-navy-900':'' }}" aria-label="Slide {{ $i+1 }}"></button>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        <div class="p-7 lg:p-8 flex-1 flex flex-col">
+                    <div class="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start">
+                        {{-- Pinned info panel --}}
+                        <div class="lg:sticky lg:top-28 {{ $idx % 2 ? 'lg:order-2' : '' }}" data-aos="fade-up">
+                            <span class="inline-flex bg-sea-50 text-sea-600 rounded-full px-4 py-1.5 text-xs font-semibold mb-4">{{ $b['tag'] }}</span>
                             <p class="text-xs text-sea-500 uppercase tracking-wider mb-2">{{ $b['kicker'] }}</p>
-                            <h3 class="font-display text-2xl md:text-3xl font-semibold text-navy-900 mb-3">{{ $b['name'] }}</h3>
-                            <p class="text-slate-600 leading-relaxed mb-5 text-sm">{{ $b['desc'] }}</p>
-                            <div class="grid grid-cols-2 gap-3 mb-6 text-sm">
+                            <h3 class="font-display text-3xl md:text-4xl font-semibold text-navy-900 mb-4">{{ $b['name'] }}</h3>
+                            <p class="text-slate-600 leading-relaxed mb-6">{{ $b['desc'] }}</p>
+                            <div class="grid grid-cols-2 gap-4 mb-8">
                                 @foreach($b['specs'] as $s)
                                     <div class="border-l-2 border-sea-400 pl-3">
                                         <p class="text-[11px] uppercase tracking-wider text-slate-500">{{ $s[0] }}</p>
@@ -121,7 +101,16 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <a href="{{ route('booking') }}" class="mt-auto inline-flex items-center gap-2 text-sea-500 font-semibold hover:gap-3 transition-all">Book this yacht →</a>
+                            <a href="{{ route('booking') }}" class="inline-flex items-center gap-2 bg-sea-500 hover:bg-sea-600 text-white font-semibold rounded-full px-6 py-3 transition">Book this yacht →</a>
+                        </div>
+
+                        {{-- Scrolling image column, natural ratios --}}
+                        <div class="space-y-5 {{ $idx % 2 ? 'lg:order-1' : '' }}">
+                            @foreach($b['images'] as $img)
+                                <div class="img-zoom rounded-2xl overflow-hidden shadow-soft" data-aos="fade-up">
+                                    <img src="/images/{{ $img }}" loading="lazy" class="w-full h-auto block" alt="{{ $b['name'] }}">
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 @endforeach
@@ -225,15 +214,16 @@
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
                 @foreach([
-                  ['Freediving adventures','<circle cx="12" cy="12" r="3" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>'],
-                  ['Kitesurfing safaris','<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 20l7-16 9 8-16 8zM11 4l3 5"/>'],
-                  ['Yoga &amp; meditation','<circle cx="12" cy="5" r="2" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M12 7v6m-5 8l5-8 5 8M7 11h10"/>'],
-                  ['Hands-on sailing &amp; miles','<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 20h16M6 20L12 4l6 16M12 4v16"/>'],
-                  ['Snorkeling &amp; leisure','<path stroke-linecap="round" stroke-width="2" d="M3 12c2-3 4-3 6 0s4 3 6 0 4-3 6 0M3 17c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/>'],
+                  ['Freediving adventures','<circle cx="12" cy="12" r="3" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>','This is apnea paradise — where else would you get a 99% chance to encounter pods of dolphins in a lagoon? And that\'s not enough: we\'ve got drop-offs, canyons and pinnacles, all while floating inside a fish soup — sometimes even graced by a fairytale creature called the dugong.'],
+                  ['Kitesurfing safaris','<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 20l7-16 9 8-16 8zM11 4l3 5"/>','Egypt is one of the world\'s top kitesurfing destinations, offering year-round sunshine, warm crystal-clear waters, and consistent winds that create ideal conditions for riders of all levels.'],
+                  ['Yoga &amp; meditation','<circle cx="12" cy="5" r="2" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M12 7v6m-5 8l5-8 5 8M7 11h10"/>','Simply put, one could not find a better setting to disconnect. The southern islands are perfect, with far less tourist traffic than the northern Red Sea — and the most intelligent creature on our planet, the dolphin, to connect with.'],
+                  ['Hands-on sailing &amp; miles','<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 20h16M6 20L12 4l6 16M12 4v16"/>','Being at sea is a joyful experience in itself. From relaxing to socialising, reading a book to taking a dip, enjoying your companion or savouring the sound of silence on your own — everything simply feels better by the sea.'],
+                  ['Snorkeling &amp; leisure','<path stroke-linecap="round" stroke-width="2" d="M3 12c2-3 4-3 6 0s4 3 6 0 4-3 6 0M3 17c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/>','Spend your days snorkeling vibrant coral reefs, swimming in crystal-clear waters, discovering secluded islands, or simply unwinding on deck as you enjoy the sun, breathtaking scenery, and quality time together.'],
                 ] as $i => $a)
                     <div class="bg-sand-50 rounded-2xl p-6 shadow-soft card-hover" data-aos="fade-up" data-aos-delay="{{ $i*80 }}">
                         <svg class="w-9 h-9 mb-4 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $a[1] !!}</svg>
                         <p class="font-semibold text-navy-900 leading-snug">{!! $a[0] !!}</p>
+                        <p class="text-slate-600 text-sm leading-relaxed mt-3">{!! $a[2] !!}</p>
                     </div>
                 @endforeach
             </div>
@@ -304,7 +294,7 @@
                   'general/8L4A8021.jpg','general/8L4A8413.jpg','general/8L4A8648.jpg',
                   'general/22.11.24_Sataya__Malahi_DSLR_112_edited_1.jpg','general/22.11.25_Reef__Wreck_DSLR_15_edited.jpg',
                   'general/22.11.26_Aziab_day_one_DSLR_38_edited_phshop.jpg','general/Abo_Galawa_wreck.jpg',
-                  'general/IMG_4355.jpg','general/IMG_4219.jpg','general/IMG_4342.jpg','general/_MG_9640.jpg','general/DSCF9867.jpg',
+                  'general/IMG_4219.jpg','general/IMG_4342.jpg','general/_MG_9640.jpg','general/DSCF9867.jpg',
                 ] as $g)
                     <div class="img-zoom rounded-2xl overflow-hidden break-inside-avoid shadow-soft mb-4 inline-block w-full">
                         <img src="/images/{{ $g }}" loading="lazy" class="w-full h-auto object-cover block" alt="">
@@ -316,19 +306,21 @@
 
     @push('scripts')
         <script>
-            document.querySelectorAll('[data-carousel]').forEach(c => {
-                const slides = c.querySelectorAll('.carousel-slide');
-                const dots   = c.querySelectorAll('.carousel-dot');
-                let i = 0;
-                const show = (n) => {
-                    i = (n + slides.length) % slides.length;
-                    slides.forEach((s,k)=> s.style.opacity = k===i ? '1' : '0');
-                    dots.forEach((d,k)=> d.classList.toggle('bg-navy-900', k===i));
-                };
-                c.querySelector('.carousel-prev').addEventListener('click', ()=> show(i-1));
-                c.querySelector('.carousel-next').addEventListener('click', ()=> show(i+1));
-                dots.forEach((d,k)=> d.addEventListener('click', ()=> show(k)));
-                setInterval(()=> show(i+1), 5500);
+            document.querySelectorAll('[data-gallery]').forEach(g => {
+                const hero   = g.querySelector('[data-hero]');
+                const heroBg = g.querySelector('[data-hero-bg]');
+                const thumbs = g.querySelectorAll('.thumb');
+                thumbs.forEach(t => t.addEventListener('click', () => {
+                    const src = '/images/' + t.dataset.thumb;
+                    hero.src = src;
+                    if (heroBg) heroBg.style.backgroundImage = `url('${src}')`;
+                    thumbs.forEach(o => {
+                        const on = o === t;
+                        o.classList.toggle('ring-sea-500', on);
+                        o.classList.toggle('ring-transparent', !on);
+                        o.classList.toggle('opacity-70', !on);
+                    });
+                }));
             });
         </script>
     @endpush

@@ -5,7 +5,7 @@
 {{-- ============ HERO SLIDER ============ --}}
 @php
   $heroSlides = [
-    ['img'=>'home-hero-1.jpg','title'=>'Fully Serviced Sailing Liveaboards','sub'=>'Across the Red Sea (Egypt) &amp; Greece.'],
+    ['img'=>'home-hero-still.jpg','title'=>'Fully Serviced Sailing Liveaboards','sub'=>'Across the Red Sea (Egypt) &amp; Greece.'],
     ['img'=>'22.11.26_Aziab_day_one_DSLR_38_edited_phshop.jpg','title'=>'Untouched coves &amp; reefs.','sub'=>'Across two continents.'],
     ['img'=>'IMG_4355.jpg','title'=>'Slow down at sea.','sub'=>'Wake to sunrise on deck.'],
   ];
