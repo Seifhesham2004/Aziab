@@ -18,8 +18,23 @@
       <div class="text-lg font-bold tracking-widest">AZIAB <span class="text-sea-300">ADMIN</span></div>
     </div>
     <div class="flex items-center gap-6 text-sm">
+      @php $me = auth()->user(); @endphp
       <a href="{{ route('admin.schedules.index') }}" class="hover:text-sea-300 transition">Schedule</a>
+      <a href="{{ route('admin.users.index') }}" class="hover:text-sea-300 transition">Team</a>
       <a href="/" target="_blank" class="text-white/60 hover:text-white">View site ↗</a>
+      @if($me && $me->isSuperAdmin())
+        <form method="POST" action="{{ route('admin.site.toggle') }}">
+          @csrf
+          @if(\App\Models\Setting::isSiteClosed())
+            <button type="submit" class="bg-emerald-500 hover:bg-emerald-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition">Open website</button>
+          @else
+            <button type="submit" onclick="return confirm('Close the public website?')" class="bg-rose-500 hover:bg-rose-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition">Close website</button>
+          @endif
+        </form>
+      @endif
+      @if($me)
+        <span class="text-white/40 text-xs">{{ $me->name }} · {{ $me->isSuperAdmin() ? 'Super Admin' : 'Admin' }}</span>
+      @endif
       <form method="POST" action="{{ route('admin.logout') }}">
         @csrf
         <button type="submit" class="text-white/60 hover:text-rose-300 transition">Logout</button>
