@@ -26,24 +26,31 @@
       </div>
     </div>
 
-    <form data-aos="fade-left" class="bg-sand-50 rounded-3xl p-8 md:p-10 space-y-4 shadow-soft" onsubmit="event.preventDefault(); alert('Backend coming soon — message would be sent.');">
+    <form data-aos="fade-left" method="POST" action="{{ route('contact.send') }}" class="bg-sand-50 rounded-3xl p-8 md:p-10 space-y-4 shadow-soft">
+      @csrf
+      @if (session('sent'))
+        <div class="rounded-xl bg-sea-500/10 border border-sea-500/30 text-sea-700 px-4 py-3 text-sm">{{ session('sent') }}</div>
+      @endif
+      @if ($errors->any())
+        <div class="rounded-xl bg-red-50 border border-red-200 text-red-700 px-4 py-3 text-sm">Please check the form and try again.</div>
+      @endif
       <div>
         <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Your name</label>
-        <input class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3" required>
+        <input name="name" value="{{ old('name') }}" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3" required>
       </div>
       <div>
         <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Email</label>
-        <input type="email" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3" required>
+        <input type="email" name="email" value="{{ old('email') }}" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3" required>
       </div>
       <div>
         <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Subject</label>
-        <select class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3">
+        <select name="subject" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3">
           <option>General enquiry</option><option>Booking</option><option>Private charter</option><option>Press / partnership</option>
         </select>
       </div>
       <div>
         <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Message</label>
-        <textarea rows="5" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3" required></textarea>
+        <textarea name="message" rows="5" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3" required>{{ old('message') }}</textarea>
       </div>
       <button class="w-full bg-sea-500 hover:bg-sea-600 text-white font-semibold py-4 rounded-full shadow-soft transition">Send message</button>
     </form>

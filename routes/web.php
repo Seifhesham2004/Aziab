@@ -19,6 +19,8 @@ Route::middleware('site_open')->group(function () {
     Route::view('/booking', 'pages.booking')->name('booking');
     Route::view('/faq', 'pages.faq')->name('faq');
     Route::view('/contact', 'pages.contact')->name('contact');
+    Route::post('/contact', [\App\Http\Controllers\FormController::class, 'contact'])->name('contact.send');
+    Route::post('/booking', [\App\Http\Controllers\FormController::class, 'booking'])->name('booking.send');
 });
 
 Route::get('/login',  [AuthController::class, 'showLogin'])->name('login');

@@ -3,6 +3,12 @@
 return [
 
     /*
+    | Address that contact & booking form submissions are delivered to.
+    */
+    "contact_to" => env("MAIL_TO_ADDRESS", "info@aziab-seafaris.com"),
+
+
+    /*
     |--------------------------------------------------------------------------
     | Default Mailer
     |--------------------------------------------------------------------------

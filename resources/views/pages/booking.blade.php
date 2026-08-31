@@ -17,35 +17,42 @@
     <div class="bg-sand-50 rounded-3xl p-8 md:p-12 shadow-soft" data-aos="fade-up">
       <h2 class="font-display text-3xl font-semibold text-navy-900 mb-2">Your details</h2>
       <p class="text-slate-500 mb-8">Tell us about the trip you have in mind — we'll get back to you within 24 hours.</p>
-      <form class="grid grid-cols-2 gap-4" onsubmit="event.preventDefault(); alert('Backend coming soon — your request would be saved here.');">
+      <form method="POST" action="{{ route('booking.send') }}" class="grid grid-cols-2 gap-4">
+        @csrf
+        @if (session('sent'))
+          <div class="col-span-2 rounded-xl bg-sea-500/10 border border-sea-500/30 text-sea-700 px-4 py-3 text-sm">{{ session('sent') }}</div>
+        @endif
+        @if ($errors->any())
+          <div class="col-span-2 rounded-xl bg-red-50 border border-red-200 text-red-700 px-4 py-3 text-sm">Please check the form and try again.</div>
+        @endif
         <div class="col-span-2 sm:col-span-1">
           <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">First name</label>
-          <input class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 focus:border-sea-400 focus:ring-sea-400" required>
+          <input name="first_name" value="{{ old('first_name') }}" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 focus:border-sea-400 focus:ring-sea-400" required>
         </div>
         <div class="col-span-2 sm:col-span-1">
           <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Last name</label>
-          <input class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 focus:border-sea-400 focus:ring-sea-400" required>
+          <input name="last_name" value="{{ old('last_name') }}" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 focus:border-sea-400 focus:ring-sea-400" required>
         </div>
         <div class="col-span-2 sm:col-span-1">
           <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Email</label>
-          <input type="email" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3" required>
+          <input type="email" name="email" value="{{ old('email') }}" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3" required>
         </div>
         <div class="col-span-2 sm:col-span-1">
           <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Phone</label>
-          <input type="tel" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3">
+          <input type="tel" name="phone" value="{{ old('phone') }}" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3">
         </div>
         <div class="col-span-2 sm:col-span-1">
           <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Guests</label>
-          <input type="number" min="1" value="2" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3">
+          <input type="number" name="guests" min="1" value="{{ old('guests', 2) }}" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3">
         </div>
         <div class="col-span-2 sm:col-span-1">
           <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Preferred date</label>
-          <input type="date" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3">
+          <input type="date" name="date" value="{{ old('date') }}" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3">
         </div>
         <div class="col-span-2">
           <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Tell us about your trip</label>
           <p class="text-xs text-slate-500 mb-2">Destination (Egypt / Greece), yacht preference, private charter or shared cabin, route, any special requests — the more detail, the better.</p>
-          <textarea rows="8" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3" placeholder="e.g. Egypt — Sailboat Roga, private charter, 6 days in October 2027 for a group of 6. Interested in freediving and Sataya dolphins." required></textarea>
+          <textarea name="message" rows="8" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3" placeholder="e.g. Egypt — Sailboat Roga, private charter, 6 days in October 2027 for a group of 6. Interested in freediving and Sataya dolphins." required>{{ old('message') }}</textarea>
         </div>
         <button type="submit" class="col-span-2 bg-sea-500 hover:bg-sea-600 text-white font-semibold py-4 rounded-full shadow-soft transition mt-2">Request booking</button>
         <p class="col-span-2 text-xs text-slate-500 text-center">No payment required now — we'll confirm by email first.</p>
