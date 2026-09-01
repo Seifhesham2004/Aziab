@@ -18,8 +18,14 @@
       <div class="text-lg font-bold tracking-widest">AZIAB <span class="text-sea-300">ADMIN</span></div>
     </div>
     <div class="flex items-center gap-6 text-sm">
-      @php $me = auth()->user(); @endphp
+      @php $me = auth()->user(); $unreadLeads = \App\Models\Lead::unreadCount(); @endphp
       <a href="{{ route('admin.schedules.index') }}" class="hover:text-sea-300 transition">Schedule</a>
+      <a href="{{ route('admin.leads.index') }}" class="relative hover:text-sea-300 transition inline-flex items-center gap-1">
+        Leads
+        @if($unreadLeads > 0)
+          <span class="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-rose-500 text-white text-[11px] font-bold leading-none">{{ $unreadLeads }}</span>
+        @endif
+      </a>
       <a href="{{ route('admin.users.index') }}" class="hover:text-sea-300 transition">Team</a>
       <a href="/" target="_blank" class="text-white/60 hover:text-white">View site ↗</a>
       @if($me && $me->isSuperAdmin())

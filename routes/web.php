@@ -42,6 +42,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/users',  [UserController::class, 'index'])->name('admin.users.index');
         Route::post('/users', [UserController::class, 'store'])->name('admin.users.store');
 
+        // Leads (contact & booking submissions)
+        Route::get('/leads',            [\App\Http\Controllers\Admin\LeadController::class, 'index'])->name('admin.leads.index');
+        Route::delete('/leads/{lead}',  [\App\Http\Controllers\Admin\LeadController::class, 'destroy'])->name('admin.leads.destroy');
+
         // Super-admin-only actions
         Route::middleware('super_admin')->group(function () {
             Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Mail\BookingRequestMail;
 use App\Mail\ContactMessageMail;
+use App\Models\Lead;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
@@ -18,9 +20,22 @@ class FormController extends Controller
             'message' => ['required', 'string', 'max:5000'],
         ]);
 
-        Mail::to(config('mail.contact_to'))->send(new ContactMessageMail($data));
+        // Always store the lead so nothing is lost, even if email fails.
+        Lead::create([
+            'type'    => 'contact',
+            'name'    => $data['name'],
+            'email'   => $data['email'],
+            'subject' => $data['subject'] ?? 'General enquiry',
+            'message' => $data['message'],
+        ]);
 
-        return back()->with('sent', "Thanks {$data['name']}! Your message has been sent — we'll reply within 24 hours.");
+        try {
+            Mail::to(config('mail.contact_to'))->send(new ContactMessageMail($data));
+        } catch (\Throwable $e) {
+            Log::warning('Contact email failed: ' . $e->getMessage());
+        }
+
+        return back()->with('sent', "Thanks {$data['name']}! Your message has been received — we'll reply within 24 hours.");
     }
 
     public function booking(Request $request)
@@ -35,8 +50,22 @@ class FormController extends Controller
             'message'    => ['required', 'string', 'max:5000'],
         ]);
 
-        Mail::to(config('mail.contact_to'))->send(new BookingRequestMail($data));
+        Lead::create([
+            'type'           => 'booking',
+            'name'           => $data['first_name'] . ' ' . $data['last_name'],
+            'email'          => $data['email'],
+            'phone'          => $data['phone'] ?? null,
+            'guests'         => $data['guests'] ?? null,
+            'preferred_date' => $data['date'] ?? null,
+            'message'        => $data['message'],
+        ]);
 
-        return back()->with('sent', "Thanks {$data['first_name']}! Your booking request has been sent — we'll confirm by email within 24 hours.");
+        try {
+            Mail::to(config('mail.contact_to'))->send(new BookingRequestMail($data));
+        } catch (\Throwable $e) {
+            Log::warning('Booking email failed: ' . $e->getMessage());
+        }
+
+        return back()->with('sent', "Thanks {$data['first_name']}! Your booking request has been received — we'll confirm by email within 24 hours.");
     }
 }
