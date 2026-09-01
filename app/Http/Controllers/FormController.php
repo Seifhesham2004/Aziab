@@ -41,20 +41,41 @@ class FormController extends Controller
     public function booking(Request $request)
     {
         $data = $request->validate([
-            'first_name' => ['required', 'string', 'max:100'],
-            'last_name'  => ['required', 'string', 'max:100'],
-            'email'      => ['required', 'email', 'max:190'],
-            'phone'      => ['nullable', 'string', 'max:50'],
-            'guests'     => ['nullable', 'integer', 'min:1', 'max:100'],
-            'date'       => ['nullable', 'date'],
-            'message'    => ['required', 'string', 'max:5000'],
+            'first_name'  => ['required', 'string', 'max:100'],
+            'last_name'   => ['required', 'string', 'max:100'],
+            'email'       => ['required', 'email', 'max:190'],
+            'phone'       => ['nullable', 'string', 'max:50'],
+            'guests'      => ['nullable', 'integer', 'min:1', 'max:100'],
+            'date'        => ['nullable', 'date'],
+            'message'     => ['required', 'string', 'max:5000'],
+            'trip_boat'   => ['nullable', 'string', 'max:120'],
+            'trip_region' => ['nullable', 'string', 'max:40'],
+            'trip_route'  => ['nullable', 'string', 'max:120'],
+            'trip_from'   => ['nullable', 'date'],
+            'trip_to'     => ['nullable', 'date'],
         ]);
+
+        // Build a human-readable label for the schedule trip they clicked, if any.
+        $trip = null;
+        if (! empty($data['trip_boat']) || ! empty($data['trip_from'])) {
+            $parts = array_filter([
+                $data['trip_boat'] ?? null,
+                ! empty($data['trip_region']) ? ucfirst($data['trip_region']) : null,
+                $data['trip_route'] ?? null,
+                (! empty($data['trip_from']) && ! empty($data['trip_to']))
+                    ? \Illuminate\Support\Carbon::parse($data['trip_from'])->format('d M Y') . ' – ' . \Illuminate\Support\Carbon::parse($data['trip_to'])->format('d M Y')
+                    : null,
+            ]);
+            $trip = implode(' · ', $parts);
+        }
+        $data['trip'] = $trip;
 
         Lead::create([
             'type'           => 'booking',
             'name'           => $data['first_name'] . ' ' . $data['last_name'],
             'email'          => $data['email'],
             'phone'          => $data['phone'] ?? null,
+            'trip'           => $trip,
             'guests'         => $data['guests'] ?? null,
             'preferred_date' => $data['date'] ?? null,
             'message'        => $data['message'],

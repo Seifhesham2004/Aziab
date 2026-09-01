@@ -1,4 +1,7 @@
 <h2>New booking request</h2>
+@if(!empty($data['trip']))
+<p><strong>Selected trip:</strong> {{ $data['trip'] }}</p>
+@endif
 <p><strong>Name:</strong> {{ $data['first_name'] }} {{ $data['last_name'] }}</p>
 <p><strong>Email:</strong> {{ $data['email'] }}</p>
 <p><strong>Phone:</strong> {{ $data['phone'] ?? '—' }}</p>

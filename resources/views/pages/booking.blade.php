@@ -17,8 +17,34 @@
     <div class="bg-sand-50 rounded-3xl p-8 md:p-12 shadow-soft" data-aos="fade-up">
       <h2 class="font-display text-3xl font-semibold text-navy-900 mb-2">Your details</h2>
       <p class="text-slate-500 mb-8">Tell us about the trip you have in mind — we'll get back to you within 24 hours.</p>
+      @php
+        $tripBoat   = request('boat');
+        $tripRegion = request('region');
+        $tripRoute  = request('route');
+        $tripFrom   = request('from');
+        $tripTo     = request('to');
+        $hasTrip    = filled($tripBoat) || filled($tripFrom);
+        $fmt = fn($d) => $d ? \Illuminate\Support\Carbon::parse($d)->format('d M Y') : null;
+      @endphp
       <form method="POST" action="{{ route('booking.send') }}" class="grid grid-cols-2 gap-4">
         @csrf
+        @if($hasTrip)
+          <input type="hidden" name="trip_boat" value="{{ $tripBoat }}">
+          <input type="hidden" name="trip_region" value="{{ $tripRegion }}">
+          <input type="hidden" name="trip_route" value="{{ $tripRoute }}">
+          <input type="hidden" name="trip_from" value="{{ $tripFrom }}">
+          <input type="hidden" name="trip_to" value="{{ $tripTo }}">
+          <div class="col-span-2 rounded-2xl border border-sea-500/30 bg-sea-500/5 p-4">
+            <p class="text-[11px] uppercase tracking-[0.2em] text-sea-600 font-semibold mb-1">Selected trip</p>
+            <p class="font-display text-lg font-semibold text-navy-900">
+              {{ $tripBoat }}@if($tripRegion) <span class="text-slate-400">·</span> <span class="capitalize">{{ $tripRegion }}</span>@endif
+            </p>
+            <p class="text-sm text-slate-600 mt-0.5">
+              @if($tripRoute){{ $tripRoute }} @endif
+              @if($tripFrom && $tripTo)<span class="text-slate-400">·</span> {{ $fmt($tripFrom) }} – {{ $fmt($tripTo) }}@endif
+            </p>
+          </div>
+        @endif
         @if (session('sent'))
           <div class="col-span-2 rounded-xl bg-sea-500/10 border border-sea-500/30 text-sea-700 px-4 py-3 text-sm">{{ session('sent') }}</div>
         @endif
@@ -47,7 +73,7 @@
         </div>
         <div class="col-span-2 sm:col-span-1">
           <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Preferred date</label>
-          <input type="date" name="date" value="{{ old('date') }}" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3">
+          <input type="date" name="date" value="{{ old('date', request('from')) }}" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3">
         </div>
         <div class="col-span-2">
           <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Tell us about your trip</label>

@@ -82,7 +82,7 @@
                                   </span>
                                 @endif
                                 @if(!$isFull)
-                                  <a href="{{ route('booking') }}" class="text-xs uppercase tracking-wider text-sea-500 font-semibold hover:gap-2 inline-flex items-center gap-1 transition-all">Request →</a>
+                                  <a href="{{ route('booking', ['boat' => $e->boat, 'region' => $e->region, 'route' => $e->route, 'from' => $e->start_date->format('Y-m-d'), 'to' => $e->end_date->format('Y-m-d')]) }}" class="text-xs uppercase tracking-wider text-sea-500 font-semibold hover:gap-2 inline-flex items-center gap-1 transition-all">Request →</a>
                                 @endif
                               </div>
                             </li>

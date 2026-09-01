@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lead extends Model
 {
     protected $fillable = [
-        'type', 'name', 'email', 'phone', 'subject', 'guests', 'preferred_date', 'message', 'is_read',
+        'type', 'name', 'email', 'phone', 'subject', 'trip', 'guests', 'preferred_date', 'message', 'is_read',
     ];
 
     protected $casts = [

@@ -26,6 +26,9 @@
               @if($lead->subject)<span class="text-xs text-slate-400">· {{ $lead->subject }}</span>@endif
             </div>
             <h3 class="text-lg font-semibold text-navy-900">{{ $lead->name }}</h3>
+            @if($lead->trip)
+              <p class="text-sm mt-1"><span class="text-[11px] uppercase tracking-wider text-sea-600 font-semibold">Trip:</span> <span class="text-navy-800 font-medium">{{ $lead->trip }}</span></p>
+            @endif
             <div class="text-sm text-slate-600 mt-1 flex flex-wrap gap-x-4 gap-y-1">
               <a href="mailto:{{ $lead->email }}" class="text-sea-600 hover:underline">{{ $lead->email }}</a>
               @if($lead->phone)<a href="tel:{{ $lead->phone }}" class="hover:underline">{{ $lead->phone }}</a>@endif
