@@ -43,10 +43,6 @@
           </div>
         </div>
         <div class="mt-4 bg-sand-50 rounded-xl p-4 text-sm text-slate-700 whitespace-pre-line">{{ $lead->message }}</div>
-        <div class="mt-3">
-          <a href="mailto:{{ $lead->email }}?subject=Re: {{ $lead->subject ?? 'Your enquiry to Aziab Seafaris' }}"
-             class="inline-block text-sm bg-sea-500 hover:bg-sea-600 text-white px-4 py-2 rounded-full font-semibold transition">Reply by email</a>
-        </div>
       </div>
     @endforeach
   </div>
